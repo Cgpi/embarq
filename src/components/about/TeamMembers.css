@@ -1,0 +1,38 @@
+.team {
+  padding: 120px 10%;
+  background: #f5f5f3;
+}
+
+.team h2 {
+  text-align: center;
+  font-family: "Fraunces", serif;
+  font-size: 44px;
+  margin-bottom: 60px;
+}
+
+.team-grid {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+.team-card {
+  position: relative;
+  width: 350px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.team-card img {
+  width: 100%;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+  width: 100%;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: #fff;
+}

@@ -1,0 +1,124 @@
+/* Wrapper */
+.upcoming-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+/* Horizontal track */
+.horizontal-track {
+  display: flex;
+  height: 100vh;
+  will-change: transform;
+}
+
+/* Slides */
+.expedition-slide {
+  min-width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Gradient overlay */
+.expedition-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.15)
+  );
+}
+
+/* Text overlay */
+.slide-overlay {
+  position: absolute;
+  left: 10%;
+  top: 38%;
+  transform: translateY(-40%);
+  color: white;
+  max-width: 1000px;
+}
+
+
+.slide-title {
+  font-family: 'Fraunces Variable', serif;
+  
+}
+
+
+/* Title */
+.slide-title {
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 500;
+  white-space: nowrap;   /* FORCE ONE LINE */
+  margin-bottom: 10px;
+}
+
+/* Subtitle */
+.slide-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+
+/* Meta row */
+.slide-meta {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: nowrap;     /* FORCE ONE LINE */
+}
+
+/* Badge */
+.badge {
+  padding: 10px 22px;
+  background: #f5a623;
+  border-radius: 999px;
+  color: #000;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Date */
+.date {
+  font-size: 1.25rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+
+/* Side vertical label */
+.side-label {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(-100%);
+  z-index: 10;
+
+  padding: 30px 12px;
+  border-radius: 0 20px 20px 0;
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  writing-mode: vertical-rl;   /* keep this */
+}
+
+/* 🔥 Flip ONLY the text */
+.side-label span {
+  display: inline-block;
+  transform: rotate(180deg);
+
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 500;        /* Try 400–600 */
+  letter-spacing: 2px;     /* Vertical text needs more spacing */
+
+  color: white;
+}

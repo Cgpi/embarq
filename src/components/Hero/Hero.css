@@ -1,0 +1,253 @@
+/* ============================= */
+/* GLOBAL SAFETY (MOBILE FIX)   */
+/* ============================= */
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ============================= */
+/* HERO SECTION                 */
+/* ============================= */
+
+.hero {
+  position: relative;           /* ❗ NOT sticky */
+  height: 100vh;
+  overflow: hidden;
+  background: black;
+  width: 100%;
+}
+
+/* ============================= */
+/* VIDEO BACKGROUND             */
+/* ============================= */
+
+.hero-video {
+  position: absolute;           /* ❗ NOT fixed */
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  will-change: transform;
+}
+
+/* ============================= */
+/* DARK OVERLAY                 */
+/* ============================= */
+
+.hero-overlay {
+  position: absolute;           /* ❗ NOT fixed */
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.35)
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ============================= */
+/* CAR PNG OVERLAY              */
+/* ============================= */
+
+.car-deck {
+  position: absolute;           /* ❗ NOT fixed */
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  /* will-change: transform, opacity; */
+}
+
+.car-deck img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================= */
+/* CONTENT GRID                 */
+/* ============================= */
+
+.hero-inner {
+  position: relative;
+  z-index: 4;
+  height: 100%;
+  width: 100%;
+  padding: 0 8%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+/* ============================= */
+/* LEFT CONTENT                 */
+/* ============================= */
+
+.hero-left {
+  color: white;
+  will-change: transform, opacity;
+}
+
+/* HEADLINE */
+.hero-left h1 {
+  font-family: "Fraunces", serif;
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+/* PARAGRAPH */
+.hero-left p {
+  font-family: "Roboto Flex", sans-serif;
+  max-width: 520px;
+  color: #e5e7eb;
+  margin-bottom: 30px;
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.primary {
+  background: #fbbf24;
+  border: none;
+  padding: 14px 26px;
+  border-radius: 40px;
+  font-family: "Roboto Flex";
+  cursor: pointer;
+}
+
+.secondary {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
+  padding: 14px 26px;
+  border-radius: 40px;
+  font-family: "Roboto Flex";
+  cursor: pointer;
+}
+
+/* ============================= */
+/* RIGHT PANEL                  */
+/* ============================= */
+
+.hero-right {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: flex-start;
+  padding-left: 120px;
+  border-left: 1px solid rgba(255,255,255,0.4);
+  will-change: transform, opacity;
+}
+
+/* FEATURE */
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Roboto Flex";
+}
+
+/* ============================= */
+/* MOBILE LAYOUT FIXES          */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  .hero {
+    width: 100vw;
+  }
+
+  .hero-video,
+  .car-deck img {
+    width: 100vw;
+    height: 100%;
+  }
+
+  /* stack layout */
+  .hero-inner {
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+    padding: 0 6%;
+  }
+
+  .hero-left {
+    padding-top: 90px;
+    max-width: 520px;
+  }
+
+  .hero-left h1 {
+    font-size: 2.3rem;
+    line-height: 1.12;
+  }
+
+  .hero-left p {
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+  }
+
+  /* CTA stack */
+  .buttons {
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .primary,
+  .secondary {
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.95rem;
+    padding: 12px 22px;
+  }
+}
+
+/* ============================= */
+/* MOBILE FEATURES              */
+/* ============================= */
+
+.desktop-features {
+  display: flex;
+}
+
+.mobile-features {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  .desktop-features {
+    display: none;
+  }
+
+  .mobile-features {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+    padding-left: 16px;
+    border-left: 1px solid rgba(255,255,255,0.4);
+    max-width: 420px;
+  }
+
+  .mobile-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    font-family: "Roboto Flex";
+    font-size: 0.95rem;
+  }
+}
