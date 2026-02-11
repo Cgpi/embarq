@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/embarq/static/css/main.1ef5d6d9.css",
+    "main.js": "/embarq/static/js/main.bd5be66a.js",
+    "static/media/whyroads.png": "/embarq/static/media/whyroads.df2f985cbbbb1f78c715.png",
+    "static/media/hero.mp4": "/embarq/static/media/hero.859908dc9f1a3412998d.mp4",
+    "static/media/georgia.png": "/embarq/static/media/georgia.0a658cbbb0674a2dd69d.png",
+    "static/media/skorea.jpg": "/embarq/static/media/skorea.2a652c4f1fffff06c505.jpg",
+    "static/media/slide1.png": "/embarq/static/media/slide1.76d91f491ef06c29696f.png",
+    "static/media/car1.png": "/embarq/static/media/car1.7b5bf9f1718263b9f2fe.png",
+    "static/media/about-hero-desktop.png": "/embarq/static/media/about-hero-desktop.91538152103ae6d28dfd.png",
+    "static/media/excar2.jpg": "/embarq/static/media/excar2.00990f3ddb2a3105f3fd.jpg",
+    "static/media/excar1.png": "/embarq/static/media/excar1.fa4ca6fe434ea00cfdf9.png",
+    "static/media/car4.png": "/embarq/static/media/car4.715a773617a6f35d7127.png",
+    "static/media/about-hero-mobile.png": "/embarq/static/media/about-hero-mobile.9b5bdc27c380cc1d5861.png",
+    "static/media/expbg.jpg": "/embarq/static/media/expbg.5f1b9bf8a7f1efe25341.jpg",
+    "static/media/g1.jpg": "/embarq/static/media/g1.8c90490c5aae756a7282.jpg",
+    "static/media/logo.png": "/embarq/static/media/logo.0f48839fc0182cd5cbe3.png",
+    "static/media/member1.png": "/embarq/static/media/member1.52a90e9e280d796a28c9.png",
+    "static/media/memeber2.png": "/embarq/static/media/memeber2.f4504eabe3498dca35aa.png",
+    "static/media/founder1.jpg": "/embarq/static/media/founder1.f637de228fbf31f26d26.jpg",
+    "static/media/fraunces-latin-wght-normal.woff2": "/embarq/static/media/fraunces-latin-wght-normal.5a4a82b52388ff7868e0.woff2",
+    "static/media/fraunces-latin-ext-wght-normal.woff2": "/embarq/static/media/fraunces-latin-ext-wght-normal.a4d05471980d7e6e6c04.woff2",
+    "static/media/founder2.jpg": "/embarq/static/media/founder2.78415aa31b96074dac8a.jpg",
+    "static/media/fraunces-vietnamese-wght-normal.woff2": "/embarq/static/media/fraunces-vietnamese-wght-normal.c53893a52fe93c11cf60.woff2",
+    "index.html": "/embarq/index.html",
+    "main.1ef5d6d9.css.map": "/embarq/static/css/main.1ef5d6d9.css.map",
+    "main.bd5be66a.js.map": "/embarq/static/js/main.bd5be66a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1ef5d6d9.css",
+    "static/js/main.bd5be66a.js"
+  ]
+}
