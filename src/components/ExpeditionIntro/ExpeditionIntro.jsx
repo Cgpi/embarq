@@ -25,33 +25,33 @@ useEffect(() => {
         trigger: sectionRef.current,
         start: "top 80%",
         end: "top 20%",
-        scrub: 1.2, // smooth luxury follow
+        scrub: 1.2,
       }
     });
 
-    // EDGE LABEL
-    tl.fromTo(edgeRef.current,
+    tl.fromTo(
+      edgeRef.current,
       { x: -80, opacity: 0 },
       { x: 0, opacity: 1, ease: "power2.out" },
       0
     );
 
-    // TEXT
-    tl.fromTo(textRef.current,
+    tl.fromTo(
+      textRef.current,
       { x: -100, opacity: 0 },
       { x: 0, opacity: 1, ease: "power2.out" },
       0.1
     );
 
-    // BIG CAR (slight scale for cinematic depth)
-    tl.fromTo(bigCardRef.current,
+    tl.fromTo(
+      bigCardRef.current,
       { x: -60, opacity: 0, scale: 0.95 },
       { x: 0, opacity: 1, scale: 1, ease: "power2.out" },
       0.2
     );
 
-    // SMALL CAR from bottom-right
-    tl.fromTo(smallCardRef.current,
+    tl.fromTo(
+      smallCardRef.current,
       { x: 120, y: 120, opacity: 0 },
       { x: 0, y: 0, opacity: 1, ease: "power2.out" },
       0.25
@@ -59,7 +59,7 @@ useEffect(() => {
 
   }, sectionRef);
 
-  return () => ctx.revert();
+  return () => ctx.revert();   // ✅ Only this. Nothing else.
 }, []);
 
 

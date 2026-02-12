@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import "./Hero.css";
 
 import carDesktop from "../../assets/images/car1.png";
@@ -20,93 +20,87 @@ function Hero() {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
 
- useEffect(() => {
-  const ctx = gsap.context(() => {
+useLayoutEffect(() => {
+  let ctx;
 
-    // 1️⃣ MAIN SCROLL TIMELINE (scale, move, text, etc.)
-let faded = false; // state flag (important)
+  // 🔥 Force video to play
+  if (videoRef.current) {
+    videoRef.current.play().catch(() => {});
+  }
 
-const tl = gsap.timeline({
-scrollTrigger: { trigger: heroRef.current, start: "top top", end: "+=300", scrub: true, pin: true, anticipatePin: 1,
+  const frame = requestAnimationFrame(() => {
+    ctx = gsap.context(() => {
 
-    onUpdate: (self) => {
-      // self.progress is between 0 → 1
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top top",
+          end: "+=300",
+          scrub: true,
+          pin: true,
+          anticipatePin: 1,
+        },
+      });
 
-      if (self.progress === 1 && !faded) {
-        faded = true;
+      tl.fromTo(
+        videoRef.current,
+        { y: -120 },
+        { y: 0, ease: "none" },
+        0
+      );
 
-        gsap.to(carRef.current, {
-          opacity: 0,
-          duration: 0.6,
-          ease: "power2.out",
-        });
-      }
+      tl.to(
+        carRef.current,
+        { scale: 2, ease: "none" },
+        0
+      );
 
-      // restore when scrolling back
-      if (self.progress < 1 && faded) {
-        faded = false;
+      tl.to(
+        carRef.current,
+        { opacity: 0, ease: "none" },
+        0.9
+      );
 
-        gsap.to(carRef.current, {
-          opacity: 1,
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      }
-    },
-  },
-});
+      tl.fromTo(
+        overlayRef.current,
+        { opacity: 0 },
+        { opacity: 1, ease: "none" },
+        0
+      );
 
+      tl.fromTo(
+        leftRef.current,
+        { x: -60, opacity: 0 },
+        { x: 0, opacity: 1, ease: "none" },
+        0.2
+      );
 
-    tl.fromTo(
-      videoRef.current,
-      { y: -120 },
-      { y: 0, ease: "none" },
-      0
-    );
+      tl.fromTo(
+        rightRef.current,
+        { x: 60, opacity: 0 },
+        { x: 0, opacity: 1, ease: "none" },
+        0.25
+      );
 
-    tl.to(
-      carRef.current,
-      {
-        scale: 2,      // 👈 scroll-controlled zoom
-        ease: "none",
-      },
-      0
-    );
+    }, heroRef);
+  });
 
-    tl.fromTo(
-      overlayRef.current,
-      { opacity: 0 },
-      { opacity: 1, ease: "none" },
-      0
-    );
+  return () => {
+    cancelAnimationFrame(frame);
 
-    tl.fromTo(
-      leftRef.current,
-      { x: -60, opacity: 0 },
-      { x: 0, opacity: 1, ease: "none" },
-      0.2
-    );
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
 
-    tl.fromTo(
-      rightRef.current,
-      { x: 60, opacity: 0 },
-      { x: 0, opacity: 1, ease: "none" },
-      0.25
-    );
+    if (ctx) ctx.revert();
+  };
 
-
-
-
-
-  }, heroRef);
-
-  return () => ctx.revert();
 }, []);
 
 
   return (
     <section ref={heroRef} className="hero">
-      {/* VIDEO */}
+
       <video
         ref={videoRef}
         className="hero-video"
@@ -118,16 +112,13 @@ scrollTrigger: { trigger: heroRef.current, start: "top top", end: "+=300", scrub
         <source src={roadVideo} type="video/mp4" />
       </video>
 
-      {/* OVERLAY */}
       <div ref={overlayRef} className="hero-overlay" />
 
-      {/* CAR PNG */}
       <picture ref={carRef} className="car-deck">
         <source media="(max-width: 768px)" srcSet={carMobile} />
         <img src={carDesktop} alt="car interior" />
       </picture>
 
-      {/* CONTENT */}
       <div className="hero-inner">
         <div ref={leftRef} className="hero-left">
           <h1>

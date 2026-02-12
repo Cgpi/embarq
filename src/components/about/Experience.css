@@ -1,18 +1,111 @@
-.experience {
-  padding: 120px 10%;
-  background: #f5f5f3;
+/* ================= SECTION ================= */
+
+.emb-exp-section {
+  padding: 6rem 8%; /* reduced top/bottom padding */
+  background: #ffffff;
   text-align: center;
+  overflow: hidden;
 }
 
-.experience h2 {
+.emb-exp-title {
   font-family: "Fraunces", serif;
-  font-size: 44px;
-  margin-bottom: 60px;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 600;
+  color: #4b4b4b;
+  margin-bottom: 5rem;
 }
 
-.experience-grid {
+/* ================= GRID ================= */
+
+.emb-exp-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 60px;
+  gap: 5rem 4rem;
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+/* ================= ITEM ================= */
+
+.emb-exp-item {
+  position: relative;
   font-family: "Roboto Flex", sans-serif;
+  text-align: center;
+  min-height: 12rem;
+}
+
+/* BIG NUMBER */
+
+.emb-exp-number {
+  display: block;
+  font-family: "Fraunces", serif;
+  font-size: clamp(6rem, 10vw, 10rem);
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.05);
+  line-height: 1;
+}
+
+/* TEXT AT BOTTOM + SLIGHT LEFT SHIFT */
+
+.emb-exp-text {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 60%;
+  transform: translateX(-50%);
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  line-height: 1.6;
+  width: 15rem;
+  text-align: left;
+  color: #1f1f1f;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 64rem) {
+
+  .emb-exp-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem 3rem;
+  }
+
+  .emb-exp-number {
+    font-size: clamp(5rem, 12vw, 8rem);
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 48rem) {
+
+  .emb-exp-section {
+    padding: 4rem 6%;
+  }
+
+  .emb-exp-grid {
+    grid-template-columns: 1fr;
+    gap: 5rem; /* consistent vertical spacing */
+  }
+
+  .emb-exp-item {
+    min-height: 10rem;
+  }
+
+  .emb-exp-number {
+    font-size: clamp(5rem, 20vw, 7rem);
+    text-align: center;
+  }
+
+  .emb-exp-text {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    text-align: center;
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+  }
+
+  .emb-exp-title {
+    margin-bottom: 4rem;
+  }
 }

@@ -1,45 +1,141 @@
+/* ===== SECTION WRAPPER ===== */
 .leadership {
-  padding: 120px 10%;
-  background: #f5f5f3;
+  padding: 1rem 15%;           /* Top-bottom spacing + left-right breathing */
+  background-color: #f3f3f1;     /* Light grey like Figma */
+  margin: 0; 
 }
 
-.leadership h2 {
+/* ===== MAIN SECTION TITLE ===== */
+.section-title {
   text-align: center;
   font-family: "Fraunces", serif;
-  font-size: 44px;
-  margin-bottom: 80px;
+
+  font-size: 4.25rem;     /* 68px converted to rem */
+  color: #4a4a4a;
+
+  margin-bottom: 6rem;
+
+  white-space: nowrap;    /* Prevent line break */
 }
 
+
+/* ===== EACH FOUNDER BLOCK ===== */
 .leader-block {
   display: flex;
   align-items: center;
-  gap: 80px;
-  margin-bottom: 100px;
+
+  gap: 7rem;              /* was 80px → now controlled with rem */
+  margin-bottom: 7rem;    /* was 120px */
 }
 
+
+/* Reverse layout for second founder */
 .leader-block.reverse {
   flex-direction: row-reverse;
 }
 
-.leader-block img {
-  width: 45%;
-  border-radius: 20px;
+/* ===== IMAGE WRAPPER ===== */
+.leader-image {
+  width: 42%;
 }
 
+/* Founder Image Styling */
+.leader-image img {
+  width: 100%;
+  border-radius: 20px;           /* Rounded corners like Figma */
+  object-fit: cover;             /* Prevent image distortion */
+}
+
+/* ===== TEXT SECTION ===== */
 .leader-text {
-  width: 50%;
+  width: 46%;
 }
 
+/* Founder Name */
 .leader-text h3 {
   font-family: "Fraunces", serif;
-  font-size: 28px;
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: #111;                   /* Deep black for name */
 }
 
-.leader-text span {
-  display: block;
-  font-size: 12px;
-  margin: 10px 0 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-family: "Roboto Flex", sans-serif;
+/* ===== DESIGNATION + LINE ===== */
+.designation {
+  margin-bottom: 25px;
 }
+
+/* Designation Text */
+.designation span {
+  font-family: "Roboto Flex", sans-serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #333;
+}
+
+/* Orange underline */
+.designation .line {
+  width: 120px;                  /* Length of underline */
+  height: 3px;                   
+  background-color: #d89b2b;     /* Golden orange like Figma */
+  margin-top: 8px;
+}
+
+/* Paragraph text */
+.leader-text p {
+  font-family: "Roboto Flex", sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #5a5a5a;                /* Softer grey paragraph */
+}
+
+/* ========================= */
+/* ===== RESPONSIVE ======== */
+/* ========================= */
+
+@media (max-width: 992px) {
+
+  .leader-block {
+    flex-direction: column;      /* Stack image & text vertically */
+    gap: 40px;
+    margin-bottom: 100px;
+  }
+
+  .leader-block.reverse {
+    flex-direction: column;      /* Remove reverse on mobile */
+  }
+
+  .leader-image,
+  .leader-text {
+    width: 100%;                 /* Full width on mobile */
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    white-space: nowrap;
+  }
+
+  .leader-text h3 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+
+  .leadership {
+    padding: 2rem 1.5rem 1rem 1.5rem;
+    /* top | left-right | bottom reduced */
+  }
+
+  .leader-block {
+    margin-bottom: 2rem;   /* was 7rem */
+  }
+
+}
+
+

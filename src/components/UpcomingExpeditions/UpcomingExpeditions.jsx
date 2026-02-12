@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import "./UpcomingExpeditions.css";
 import ExpeditionSlide from "../ExpeditionSlide";
 
@@ -35,60 +35,76 @@ const expeditions = [
 export default function UpcomingExpeditions() {
   const sectionRef = useRef(null);
   const trackRef = useRef(null);
+  const labelRef = useRef(null);
 
-useEffect(() => {
-  const ctx = gsap.context(() => {
-    const track = trackRef.current;
-    const totalWidth = track.scrollWidth;
-    const viewportWidth = window.innerWidth;
-    const scrollDistance = totalWidth - viewportWidth;
+  useLayoutEffect(() => {
+    let ctx;
 
-    // Horizontal scroll animation
-    gsap.to(track, {
-      x: -scrollDistance,
-      ease: "none",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: () => `+=${scrollDistance}`,
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
+    const frame = requestAnimationFrame(() => {
+      ctx = gsap.context(() => {
+
+        const track = trackRef.current;
+
+        const getScrollDistance = () => {
+          const distance = track.scrollWidth - window.innerWidth;
+          return distance > 0 ? distance : 0;
+        };
+
+        // 🔥 Horizontal pinned scroll
+        gsap.to(track, {
+          x: () => -getScrollDistance(),
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: () => `+=${getScrollDistance()}`,
+            scrub: 1,
+            pin: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+
+        // 🔥 Side label reveal
+        gsap.fromTo(
+          labelRef.current,
+          { x: -80, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+
+      }, sectionRef);
     });
 
-    // Side label animation
-    gsap.to(".side-label", {
-      x: 0,
-      duration: 1,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        toggleActions: "play none none reverse",
-      },
-    });
+    return () => {
+      cancelAnimationFrame(frame);
+      if (ctx) ctx.revert();
+    };
 
-  }, sectionRef);
-
-  return () => ctx.revert();
-}, []);
-
-
+  }, []);
 
   return (
     <section className="upcoming-wrapper" ref={sectionRef}>
 
-         {/* LEFT EDGE LABEL */}
-    <div className="side-label">
-      <span>Upcoming Road Expeditions</span>
-    </div>
+      <div className="side-label" ref={labelRef}>
+        <span>Upcoming Road Expeditions</span>
+      </div>
+
       <div className="horizontal-track" ref={trackRef}>
         {expeditions.map((exp, index) => (
           <ExpeditionSlide key={index} {...exp} />
         ))}
       </div>
+
     </section>
   );
 }
