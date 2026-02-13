@@ -14,8 +14,11 @@ function Navbar() {
   // Close on ESC
   useEffect(() => {
     const handler = (e) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        setOpen(false);
+      }
     };
+
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, []);
@@ -45,6 +48,7 @@ function Navbar() {
   return (
     <header className="navbar">
       <div className="nav-inner">
+
         {/* LOGO */}
         <div className="nav-left">
           <Link to="/">
@@ -52,7 +56,7 @@ function Navbar() {
           </Link>
         </div>
 
-        {/* DESKTOP */}
+        {/* DESKTOP NAV */}
         <div className="nav-right">
           <nav className="nav-links">
             <Link to="/about">About</Link>
@@ -72,40 +76,29 @@ function Navbar() {
         <div className="hamburger" onClick={() => setOpen(!open)}>
           {open ? <X size={26} /> : <Menu size={26} />}
         </div>
+
       </div>
 
-      {/* GLASS OVERLAY */}
+      {/* OVERLAY */}
       {open && <div className="overlay" onClick={closeMenu}></div>}
 
-      <a href="#" onClick={closeMenu}>
-        About
-      </a>
-      <a href="#" onClick={closeMenu}>
-        Expeditions
-      </a>
-      <a href="#" onClick={closeMenu}>
-        Travel Stories
-      </a>
-      <a href="/testimonials" onClick={closeMenu}>
-        Testimonials
-      </a>
-      <a href="#" onClick={closeMenu}>
-        In the Media
-      </a>
-
       {/* MOBILE MENU */}
-      <div ref={menuRef} className={`mobile-menu ${open ? "show" : ""}`}>
-        <Link to="/about">About</Link>
-        <Link to="/expeditions">Expeditions</Link>
-        <Link to="/stories">Travel Stories</Link>
-        <Link to="/testimonials">Testimonials</Link>
-        <Link to="/media">In the Media</Link>
+      <div
+        ref={menuRef}
+        className={`mobile-menu ${open ? "show" : ""}`}
+      >
+        <Link to="/about" onClick={closeMenu}>About</Link>
+        <Link to="/expeditions" onClick={closeMenu}>Expeditions</Link>
+        <Link to="/stories" onClick={closeMenu}>Travel Stories</Link>
+        <Link to="/testimonials" onClick={closeMenu}>Testimonials</Link>
+        <Link to="/media" onClick={closeMenu}>In the Media</Link>
 
-        <button className="book-btn">
+        <button className="book-btn" onClick={closeMenu}>
           <Plane size={16} />
           Book a Trip
         </button>
       </div>
+
     </header>
   );
 }
