@@ -1,13 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
-
 import { Plane, Menu, X } from "lucide-react";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
+  const menuRef = useRef(null);
+  const location = useLocation();
 
-  // Close with ESC key
+  const closeMenu = () => setOpen(false);
+
+  // Close on ESC
   useEffect(() => {
     const handler = (e) => {
       if (e.key === "Escape") setOpen(false);
@@ -16,26 +20,46 @@ function Navbar() {
     return () => window.removeEventListener("keydown", handler);
   }, []);
 
-  const closeMenu = () => setOpen(false);
+  // Close when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
+
+  // Close when route changes
+  useEffect(() => {
+    setOpen(false);
+  }, [location]);
 
   return (
     <header className="navbar">
-
       <div className="nav-inner">
-
         {/* LOGO */}
         <div className="nav-left">
-          <img src={logo} alt="Embarq" className="logo" />
+          <Link to="/">
+            <img src={logo} alt="Embarq" className="logo" />
+          </Link>
         </div>
 
         {/* DESKTOP */}
         <div className="nav-right">
           <nav className="nav-links">
-            <a href="#" >About</a>
-            <a href="#">Expeditions</a>
-            <a href="#">Travel Stories</a>
-            <a href="/testimonials">Testimonials</a>
-            <a href="#">In the Media</a>
+            <Link to="/about">About</Link>
+            <Link to="/expeditions">Expeditions</Link>
+            <Link to="/stories">Travel Stories</Link>
+            <Link to="/testimonials">Testimonials</Link>
+            <Link to="/media">In the Media</Link>
           </nav>
 
           <button className="book-btn">
@@ -44,29 +68,44 @@ function Navbar() {
           </button>
         </div>
 
-        {/* TOGGLE */}
+        {/* HAMBURGER */}
         <div className="hamburger" onClick={() => setOpen(!open)}>
           {open ? <X size={26} /> : <Menu size={26} />}
         </div>
-
       </div>
 
-      {/* MOBILE DRAWER */}
-      <div className={`mobile-menu ${open ? "show" : ""}`}>
+      {/* GLASS OVERLAY */}
+      {open && <div className="overlay" onClick={closeMenu}></div>}
 
-        <a href="#" onClick={closeMenu}>About</a>
-        <a href="#" onClick={closeMenu}>Expeditions</a>
-        <a href="#" onClick={closeMenu}>Travel Stories</a>
-        <a href="/testimonials" onClick={closeMenu}>Testimonials</a>
-        <a href="#" onClick={closeMenu}>In the Media</a>
+      <a href="#" onClick={closeMenu}>
+        About
+      </a>
+      <a href="#" onClick={closeMenu}>
+        Expeditions
+      </a>
+      <a href="#" onClick={closeMenu}>
+        Travel Stories
+      </a>
+      <a href="/testimonials" onClick={closeMenu}>
+        Testimonials
+      </a>
+      <a href="#" onClick={closeMenu}>
+        In the Media
+      </a>
 
-        <button className="book-btn" onClick={closeMenu}>
+      {/* MOBILE MENU */}
+      <div ref={menuRef} className={`mobile-menu ${open ? "show" : ""}`}>
+        <Link to="/about">About</Link>
+        <Link to="/expeditions">Expeditions</Link>
+        <Link to="/stories">Travel Stories</Link>
+        <Link to="/testimonials">Testimonials</Link>
+        <Link to="/media">In the Media</Link>
+
+        <button className="book-btn">
           <Plane size={16} />
           Book a Trip
         </button>
-
       </div>
-
     </header>
   );
 }

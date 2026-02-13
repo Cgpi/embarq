@@ -1,16 +1,63 @@
+html {
+  font-size: 16px;
+}
+
 .stats {
   display: flex;
-  justify-content: space-around;
-  padding: 80px 10%;
-  background: #e8dfc8;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 8%;
+  background: #fcf7e3;
   text-align: center;
+  gap: 3rem;
 }
 
-.stats h3 {
-  font-size: 40px;
-  font-family: "Fraunces", serif;
+/* Individual stat */
+.stat-item {
+  flex: 1;
 }
 
-.stats p {
+.stat-item h3 {
+  font-size: 3rem;
+  font-family: "Poppins", serif;
+  margin-bottom: 0.8rem;
+  color: #111;
+  font-weight: 500;
+}
+
+.stat-item p {
+  font-size: 1rem;
   font-family: "Roboto Flex", sans-serif;
+  color: #333;
+}
+
+/* Divider lines */
+.divider {
+  width: 1px;
+  height: 5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* ========================= */
+/* MOBILE RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .stats {
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 4rem 1.5rem;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .stat-item h3 {
+    font-size: 2.4rem;
+  }
+
+  .stat-item p {
+    font-size: 0.95rem;
+  }
 }

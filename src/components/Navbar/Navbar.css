@@ -6,12 +6,11 @@
   z-index: 50;
 }
 
-/* INNER CONTAINER */
+/* INNER */
 .nav-inner {
   max-width: 1400px;
   margin: auto;
-  padding: 22px 6%;
-
+  padding: 1.4rem 6%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,29 +18,30 @@
 
 /* LOGO */
 .logo {
-  width: 95px;
+  width: 6rem;
+  cursor: pointer;
 }
 
-/* RIGHT SIDE */
+/* RIGHT */
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 1.8rem;
 }
 
 /* LINKS */
 .nav-links {
   display: flex;
-  gap: 26px;
+  gap: 1.6rem;
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
   font-family: "Roboto Flex", sans-serif;
-  font-size: 14px;
-  white-space: nowrap;
+  font-size: 0.9rem;
   opacity: 0.9;
+  transition: 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -52,13 +52,14 @@
 .book-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
 
-  background: rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
   color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 0.6rem 1.4rem;
+  border-radius: 2rem;
   font-family: "Roboto Flex";
   cursor: pointer;
 }
@@ -68,25 +69,37 @@
   display: none;
   color: white;
   cursor: pointer;
+  z-index: 1001;
 }
 
-/* MOBILE MENU */
+/* GLASS OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.2);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+}
+
+/* MOBILE MENU - GLASS STYLE */
 .mobile-menu {
   position: fixed;
   top: 0;
   right: -100%;
   height: 100vh;
-  width: 260px;
-  background: rgba(0,0,0,0.92);
-  backdrop-filter: blur(10px);
+  width: 18rem;
+
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(20px);
+  border-left: 1px solid rgba(255,255,255,0.2);
 
   display: flex;
   flex-direction: column;
-  gap: 22px;
-  padding: 100px 30px;
+  gap: 1.5rem;
+  padding: 6rem 2rem;
 
-  transition: right 0.35s ease;
-  z-index: 100;
+  transition: right 0.4s ease;
+  z-index: 1000;
 }
 
 .mobile-menu.show {
@@ -97,7 +110,13 @@
   color: white;
   text-decoration: none;
   font-family: "Roboto Flex";
-  font-size: 16px;
+  font-size: 1rem;
+  opacity: 0.9;
+  transition: 0.3s ease;
+}
+
+.mobile-menu a:hover {
+  opacity: 1;
 }
 
 /* RESPONSIVE */
@@ -110,9 +129,4 @@
   .hamburger {
     display: block;
   }
-
 }
-.mobile-menu {
-  z-index: 1000;
-}
-
