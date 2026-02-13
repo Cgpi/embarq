@@ -1,77 +1,121 @@
-.gallery-container {
+/* Wrapper */
+.sg-wrapper {
   width: 100%;
-  padding: 50px 20px;
+  padding: 3rem 1rem;
+  background: #ffffff;
   overflow: hidden;
-  background-color: #ffffff;
 }
 
-/* Desktop Styles */
-.desktop-grid {
+/* ---------------- DESKTOP ---------------- */
+
+.sg-desktop-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 45px;
-  max-width: 1200px;
+  gap: 2.8rem;
+  max-width: 75rem;
   margin: 0 auto;
 }
 
-.grid-item img {
+.sg-grid-item img {
   width: 100%;
-  height: 250px;
+  height: 15rem;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 1.2rem;
 }
 
-/* Creating the staggered look from your image */
-.item-2, .item-4 { margin-top: 40px; }
-.item-6, .item-8, .item-10 { margin-top: -30px; }
+.sg-item-2,
+.sg-item-4 {
+  margin-top: 2.5rem;
+}
 
-/* Mobile Slider Styles */
-.mobile-slider-wrapper {
+.sg-item-6,
+.sg-item-8,
+.sg-item-10 {
+  margin-top: -2rem;
+}
+
+/* ---------------- MOBILE ---------------- */
+
+.sg-mobile-wrapper {
   display: none;
   flex-direction: column;
   align-items: center;
-  position: relative;
-}
-
-.slider-viewport {
-  height: 960px; /* Shows exactly 3 images (300px height + 20px gap each) */
-  overflow: hidden;
   width: 100%;
-  max-width: 350px;
 }
 
-.mobile-slide {
-  height: 300px;
-  margin-bottom: 20px;
+/* Viewport showing exactly 3 slides */
+.sg-viewport {
+  height: 51.75rem; /* (16rem + 1.25rem) * 3 */
+  overflow: hidden;
+  width: 88%;
+  max-width: 22rem;
+  margin: 0 auto;
 }
 
-.mobile-slide img {
+.sg-track {
+  display: flex;
+  flex-direction: column;
+}
+
+.sg-slide {
+  height: 16rem;
+  margin-bottom: 1.25rem;
+  border-radius: 1.3rem;
+  overflow: hidden;              /* important */
+  aspect-ratio: 3 / 4;           /* portrait-friendly */
+}
+
+.sg-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
+  object-fit: cover;             /* fills container */
+  display: block;
 }
 
-.down-arrow {
-  margin-top: 20px;
-  background: white;
-  border: 1px solid #ccc;
+
+/* Arrow */
+.sg-arrow-btn {
+  margin-top: 1.5rem;
+  width: 2.8rem;
+  height: 2.8rem;
   border-radius: 50%;
+  border: 0.08rem solid #e0e0e0;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding: 10px;
-  transition: transform 0.2s;
+  box-shadow: 0 0.3rem 0.8rem rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
 }
 
-.down-arrow:active {
+.sg-arrow-btn:active {
   transform: scale(0.9);
 }
 
-/* Responsive Breakpoint */
-@media (max-width: 768px) {
-  .desktop-grid {
+/* Responsive */
+@media (max-width: 48rem) {
+  .sg-desktop-grid {
     display: none;
   }
-  .mobile-slider-wrapper {
+
+  .sg-mobile-wrapper {
     display: flex;
   }
+}
+@media (max-width: 48rem) {
+
+  /* Remove desktop wrapper side padding if needed */
+  .sg-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Add controlled spacing only for mobile slider */
+  .sg-viewport {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    box-sizing: border-box;
+  }
+
 }
