@@ -34,7 +34,7 @@ function Navbar() {
             <a href="#" >About</a>
             <a href="#">Expeditions</a>
             <a href="#">Travel Stories</a>
-            <a href="#">Testimonials</a>
+            <a href="/testimonials">Testimonials</a>
             <a href="#">In the Media</a>
           </nav>
 
@@ -57,7 +57,7 @@ function Navbar() {
         <a href="#" onClick={closeMenu}>About</a>
         <a href="#" onClick={closeMenu}>Expeditions</a>
         <a href="#" onClick={closeMenu}>Travel Stories</a>
-        <a href="#" onClick={closeMenu}>Testimonials</a>
+        <a href="/testimonials" onClick={closeMenu}>Testimonials</a>
         <a href="#" onClick={closeMenu}>In the Media</a>
 
         <button className="book-btn" onClick={closeMenu}>
