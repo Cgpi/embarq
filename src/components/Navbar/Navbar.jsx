@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
 import { Plane, Menu, X } from "lucide-react";
+import EnquiryPopup from "../../pages/EnquiryPopup";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -10,7 +11,15 @@ function Navbar() {
   const location = useLocation();
 
   const closeMenu = () => setOpen(false);
+  const [enquiryOpen, setEnquiryOpen] = useState(false);
+  const handleOpenEnquiry = () => {
+    setEnquiryOpen(true);
+    setOpen(false); // close mobile menu if open
+  };
 
+  const handleCloseEnquiry = () => {
+    setEnquiryOpen(false);
+  };
   // Close on ESC
   useEffect(() => {
     const handler = (e) => {
@@ -48,7 +57,6 @@ function Navbar() {
   return (
     <header className="navbar">
       <div className="nav-inner">
-
         {/* LOGO */}
         <div className="nav-left">
           <Link to="/">
@@ -65,9 +73,10 @@ function Navbar() {
             <Link to="/testimonials">Testimonials</Link>
             <Link to="/gallery">In the Media</Link>
             <Link to="/faq">FAQ</Link>
+            <Link to="/blog">Blog</Link>
           </nav>
 
-          <button className="book-btn">
+          <button className="book-btn" onClick={handleOpenEnquiry}>
             <Plane size={16} />
             Book a Trip
           </button>
@@ -77,29 +86,47 @@ function Navbar() {
         <div className="hamburger" onClick={() => setOpen(!open)}>
           {open ? <X size={26} /> : <Menu size={26} />}
         </div>
-
       </div>
 
       {/* OVERLAY */}
       {open && <div className="overlay" onClick={closeMenu}></div>}
 
       {/* MOBILE MENU */}
-      <div
-        ref={menuRef}
-        className={`mobile-menu ${open ? "show" : ""}`}
-      >
-        <Link to="/about" onClick={closeMenu}>About</Link>
-        <Link to="/expeditions" onClick={closeMenu}>Expeditions</Link>
-        <Link to="/stories" onClick={closeMenu}>Travel Stories</Link>
-        <Link to="/testimonials" onClick={closeMenu}>Testimonials</Link>
-        <Link to="/gallery" onClick={closeMenu}>In the Media</Link>
-        <Link to="/faq" onClick={closeMenu}>FAQ</Link>
+      <div ref={menuRef} className={`mobile-menu ${open ? "show" : ""}`}>
+        <Link to="/about" onClick={closeMenu}>
+          About
+        </Link>
+        <Link to="/expeditions" onClick={closeMenu}>
+          Expeditions
+        </Link>
+        <Link to="/stories" onClick={closeMenu}>
+          Travel Stories
+        </Link>
+        <Link to="/testimonials" onClick={closeMenu}>
+          Testimonials
+        </Link>
+        <Link to="/gallery" onClick={closeMenu}>
+          In the Media
+        </Link>
+
+        <Link to="/faq" onClick={closeMenu}>
+          FAQ
+        </Link>
+
+        <Link to="/blog" onClick={closeMenu}>
+          Blog
+        </Link>
         <button className="book-btn" onClick={closeMenu}>
           <Plane size={16} />
           Book a Trip
         </button>
-      </div>
 
+        <button className="book-btn" onClick={handleOpenEnquiry}>
+          <Plane size={16} />
+          Book a Trip
+        </button>
+      </div>
+      <EnquiryPopup open={enquiryOpen} handleClose={handleCloseEnquiry} />
     </header>
   );
 }

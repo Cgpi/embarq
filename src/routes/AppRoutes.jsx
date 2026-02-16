@@ -4,6 +4,7 @@ import About from "../pages/About";
 import Testimonials from "../pages/Testimonials";
 import GallerySection from "../pages/GallerySection";
 import FAQ from "../pages/FAQ";
+import Blog from "../pages/blog";
 
 function AppRoutes() {
   return (
@@ -13,6 +14,7 @@ function AppRoutes() {
       <Route path="/testimonials" element={<Testimonials />} />
       <Route path="/gallery" element={<GallerySection />} />
       <Route path="/faq" element={<FAQ />} />
+      <Route path="/blog" element={<Blog />} />
     </Routes>
   );
 }
