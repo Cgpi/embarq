@@ -24,10 +24,38 @@ import Balkans from "../assets/gallery/Balkans.png";
 import IndiaSpain from "../assets/gallery/IndiaSpain.png";
 
 const initialDestinations = [
-  { title: "Kyrgyzstan", img: Kyrgyzstan },
-  { title: "Spain", img: Spain },
-  { title: "Balkans", img: Balkans },
-  { title: "India and Spain", img: IndiaSpain },
+  {
+    title: "Kyrgyzstan",
+    img: Kyrgyzstan,
+    heading: "Crafting Memories By Letting The Road Overtake",
+    subText: "Mountain passes. Offbeat routes. Oldest wine making.",
+    tag: "Kyrgyzstan",
+    date: "12th to 20th June, 2026",
+  },
+  {
+    title: "Spain",
+    img: Spain,
+    heading: "Crafting Memories By Letting The Road Overtake",
+    subText: "Mountain passes. Offbeat routes. Oldest wine making.",
+    tag: "Spain",
+    date: "8th to 16th August, 2026",
+  },
+  {
+    title: "Balkans",
+    img: Balkans,
+    heading: "Crafting Memories By Letting The Road Overtake",
+    subText: "Mountain passes. Offbeat routes. Oldest wine making.",
+    tag: "Balkans",
+    date: "10th to 18th September, 2026",
+  },
+  {
+    title: "India and Spain",
+    img: IndiaSpain,
+    heading: "Crafting Memories By Letting The Road Overtake",
+    subText: "Mountain passes. Offbeat routes. Oldest wine making.",
+    tag: "India and Spain",
+    date: "1st to 12th October, 2026",
+  },
 ];
 
 const CARD_WIDTH = 260;
@@ -35,6 +63,12 @@ const GAP = 24;
 
 const GallerySection = () => {
   const [destinations, setDestinations] = useState(initialDestinations);
+  const [activeDestination, setActiveDestination] = useState(
+    initialDestinations[initialDestinations.length - 1],
+  );
+
+  const [textVisible, setTextVisible] = useState(true);
+
   const [backgroundImg, setBackgroundImg] = useState(
     initialDestinations[initialDestinations.length - 1].img,
   );
@@ -48,6 +82,10 @@ const GallerySection = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       const visible = destinations
         .filter((item) => item.img !== backgroundImg)
@@ -57,8 +95,7 @@ const GallerySection = () => {
 
       const selected = visible[0];
       const cardElement = cardRefs.current[0];
-
-      if (!cardElement) return;
+      if (!cardElement || !sectionRef.current) return;
 
       const cardRect = cardElement.getBoundingClientRect();
       const sectionRect = sectionRef.current.getBoundingClientRect();
@@ -66,6 +103,9 @@ const GallerySection = () => {
       const relativeTop = cardRect.top - sectionRect.top;
       const relativeLeft = cardRect.left - sectionRect.left;
 
+      /* =========================
+       STEP 1 — Set initial card position
+    ========================== */
       setCardStyle({
         top: relativeTop,
         left: relativeLeft,
@@ -76,6 +116,9 @@ const GallerySection = () => {
 
       setExpandingCard(selected);
 
+      /* =========================
+       STEP 2 — Start expand animation
+    ========================== */
       setTimeout(() => {
         setCardStyle({
           top: 0,
@@ -86,13 +129,30 @@ const GallerySection = () => {
         });
       }, 20);
 
-      /* SLIDE */
+      /* =========================
+       STEP 3 — Slide animation
+    ========================== */
       setAnimateSlider(true);
       setSliderOffset(-(CARD_WIDTH + GAP));
 
+      /* =========================
+       STEP 4 — Fade text immediately
+    ========================== */
+      setTextVisible(false);
+
+      /* =========================
+       STEP 5 — Change content in middle of animation
+    ========================== */
       setTimeout(() => {
         setBackgroundImg(selected.img);
+        setActiveDestination(selected);
+        setTextVisible(true);
+      }, 400); // Half of 800ms animation
 
+      /* =========================
+       STEP 6 — Finish animation & reset
+    ========================== */
+      setTimeout(() => {
         const updated = [
           ...destinations.filter((item) => item.img !== selected.img),
           selected,
@@ -103,7 +163,10 @@ const GallerySection = () => {
         setSliderOffset(0);
         setAnimateSlider(false);
         setExpandingCard(null);
-        setCurrentIndex(0);
+
+        setCurrentIndex((prev) =>
+          prev === heroImages.length - 1 ? 0 : prev + 1,
+        );
       }, 800);
     }, 4000);
 
@@ -115,7 +178,7 @@ const GallerySection = () => {
   const handleCardClick = (index, visibleCards) => {
     const selected = visibleCards[index];
     const cardElement = cardRefs.current[index];
-    if (!cardElement) return;
+    if (!cardElement || !sectionRef.current) return;
 
     const cardRect = cardElement.getBoundingClientRect();
     const sectionRect = sectionRef.current.getBoundingClientRect();
@@ -123,6 +186,9 @@ const GallerySection = () => {
     const relativeTop = cardRect.top - sectionRect.top;
     const relativeLeft = cardRect.left - sectionRect.left;
 
+    /* =========================
+     STEP 1 — Set initial card position
+  ========================== */
     setCardStyle({
       top: relativeTop,
       left: relativeLeft,
@@ -133,6 +199,9 @@ const GallerySection = () => {
 
     setExpandingCard(selected);
 
+    /* =========================
+     STEP 2 — Start expand animation
+  ========================== */
     setTimeout(() => {
       setCardStyle({
         top: 0,
@@ -143,17 +212,31 @@ const GallerySection = () => {
       });
     }, 20);
 
-    /* ========= SLIDER ANIMATION ========= */
+    /* =========================
+     STEP 3 — Slide animation
+  ========================== */
     setAnimateSlider(true);
-
     const slideAmount = -(index * (CARD_WIDTH + GAP));
     setSliderOffset(slideAmount);
 
-    setTimeout(() => {
-      // Change background image
-      setBackgroundImg(selected.img);
+    /* =========================
+     STEP 4 — Fade text immediately
+  ========================== */
+    setTextVisible(false);
 
-      // Move selected card to end
+    /* =========================
+     STEP 5 — Change content in middle
+  ========================== */
+    setTimeout(() => {
+      setBackgroundImg(selected.img);
+      setActiveDestination(selected);
+      setTextVisible(true);
+    }, 400); // Half of expand duration
+
+    /* =========================
+     STEP 6 — Finish & reset
+  ========================== */
+    setTimeout(() => {
       const updated = [
         ...destinations.filter((item) => item.img !== selected.img),
         selected,
@@ -161,29 +244,32 @@ const GallerySection = () => {
 
       setDestinations(updated);
 
-      // Reset slider
       setSliderOffset(0);
       setAnimateSlider(false);
       setExpandingCard(null);
-      setCurrentIndex(0);
+
+      // 🔥 UPDATE PROGRESS BAR
+      setCurrentIndex((prev) =>
+        prev === heroImages.length - 1 ? 0 : prev + 1,
+      );
     }, 800);
   };
 
   const handlePrev = () => {
-    // rotate array backwards
     const rotated = [
       destinations[destinations.length - 1],
       ...destinations.slice(0, destinations.length - 1),
     ];
     setDestinations(rotated);
-    setCurrentIndex(0);
+
+    setCurrentIndex((prev) => (prev === 0 ? heroImages.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
-    // rotate array forwards
     const rotated = [...destinations.slice(1), destinations[0]];
     setDestinations(rotated);
-    setCurrentIndex(0);
+
+    setCurrentIndex((prev) => (prev === heroImages.length - 1 ? 0 : prev + 1));
   };
 
   const GalleryItem = ({ img, rowSpan = 1, colSpan = 1 }) => (
@@ -286,25 +372,46 @@ const GallerySection = () => {
               fontSize: { xs: "28px", md: "65px" },
               mb: 1,
               ml: { xs: 0, md: 10 },
+              opacity: textVisible ? 1 : 0,
+              transform: textVisible ? "translateY(0px)" : "translateY(30px)",
+              transition: "all 0.6s cubic-bezier(.22,1,.36,1)",
             }}
           >
-            Crafting Memories By Letting The Road Overtake
+            {activeDestination.heading}
           </Typography>
 
-          <Typography sx={{ mb: 1, ml: { xs: 0, md: 10 } }}>
-            Mountain passes. Offbeat routes. Oldest wine making.
+          <Typography
+            sx={{
+              mb: 1,
+              ml: { xs: 0, md: 10 },
+              opacity: textVisible ? 1 : 0,
+              transform: textVisible ? "translateY(0px)" : "translateY(40px)",
+              transition: "all 0.7s cubic-bezier(.22,1,.36,1)",
+            }}
+          >
+            {activeDestination.subText}
           </Typography>
 
-          <Box sx={{ display: "flex", gap: 3, mb: 4, ml: { xs: 0, md: 10 } }}>
+          <Box
+            sx={{
+              display: "flex",
+              gap: 3,
+              mb: 4,
+              ml: { xs: 0, md: 10 },
+              opacity: textVisible ? 1 : 0,
+              transform: textVisible ? "translateY(0px)" : "translateY(50px)",
+              transition: "all 0.8s cubic-bezier(.22,1,.36,1)",
+            }}
+          >
             <Chip
-              label="All Women"
+              label={activeDestination.tag}
               sx={{
                 backgroundColor: "#f5b942",
                 color: "#000",
                 fontWeight: 600,
               }}
             />
-            <Typography>8th to 16th August, 2026</Typography>
+            <Typography>{activeDestination.date}</Typography>
           </Box>
 
           {/* SLIDER */}
@@ -403,7 +510,7 @@ const GallerySection = () => {
         </Container>
       </Box>
       <Box sx={{ background: "#f5f5f5", py: 8 }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Box
             sx={{
               display: "grid",

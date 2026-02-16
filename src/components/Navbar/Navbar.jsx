@@ -108,17 +108,23 @@ function Navbar() {
         <Link to="/gallery" onClick={closeMenu}>
           In the Media
         </Link>
-
-        </div>
-      <div
-        ref={menuRef}
-        className={`mobile-menu ${open ? "show" : ""}`}
-      >
-        <Link to="/about" onClick={closeMenu}>About</Link>
-        <Link to="/expedition" onClick={closeMenu}>Expeditions</Link>
-        <Link to="/stories" onClick={closeMenu}>Travel Stories</Link>
-        <Link to="/testimonials" onClick={closeMenu}>Testimonials</Link>
-        <Link to="/media" onClick={closeMenu}>In the Media</Link>
+      </div>
+      <div ref={menuRef} className={`mobile-menu ${open ? "show" : ""}`}>
+        <Link to="/about" onClick={closeMenu}>
+          About
+        </Link>
+        <Link to="/expedition" onClick={closeMenu}>
+          Expeditions
+        </Link>
+        <Link to="/stories" onClick={closeMenu}>
+          Travel Stories
+        </Link>
+        <Link to="/testimonials" onClick={closeMenu}>
+          Testimonials
+        </Link>
+        <Link to="/gallery" onClick={closeMenu}>
+          In the Media
+        </Link>
 
         <Link to="/faq" onClick={closeMenu}>
           FAQ
@@ -127,10 +133,6 @@ function Navbar() {
         <Link to="/blog" onClick={closeMenu}>
           Blog
         </Link>
-        <button className="book-btn" onClick={closeMenu}>
-          <Plane size={16} />
-          Book a Trip
-        </button>
 
         <button className="book-btn" onClick={handleOpenEnquiry}>
           <Plane size={16} />
