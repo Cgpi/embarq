@@ -66,7 +66,7 @@ const handleCloseEnquiry = () => {
       </Typography>
 
       {[
-  { text: "Home", to: "/embarq" },
+  { text: "Home", to: "/" },
   { text: "About Us", to: "/about" },
   { text: "All Self-Drive Expeditions", to: "/expeditions" },
   { text: "Testimonials", to: "/testimonials" },
