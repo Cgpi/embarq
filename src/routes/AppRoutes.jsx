@@ -9,7 +9,6 @@ import Blog from "../pages/blog";
 
 import Expedition from "../pages/expedition";
 
-
 function AppRoutes() {
   return (
     <Routes>

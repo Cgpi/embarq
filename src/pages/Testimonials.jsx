@@ -56,6 +56,10 @@ const Testimonials = () => {
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -324,7 +328,7 @@ const Testimonials = () => {
           </Box>
         )}
       </Box>
-        {/* ✅ ADD THIS HERE */}
+      {/* ✅ ADD THIS HERE */}
       <StatisticsBar />
     </>
   );
