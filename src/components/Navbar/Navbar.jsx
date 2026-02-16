@@ -72,7 +72,7 @@ const handleCloseEnquiry = () => {
             <Link to="/expeditions">Expeditions</Link>
             <Link to="/stories">Travel Stories</Link>
             <Link to="/testimonials">Testimonials</Link>
-            <Link to="/media">In the Media</Link>
+            <Link to="/gallery">In the Media</Link>
           </nav>
 
          <button className="book-btn" onClick={handleOpenEnquiry}>
@@ -100,7 +100,7 @@ const handleCloseEnquiry = () => {
         <Link to="/expeditions" onClick={closeMenu}>Expeditions</Link>
         <Link to="/stories" onClick={closeMenu}>Travel Stories</Link>
         <Link to="/testimonials" onClick={closeMenu}>Testimonials</Link>
-        <Link to="/media" onClick={closeMenu}>In the Media</Link>
+        <Link to="/gallery" onClick={closeMenu}>In the Media</Link>
 
         <button className="book-btn" onClick={handleOpenEnquiry}>
   <Plane size={16} />
