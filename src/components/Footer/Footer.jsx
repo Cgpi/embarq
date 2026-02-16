@@ -41,7 +41,19 @@ const handleCloseEnquiry = () => {
 
 
     {/* LOGO */}
-    <Grid item xs={12} md={3} order={{ xs: 1, md: 1 }}>
+   <Grid
+  item
+  xs={12}
+  md={3}
+  order={{ xs: 1, md: 1 }}
+  sx={{
+    "@media (max-width:400px)": {
+      flex: "0 0 100%",
+      maxWidth: "100%",
+    }
+  }}
+>
+
 
       <Box>
         <img
@@ -52,7 +64,19 @@ const handleCloseEnquiry = () => {
       </Box>
     </Grid>
 
-   <Grid item xs={6} md={3} order={{ xs: 2, md: 2 }}>
+   <Grid
+  item
+  xs={6}
+  md={3}
+  order={{ xs: 2, md: 2 }}
+  sx={{
+    "@media (max-width:400px)": {
+      flex: "0 0 100%",
+      maxWidth: "100%",
+    }
+  }}
+>
+
 
       <Typography
         sx={{
@@ -92,7 +116,19 @@ const handleCloseEnquiry = () => {
     </Grid>
 
     {/* POLICY LINKS */}
-   <Grid item xs={6} md={3} order={{ xs: 3, md: 3 }} >
+  <Grid
+  item
+  xs={6}
+  md={3}
+  order={{ xs: 3, md: 3 }}
+  sx={{
+    "@media (max-width:400px)": {
+      flex: "0 0 100%",
+      maxWidth: "100%",
+    }
+  }}
+>
+
 
       {/* Invisible placeholder to align with Home row */}
       <Typography
@@ -129,7 +165,19 @@ const handleCloseEnquiry = () => {
     </Grid>
 
     {/* CONTACT */}
-  <Grid item xs={12} md={3} order={{ xs: 4, md: 4 }}>
+ <Grid
+  item
+  xs={12}
+  md={3}
+  order={{ xs: 4, md: 4 }}
+  sx={{
+    "@media (max-width:400px)": {
+      flex: "0 0 100%",
+      maxWidth: "100%",
+    }
+  }}
+>
+
 
   <Typography
     sx={{
@@ -175,9 +223,15 @@ const handleCloseEnquiry = () => {
     display: "flex",
     justifyContent: { xs: "flex-start", md: "center" },
     alignItems: "flex-end",
-    mt: { xs: 2, md: 12 }
+    mt: { xs: 2, md: 12 },
+
+    "@media (max-width:400px)": {
+      flex: "0 0 100%",
+      maxWidth: "100%",
+    }
   }}
 >
+
 
   <Button
               variant="contained"
