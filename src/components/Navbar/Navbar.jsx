@@ -71,7 +71,7 @@ function Navbar() {
             <Link to="/expedition">Expeditions</Link>
             <Link to="/stories">Travel Stories</Link>
             <Link to="/testimonials">Testimonials</Link>
-            <Link to="/gallery">In the Media</Link>
+            <Link to="/gallery">Gallery</Link>
             <Link to="/faq">FAQ</Link>
             <Link to="/blog">Blog</Link>
           </nav>

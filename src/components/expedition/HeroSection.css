@@ -111,7 +111,7 @@
   /* Reduce font size */
   font-size: clamp(3rem, 6vw, 6rem);
 
-  font-weight: 300;
+  font-weight: 600;
   color: white;
   z-index: 6;
 }
