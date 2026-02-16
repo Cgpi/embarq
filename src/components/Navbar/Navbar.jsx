@@ -68,7 +68,7 @@ function Navbar() {
         <div className="nav-right">
           <nav className="nav-links">
             <Link to="/about">About</Link>
-            <Link to="/expeditions">Expeditions</Link>
+            <Link to="/expedition">Expeditions</Link>
             <Link to="/stories">Travel Stories</Link>
             <Link to="/testimonials">Testimonials</Link>
             <Link to="/gallery">In the Media</Link>
@@ -108,6 +108,17 @@ function Navbar() {
         <Link to="/gallery" onClick={closeMenu}>
           In the Media
         </Link>
+
+        </div>
+      <div
+        ref={menuRef}
+        className={`mobile-menu ${open ? "show" : ""}`}
+      >
+        <Link to="/about" onClick={closeMenu}>About</Link>
+        <Link to="/expedition" onClick={closeMenu}>Expeditions</Link>
+        <Link to="/stories" onClick={closeMenu}>Travel Stories</Link>
+        <Link to="/testimonials" onClick={closeMenu}>Testimonials</Link>
+        <Link to="/media" onClick={closeMenu}>In the Media</Link>
 
         <Link to="/faq" onClick={closeMenu}>
           FAQ

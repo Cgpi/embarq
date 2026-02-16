@@ -1,0 +1,105 @@
+.exp-itinerary {
+  background-color: #fcf5e4;
+  padding: 80px 24px 140px;
+}
+
+.exp-itinerary-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.exp-itinerary-title {
+  font-family: "Fraunces", serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: #f6b43f;
+  margin-bottom: 60px;
+}
+
+.exp-itinerary-scroll {
+  height: 400px;
+  overflow-y: auto;
+  padding-right: 20px;
+  margin-bottom: 40px;
+}
+
+.exp-itinerary-item {
+  position: relative;
+  padding-left: 40px;
+  border-left: 4px solid #f6b43f;
+  margin-bottom: 50px;
+}
+
+.exp-itinerary-day-badge {
+  position: absolute;
+  left: -18px;
+  top: 0;
+  background: #4b5563;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.exp-itinerary-content {
+  padding-top: 40px;
+}
+
+.exp-itinerary-content h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.exp-itinerary-description {
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.exp-itinerary-details {
+  color: #374151;
+  font-size: 14px;
+}
+
+.exp-itinerary-progress-wrapper {
+  padding-top: 30px;
+}
+
+.exp-itinerary-progress-bar {
+  position: relative;
+  height: 8px;
+  background: #d1d5db;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.exp-itinerary-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #374151;
+  border-radius: 50px;
+  transition: width 0.2s ease;
+}
+
+.exp-itinerary-progress-car {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 26px;
+  cursor: grab;
+  transition: left 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .exp-itinerary-title {
+    font-size: 38px;
+  }
+
+  .exp-itinerary-scroll {
+    height: 300px;
+  }
+}
