@@ -64,6 +64,7 @@ function Navbar() {
             <Link to="/stories">Travel Stories</Link>
             <Link to="/testimonials">Testimonials</Link>
             <Link to="/gallery">In the Media</Link>
+            <Link to="/faq">FAQ</Link>
           </nav>
 
           <button className="book-btn">
@@ -92,7 +93,7 @@ function Navbar() {
         <Link to="/stories" onClick={closeMenu}>Travel Stories</Link>
         <Link to="/testimonials" onClick={closeMenu}>Testimonials</Link>
         <Link to="/gallery" onClick={closeMenu}>In the Media</Link>
-
+        <Link to="/faq" onClick={closeMenu}>FAQ</Link>
         <button className="book-btn" onClick={closeMenu}>
           <Plane size={16} />
           Book a Trip
