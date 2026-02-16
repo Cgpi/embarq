@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
 import { Plane, Menu, X } from "lucide-react";
+import EnquiryPopup from "../../pages/EnquiryPopup";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -10,7 +11,15 @@ function Navbar() {
   const location = useLocation();
 
   const closeMenu = () => setOpen(false);
+  const [enquiryOpen, setEnquiryOpen] = useState(false);
+const handleOpenEnquiry = () => {
+  setEnquiryOpen(true);
+  setOpen(false); // close mobile menu if open
+};
 
+const handleCloseEnquiry = () => {
+  setEnquiryOpen(false);
+};
   // Close on ESC
   useEffect(() => {
     const handler = (e) => {
@@ -66,10 +75,10 @@ function Navbar() {
             <Link to="/media">In the Media</Link>
           </nav>
 
-          <button className="book-btn">
-            <Plane size={16} />
-            Book a Trip
-          </button>
+         <button className="book-btn" onClick={handleOpenEnquiry}>
+  <Plane size={16} />
+  Book a Trip
+</button>
         </div>
 
         {/* HAMBURGER */}
@@ -93,12 +102,15 @@ function Navbar() {
         <Link to="/testimonials" onClick={closeMenu}>Testimonials</Link>
         <Link to="/media" onClick={closeMenu}>In the Media</Link>
 
-        <button className="book-btn" onClick={closeMenu}>
-          <Plane size={16} />
-          Book a Trip
-        </button>
+        <button className="book-btn" onClick={handleOpenEnquiry}>
+  <Plane size={16} />
+  Book a Trip
+</button>
       </div>
-
+ <EnquiryPopup
+        open={enquiryOpen}
+        handleClose={handleCloseEnquiry}
+      />
     </header>
   );
 }
