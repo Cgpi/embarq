@@ -83,9 +83,9 @@ const Blog = () => {
 
   const displayedBlogs = allBlogs.slice((activePage - 1) * 2, activePage * 2);
   return (
-    <div className="container">
-      <section className="hero">
-        <div className="hero-content">
+    <div className="blog-container">
+      <section className="blog-hero">
+        <div className="blog-hero-content">
           <h1>Crafting Memories By Letting The Road Overtake</h1>
         </div>
       </section>

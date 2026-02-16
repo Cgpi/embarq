@@ -10,7 +10,7 @@ body {
 
 /* ================= HERO SECTION ================= */
 
-.hero {
+.blog-hero {
   height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     url('../assets/blog/hero.jpg') center/cover no-repeat;
@@ -22,7 +22,7 @@ body {
   padding: 0 10%;
 }
 
-.hero h1 {
+.blog-hero h1 {
   font-size: 3.5rem;
   max-width: 800px;
   line-height: 1.1;
