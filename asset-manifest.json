@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/embarq/static/css/main.8ffa3ac5.css",
-    "main.js": "/embarq/static/js/main.5d5f8460.js",
+    "main.css": "/embarq/static/css/main.288993c9.css",
+    "main.js": "/embarq/static/js/main.f5be425b.js",
     "static/media/whyroads.png": "/embarq/static/media/whyroads.df2f985cbbbb1f78c715.png",
     "static/media/hero.mp4": "/embarq/static/media/hero.859908dc9f1a3412998d.mp4",
     "static/media/georgia.png": "/embarq/static/media/georgia.0a658cbbb0674a2dd69d.png",
@@ -12,6 +12,7 @@
     "static/media/expeditionixbg.jpg": "/embarq/static/media/expeditionixbg.7ef5b4348f3b05075db5.jpg",
     "static/media/g10.jpg": "/embarq/static/media/g10.a9fbfd456f4c1228ef4d.jpg",
     "static/media/slide1.png": "/embarq/static/media/slide1.76d91f491ef06c29696f.png",
+    "static/media/Gift-Hero.jpg": "/embarq/static/media/Gift-Hero.22e23670467d5b9b6f2d.jpg",
     "static/media/expbg.jpg": "/embarq/static/media/expbg.5f1b9bf8a7f1efe25341.jpg",
     "static/media/g3.jpg": "/embarq/static/media/g3.726ea84921184c40a38e.jpg",
     "static/media/hero.jpg": "/embarq/static/media/hero.1cb316d519d1301e19b1.jpg",
@@ -24,6 +25,7 @@
     "static/media/8.png": "/embarq/static/media/8.e4ef24fd832fc4879b2f.png",
     "static/media/excar2.jpg": "/embarq/static/media/excar2.00990f3ddb2a3105f3fd.jpg",
     "static/media/IndiaSpain.png": "/embarq/static/media/IndiaSpain.72d2c2d135c8c1746f3b.png",
+    "static/media/Gift-1.png": "/embarq/static/media/Gift-1.7de9a6ea04aefb63407d.png",
     "static/media/excar1.png": "/embarq/static/media/excar1.fa4ca6fe434ea00cfdf9.png",
     "static/media/FormImage.png": "/embarq/static/media/FormImage.b988707002d15cd9011b.png",
     "static/media/g9.jpg": "/embarq/static/media/g9.079d3b47dff70553c157.jpg",
@@ -63,14 +65,15 @@
     "static/media/fraunces-latin-wght-normal.woff2": "/embarq/static/media/fraunces-latin-wght-normal.5a4a82b52388ff7868e0.woff2",
     "static/media/fraunces-latin-ext-wght-normal.woff2": "/embarq/static/media/fraunces-latin-ext-wght-normal.a4d05471980d7e6e6c04.woff2",
     "static/media/founder2.jpg": "/embarq/static/media/founder2.78415aa31b96074dac8a.jpg",
+    "static/media/GiftIcon.png": "/embarq/static/media/GiftIcon.5d4da83fd6dbc509b470.png",
     "static/media/blog2.jpg": "/embarq/static/media/blog2.6ff9b5a53d7ee67c2f70.jpg",
     "static/media/fraunces-vietnamese-wght-normal.woff2": "/embarq/static/media/fraunces-vietnamese-wght-normal.c53893a52fe93c11cf60.woff2",
     "index.html": "/embarq/index.html",
-    "main.8ffa3ac5.css.map": "/embarq/static/css/main.8ffa3ac5.css.map",
-    "main.5d5f8460.js.map": "/embarq/static/js/main.5d5f8460.js.map"
+    "main.288993c9.css.map": "/embarq/static/css/main.288993c9.css.map",
+    "main.f5be425b.js.map": "/embarq/static/js/main.f5be425b.js.map"
   },
   "entrypoints": [
-    "static/css/main.8ffa3ac5.css",
-    "static/js/main.5d5f8460.js"
+    "static/css/main.288993c9.css",
+    "static/js/main.f5be425b.js"
   ]
 }
