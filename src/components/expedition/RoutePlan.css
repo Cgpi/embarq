@@ -1,0 +1,46 @@
+.route-plan {
+  background-color: #fcf5e4;
+  padding: 80px 24px;
+}
+
+.route-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.route-title {
+  font-family: "Fraunces", serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: #f6b43f;
+  margin-bottom: 60px;
+}
+
+/* Image Wrapper */
+.route-image-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image */
+.route-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+/* Mobile Rotation */
+@media (max-width: 768px) {
+  .route-title {
+    font-size: 38px;
+  }
+
+  .route-image {
+    max-width: 600px;
+    transform: rotate(90deg);
+  }
+}

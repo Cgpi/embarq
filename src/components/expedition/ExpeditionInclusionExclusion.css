@@ -1,0 +1,155 @@
+/* =====================================
+   SECTION (Perfect Height Already)
+=====================================*/
+.exp-ie-section {
+  position: relative;
+  width: 100%;
+  height: 35.5rem; /* your confirmed perfect height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* =====================================
+   DARK OVERLAY
+=====================================*/
+.exp-ie-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(9, 28, 48, 0.55) 0%,
+    rgba(9, 28, 48, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+/* =====================================
+   INNER WRAPPER (Perfect Center Frame)
+=====================================*/
+.exp-ie-container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 80rem; /* tighter like figma */
+  margin: 0 auto;
+
+  /* equal edge spacing always */
+  padding-left: clamp(2rem, 6vw, 6rem);
+  padding-right: clamp(2rem, 6vw, 6rem);
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(3rem, 5vw, 5rem);
+  align-items: center;
+}
+
+/* =====================================
+   GLASS CARDS (Exact Proportion)
+=====================================*/
+.exp-ie-card {
+  width: 100%;
+  max-width: 33rem; /* ~528px like figma */
+  margin: 0 auto;
+
+  padding: 2.75rem 3rem; /* tighter padding */
+  border-radius: 1.5rem;
+
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.35);
+
+  color: #ffffff;
+
+  opacity: 0;
+  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =====================================
+   TYPOGRAPHY
+=====================================*/
+.exp-ie-card h2 {
+  font-family: "Fraunces", serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.8rem;
+}
+
+.exp-ie-card ul {
+  list-style: disc;
+  padding-left: 1.1rem;
+}
+
+.exp-ie-card li {
+  font-family: "Roboto Flex", sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 0.9rem;
+}
+
+/* =====================================
+   ANIMATION
+=====================================*/
+.exp-ie-left {
+  transform: translateX(-5rem);
+}
+
+.exp-ie-right {
+  transform: translateX(5rem);
+}
+
+.exp-ie-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* =====================================
+   TABLET
+=====================================*/
+@media (max-width: 64rem) {
+  .exp-ie-section {
+    height: auto;
+    padding: 5rem 0;
+  }
+
+  .exp-ie-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .exp-ie-card {
+    max-width: 32rem;
+  }
+}
+
+/* =====================================
+   MOBILE (Equal Edge Space Always)
+=====================================*/
+@media (max-width: 40rem) {
+  .exp-ie-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .exp-ie-card {
+    max-width: 100%;
+    padding: 2rem 1.6rem;
+    border-radius: 1.25rem;
+  }
+
+  .exp-ie-card h2 {
+    font-size: 1.8rem;
+  }
+
+  .exp-ie-card li {
+    font-size: 0.95rem;
+  }
+}

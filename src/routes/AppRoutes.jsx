@@ -3,7 +3,16 @@ import Home from "../pages/Home";
 import About from "../pages/About";
 import Testimonials from "../pages/Testimonials";
 import GallerySection from "../pages/GallerySection";
+
 import GiftTrip from "../pages/GiftTrip";
+
+import FAQ from "../pages/FAQ";
+import Blog from "../pages/blog";
+
+
+import Expedition from "../pages/expedition";
+
+
 function AppRoutes() {
   return (
     <Routes>
@@ -12,6 +21,12 @@ function AppRoutes() {
       <Route path="/testimonials" element={<Testimonials />} />
       <Route path="/gallery" element={<GallerySection />} />
       <Route path="/gift-trip" element={<GiftTrip />} />
+      <Route path="/faq" element={<FAQ />} />
+      <Route path="/blog" element={<Blog />} />
+     
+     
+      <Route path="/testimonials" element={<Testimonials />} />
+      <Route path="/expedition" element={<Expedition />} />
     </Routes>
   );
 }
