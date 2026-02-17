@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import ExploreIcon from "@mui/icons-material/Explore";
-
+import Icon from "../../src/assets/Gift/GiftIcon.png"
+import Gift1  from "../../src/assets/Gift/Gift-1.png";
+import Gift2  from "../../src/assets/Gift/Gift-Hero.jpg";
 export default function GiftTrip() {
   const features = [
     {
@@ -28,14 +29,24 @@ export default function GiftTrip() {
   const FeatureCard = ({ item }) => (
     <Box
       sx={{
-        backgroundColor: "#F3F3F3",
+        backgroundColor: "#F1F1F1",
         borderRadius: "16px",
         p: 2.5,
         display: "flex",
         gap: 1.5,
       }}
     >
-      <ExploreIcon sx={{ color: "#F4A100", fontSize: 20, mt: "2px" }} />
+     <Box
+      component="img"
+      src={Icon}
+      alt="feature icon"
+      sx={{
+        width: 50,
+        height: 50,
+        objectFit: "contain",
+        mt: "7px",
+      }}
+    />
       <Box>
         <Typography sx={{ fontSize: 14, fontWeight: 600, mb: 0.5 }}>
           {item.title}
@@ -53,8 +64,7 @@ export default function GiftTrip() {
   sx={{
     width: "100%",
     height: { xs: "60vh", md: "100vh" },
-    backgroundImage:
-      "url(https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80)",
+    backgroundImage: `url(${Gift2})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     position: "relative",
@@ -67,7 +77,7 @@ export default function GiftTrip() {
     sx={{
       position: "absolute",
       inset: 0,
-      backgroundColor: "rgba(0,0,0,0.45)",
+      backgroundColor: "#0E0E0E1F",
     }}
   />
 
@@ -97,11 +107,11 @@ export default function GiftTrip() {
   </Box>
 </Box>
 
-    <Box sx={{ backgroundColor: "#ECECEC", py: 1 }}>
+    <Box sx={{ backgroundColor: "#FFFFFF", py: 1 ,}}>
         
       <Box
         sx={{
-            mt: 5,          maxWidth: "1200px",
+            mt: 5,          maxWidth: "1300px",
           mx: "auto",
           px: 3,
           display: "grid",
@@ -118,7 +128,7 @@ export default function GiftTrip() {
       >
         {/* LEFT */}
         <Box>
-          <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
+          <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 ,fontFamily: "'Roboto Flex', sans-serif",}}>
             Why Gift a Trip?
           </Typography>
 
@@ -129,10 +139,13 @@ export default function GiftTrip() {
               mb: 4,
               lineHeight: 1.7,
               maxWidth: "520px",
+              fontFamily: "'Roboto Flex', sans-serif",
             }}
           >
-            A trip isn’t just a gift — it’s an unforgettable experience wrapped
-            in adventure and discovery!
+            A trip isn’t just a gift — it’s an unforgettable experience wrapped in adventure and discovery! When you’re struggling to find the perfect present for someone who has it all, gifting travel is the ultimate way to surprise and delight.
+            <br/>
+            <br/>
+            Here’s why a travel experience makes the perfect gift:
           </Typography>
 
           <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
@@ -141,8 +154,8 @@ export default function GiftTrip() {
             ))}
           </Box>
 
-          <Typography sx={{ mt: 4, fontSize: 13, color: "#666" }}>
-            With Embarq, you're not just gifting a trip — you're gifting freedom.
+          <Typography sx={{ mt: 4, fontSize: 13, color: "#666" ,fontFamily: "'Roboto Flex', sans-serif",}}>
+           With Embarq, you’re not just gifting a trip, you’re gifting freedom, exploration, and the magic of the unknown. Ready to surprise someone with the adventure of a lifetime?
           </Typography>
         </Box>
 
@@ -170,7 +183,7 @@ export default function GiftTrip() {
             {/* BIG */}
             <Box
               component="img"
-              src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=900&q=80"
+              src={Gift1}
               sx={{
                 width: "100%",
                 height: "100%",
@@ -187,7 +200,7 @@ export default function GiftTrip() {
             {/* TOP RIGHT */}
             <Box
               component="img"
-              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80"
+              src={Gift1}
               sx={{
                 width: "100%",
                 height: "100%",
@@ -204,17 +217,22 @@ export default function GiftTrip() {
             {/* BOTTOM RIGHT */}
             <Box
               component="img"
-              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80"
+              src={Gift1}
               sx={{
-                width: "100%",
-                height: "100%",
+                width: "95%",
+                height: "115%",
                 objectFit: "cover",
                 borderRadius: "18px",
+                 transform: {
+                  xs: "translateY(0px)",
+                  sm: "translateY(14px)",
+                  md: "translateY(-20px)",
+                },
               }}
             />
           </Box>
 
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 3 ,fontFamily: "'Roboto Flex', sans-serif",}}>
             {features.slice(3).map((item, i) => (
               <FeatureCard key={i} item={item} />
             ))}
