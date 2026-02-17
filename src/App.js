@@ -1,4 +1,6 @@
-import { BrowserRouter } from "react-router-dom";
+// import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
+
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import AppRoutes from "./routes/AppRoutes";
@@ -7,11 +9,13 @@ import "@fontsource-variable/fraunces";
 
 function App() {
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
+    <HashRouter>
       <Navbar />
       <AppRoutes />
       <Footer />
-    </BrowserRouter>
+      </HashRouter>
+    // </BrowserRouter>
   );
 }
 
