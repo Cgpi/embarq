@@ -1,4 +1,5 @@
-import React, { useState,useRef  } from "react";
+import React, { useState,useRef,useEffect  } from "react";
+import { useTheme, useMediaQuery } from "@mui/material";
 
 
 import {
@@ -22,17 +23,54 @@ import heroImg from "../assets/blog/hero.jpg";
 export default function Blog() {
   const [activePage, setActivePage] = useState(1);
   const blogScrollRef = useRef(null);
+  const [atStart, setAtStart] = useState(true);
+const [atEnd, setAtEnd] = useState(false);
+
+const theme = useTheme();
+const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+
+const handleScroll = () => {
+  const container = blogScrollRef.current;
+  if (!container) return;
+
+  if (container.scrollWidth <= container.clientWidth) {
+    setAtStart(true);
+    setAtEnd(false);
+    return;
+  }
+
+  setAtStart(container.scrollLeft <= 1);
+
+  setAtEnd(
+    Math.ceil(container.scrollLeft + container.clientWidth) >=
+    container.scrollWidth - 1
+  );
+};
+
+
 
 const scroll = (direction) => {
-  if (!blogScrollRef.current) return;
+  const container = blogScrollRef.current;
+  if (!container) return;
 
-  const scrollAmount = 240;
+  const scrollAmount = container.clientWidth * 0.8;
 
-  blogScrollRef.current.scrollBy({
+  container.scrollBy({
     left: direction === "next" ? scrollAmount : -scrollAmount,
     behavior: "smooth"
   });
 };
+
+useEffect(() => {
+  if (!isMobile) return;
+
+  setTimeout(() => {
+    handleScroll();
+  }, 100);
+}, [isMobile]);
+
+
 
 
  const allBlogs = [
@@ -207,34 +245,70 @@ const scroll = (direction) => {
   <Box sx={{ display: { xs: "block", md: "none" } }}>
 
     {/* SCROLLABLE CARDS */}
-    <Box
-      ref={blogScrollRef}
-      sx={{
-        display: "flex",
-        gap: 2,
-        overflowX: "auto",
-        scrollBehavior: "smooth",
-        pb: 2,
-        "&::-webkit-scrollbar": { display: "none" }
-      }}
-    >
-      {[blog1, blog2, blog3].map((img, i) => (
-        <Card
-          key={i}
+   <Box
+  ref={blogScrollRef}
+  onScroll={handleScroll}
+  sx={{
+    display: "flex",
+    gap: 2,
+    overflowX: "auto",
+    scrollBehavior: "smooth",
+    pb: 2,
+    "&::-webkit-scrollbar": { display: "none" }
+  }}
+>
+
+    {[
+  { img: blog1, country: "Thailand", route: "India - Thailand" },
+  { img: blog2, country: "United Kingdom", route: "India - UK" },
+  { img: blog3, country: "Italy", route: "India - Italy" }
+].map((item, i) => (
+  <Box
+    key={i}
+    sx={{
+      minWidth: 220,
+      flexShrink: 0
+    }}
+  >
+    {/* IMAGE CARD */}
+    <Card sx={{ borderRadius: 4, boxShadow: 0 }}>
+      <Box sx={{ position: "relative" }}>
+        <CardMedia
+          component="img"
+          image={item.img}
+          sx={{ height: 260, borderRadius: 4 }}
+        />
+
+        {/* COUNTRY NAME (OVERLAY) */}
+        <Typography
           sx={{
-            minWidth: 220,
-            borderRadius: 4,
-            flexShrink: 0,
-            boxShadow: 0
+            position: "absolute",
+            bottom: 10,
+            right: 12,
+            color: "#fff",
+            fontSize: 13,
+            fontFamily: "'Roboto Flex', sans-serif"
           }}
         >
-          <CardMedia
-            component="img"
-            image={img}
-            sx={{ height: 260, borderRadius: 4 }}
-          />
-        </Card>
-      ))}
+          {item.country}
+        </Typography>
+      </Box>
+    </Card>
+
+    {/* ROUTE TEXT BELOW */}
+    <Typography
+      sx={{
+        mt: 1,
+        fontSize: 13,
+        fontFamily: "'Roboto Flex', sans-serif"
+      }}
+    >
+      {item.route}
+    </Typography>
+  </Box>
+))}
+
+
     </Box>
 
     {/* MOBILE PREV NEXT */}
@@ -249,33 +323,40 @@ const scroll = (direction) => {
         }}
       >
         <Box
-          onClick={() => scroll("prev")}
-          sx={{
-            px: 2,
-            py: 0.6,
-            borderRadius: "30px",
-            color: "#B0B0B0",
-            fontSize: 13,
-            cursor: "pointer"
-            ,fontFamily: "'Roboto Flex', sans-serif"
-          }}
-        >
+  onClick={() => scroll("prev")}
+  sx={{
+    px: 2,
+    py: 0.6,
+    borderRadius: "30px",
+    fontSize: 13,
+    cursor: atStart ? "not-allowed" : "pointer",
+    opacity: atStart ? 0.4 : 1,
+    pointerEvents: atStart ? "none" : "auto",
+    transition: "0.3s",
+    fontFamily: "'Roboto Flex', sans-serif"
+  }}
+>
+
           Prev
         </Box>
 
         <Box
-          onClick={() => scroll("next")}
-          sx={{
-            px: 2,
-            py: 0.6,
-            borderRadius: "30px",
-            background: "#fff",
-            fontSize: 13,
-            boxShadow: "0 1px 3px rgba(0,0,0,0.15)",
-            cursor: "pointer"
-            ,fontFamily: "'Roboto Flex', sans-serif"
-          }}
-        >
+  onClick={() => scroll("next")}
+  sx={{
+    px: 2,
+    py: 0.6,
+    borderRadius: "30px",
+    background: "#fff",
+    fontSize: 13,
+    boxShadow: "0 1px 3px rgba(0,0,0,0.15)",
+    cursor: atEnd ? "not-allowed" : "pointer",
+    opacity: atEnd ? 0.4 : 1,
+    pointerEvents: atEnd ? "none" : "auto",
+    transition: "0.3s",
+    fontFamily: "'Roboto Flex', sans-serif"
+  }}
+>
+
           Next
         </Box>
       </Box>
