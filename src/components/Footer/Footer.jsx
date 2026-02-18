@@ -37,6 +37,7 @@ const handleCloseEnquiry = () => {
   spacing={10}
   alignItems="flex-start"
   rowSpacing={{ xs: 3, md: 0 }}
+  
 >
 
 
@@ -108,6 +109,7 @@ const handleCloseEnquiry = () => {
       textDecoration: "none",
       color: "#4B4B4B", // font color
     }}
+    
   >
     {item.text}
   </Link>
@@ -125,6 +127,7 @@ const handleCloseEnquiry = () => {
     "@media (max-width:400px)": {
       flex: "0 0 100%",
       maxWidth: "100%",
+      marginTop: "-40px"
     }
   }}
 >
