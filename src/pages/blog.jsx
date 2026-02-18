@@ -148,17 +148,7 @@ const scroll = (direction) => {
   container
   alignItems="center"
   columnSpacing={{ xs: 4, md: 10 }}
-  // sx={{
-  //   "@media (min-width:900px) and (max-width:1020px)": {
-  //     "& .latestBlogLeft": {
-  //       transform: "scale(0.88)",
-  //       transformOrigin: "left center"
-  //     },
-  //     "& .latestBlogRight": {
-  //       marginLeft: "-50px"
-  //     }
-  //   }
-  // }}
+ 
 >
 
 

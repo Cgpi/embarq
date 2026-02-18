@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import Icon from "../../src/assets/Gift/GiftIcon.png"
 import Gift1  from "../../src/assets/Gift/Gift-1.png";
-import Gift2  from "../../src/assets/Gift/Gift-Hero.jpg";
+import Gift2  from "../../src/assets/Gift/Gift-Hero.webp";
 export default function GiftTrip() {
   const features = [
     {
