@@ -7,9 +7,10 @@ function Home() {
   return (
     <>
       <Hero />
-      <ExpeditionIntro />
+      
       <UpcomingExpeditions />
       <WhyRoads />
+      <ExpeditionIntro />
     </>
   );
 }

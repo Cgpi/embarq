@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { Box, Container, Grid, Typography, Button } from "@mui/material";
 import logo from "../../assets/logo.png";
 import EnquiryPopup from "../../pages/EnquiryPopup";
-import { Link } from "react-router-dom";
+
+import { Link as RouterLink } from "react-router-dom";
 
 
 export default function Footer() {
@@ -90,14 +91,14 @@ const handleCloseEnquiry = () => {
         Main Links
       </Typography>
 
-      {[
+    {[
   { text: "Home", to: "/" },
   { text: "About Us", to: "/about" },
   { text: "All Self-Drive Expeditions", to: "/expeditions" },
   { text: "Testimonials", to: "/testimonials" },
-  { text: "Blogs", to: "/blogs" },
+  { text: "Blogs", to: "/blog" },
 ].map((item) => (
-  <Link
+  <RouterLink
     key={item.text}
     to={item.to}
     style={{
@@ -107,12 +108,12 @@ const handleCloseEnquiry = () => {
       cursor: "pointer",
       fontFamily: '"Roboto Flex", sans-serif',
       textDecoration: "none",
-      color: "#4B4B4B", // font color
+      color: "#4B4B4B",
     }}
     
   >
     {item.text}
-  </Link>
+  </RouterLink>
 ))}
 
     </Grid>
@@ -146,25 +147,31 @@ const handleCloseEnquiry = () => {
         Placeholder
       </Typography>
 
-      {[
-        "Cancellation Policy",
-        "Media",
-        "Gallery",
-        "FAQ's",
-        "Enquire Now",
-      ].map((text) => (
-        <Typography
-          key={text}
-          sx={{
-            fontSize: "0.75rem",
-            mb: 0,
-            cursor: "pointer",
-            fontFamily: '"Roboto Flex", sans-serif'
-          }}
-        >
-          {text}
-        </Typography>
-      ))}
+   {[
+  { label: "Cancellation Policy", path: "/cancellation" },
+  { label: "Media", path: "/media" },
+  { label: "Gallery", path: "/gallery" },
+  { label: "FAQ's", path: "/faq" },
+  { label: "Enquire Now", path: "/enquire" },
+].map((item) => (
+  <Typography
+    key={item.label}
+    component={RouterLink}
+    to={item.path}
+    sx={{
+      fontSize: "0.75rem",
+      mb: 0,
+      cursor: "pointer",
+      fontFamily: '"Roboto Flex", sans-serif',
+      textDecoration: "none",
+      color: "#4B4B4B",
+      display: "block",
+    }}
+  >
+    {item.label}
+  </Typography>
+))}
+
     </Grid>
 
     {/* CONTACT */}

@@ -1,6 +1,7 @@
 import "./HeroSection.css";
 import heroImage from "../../assets/expedition/expbg.jpg";
 import mapImage from "../../assets/expedition/Vector.png";
+import tornImage from "../../assets/expedition/expbgtorn.svg";
 
 function HeroSection() {
   return (
@@ -52,23 +53,9 @@ function HeroSection() {
 
       </div>
 
-      {/* TRUE ORGANIC TORN BOTTOM */}
+      {/* Torn Bottom */}
       <div className="exp-hero-torn">
-        <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
-          <path
-            d="
-            M0,160
-            C140,200 280,100 420,160
-            C560,220 700,90 840,160
-            C980,220 1120,100 1260,150
-            C1340,180 1400,150 1440,165
-            L1440,220
-            L0,220
-            Z
-            "
-            fill="#fcf5e4"
-          />
-        </svg>
+        <img src={tornImage} alt="Torn effect" />
       </div>
 
     </section>

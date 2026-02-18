@@ -1,11 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import "./Itinerary.css";
+import scrollCar from "../../assets/expedition/scrollcar.png";
 
 const itineraryData = [
   {
     day: 1,
     title: "Arrival in Tbilisi",
-    description: "Arrive in Georgia's capital, Tbilisi, where your journey begins.",
+    description:
+      "Arrive in Georgia's capital, Tbilisi, where your journey begins.",
     details:
       "Transfer to the hotel and ease into the city's unique blend of old-world charm and modern vibrancy. The day is kept relaxed to recover from travel and prepare for the road journey ahead.",
   },
@@ -67,26 +69,37 @@ function Itinerary() {
   const contentRef = useRef(null);
   const progressBarRef = useRef(null);
 
+  /* ============================= */
+  /* SCROLL SYNC                   */
+  /* ============================= */
+
   const handleScroll = () => {
     if (!contentRef.current) return;
 
     const { scrollTop, scrollHeight, clientHeight } = contentRef.current;
     const maxScroll = scrollHeight - clientHeight;
-    const progress = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
-    setScrollProgress(Math.min(progress, 100));
+
+    const progress =
+      maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+
+    const percentage = Math.min(progress, 100);
+
+    setScrollProgress(percentage);
   };
 
-  const handleMouseDown = (e) => {
-    e.preventDefault();
-    setIsDragging(true);
-  };
+  /* ============================= */
+  /* DRAG CAR (MOUSE + TOUCH)     */
+  /* ============================= */
 
-  const handleMouseMove = (e) => {
-    if (!isDragging || !progressBarRef.current || !contentRef.current) return;
+  const updatePosition = (clientX) => {
+    if (!progressBarRef.current || !contentRef.current) return;
 
     const rect = progressBarRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    const x = clientX - rect.left;
+    const percentage = Math.max(
+      0,
+      Math.min(100, (x / rect.width) * 100)
+    );
 
     const { scrollHeight, clientHeight } = contentRef.current;
     const maxScroll = scrollHeight - clientHeight;
@@ -96,19 +109,40 @@ function Itinerary() {
     setScrollProgress(percentage);
   };
 
-  const handleMouseUp = () => {
-    setIsDragging(false);
+  const handleMouseDown = (e) => {
+    e.preventDefault();
+    setIsDragging(true);
+    updatePosition(e.clientX);
+  };
+
+  const handleTouchStart = (e) => {
+    setIsDragging(true);
+    updatePosition(e.touches[0].clientX);
   };
 
   useEffect(() => {
-    if (isDragging) {
-      document.addEventListener("mousemove", handleMouseMove);
-      document.addEventListener("mouseup", handleMouseUp);
-    }
+    const handleMove = (e) => {
+      if (!isDragging) return;
+
+      if (e.type === "mousemove") {
+        updatePosition(e.clientX);
+      } else if (e.type === "touchmove") {
+        updatePosition(e.touches[0].clientX);
+      }
+    };
+
+    const handleUp = () => setIsDragging(false);
+
+    document.addEventListener("mousemove", handleMove);
+    document.addEventListener("mouseup", handleUp);
+    document.addEventListener("touchmove", handleMove);
+    document.addEventListener("touchend", handleUp);
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("mousemove", handleMove);
+      document.removeEventListener("mouseup", handleUp);
+      document.removeEventListener("touchmove", handleMove);
+      document.removeEventListener("touchend", handleUp);
     };
   }, [isDragging]);
 
@@ -117,41 +151,58 @@ function Itinerary() {
       <div className="exp-itinerary-container">
         <h2 className="exp-itinerary-title">Itinerary</h2>
 
-        <div
-          ref={contentRef}
-          onScroll={handleScroll}
-          className="exp-itinerary-scroll"
-        >
-          {itineraryData.map((day) => (
-            <div key={day.day} className="exp-itinerary-item">
-              <div className="exp-itinerary-day-badge">DAY {day.day}</div>
+        {/* LAYOUT WRAPPER */}
+        <div className="exp-itinerary-layout">
 
-              <div className="exp-itinerary-content">
-                <h3>{day.title}</h3>
-                <p className="exp-itinerary-description">{day.description}</p>
-                <p className="exp-itinerary-details">{day.details}</p>
+          {/* LEFT PROGRESS BAR */}
+          <div className="exp-itinerary-left-bar">
+            <div
+              className="exp-itinerary-left-progress"
+              style={{ height: `${scrollProgress}%` }}
+            />
+          </div>
+
+          {/* SCROLLABLE CONTENT */}
+          <div
+            ref={contentRef}
+            onScroll={handleScroll}
+            className="exp-itinerary-scroll"
+          >
+            {itineraryData.map((day) => (
+              <div key={day.day} className="exp-itinerary-item">
+                <div className="exp-itinerary-day-badge">
+                  DAY {day.day}
+                </div>
+
+                <div className="exp-itinerary-content">
+                  <h3>{day.title}</h3>
+                  <p className="exp-itinerary-description">
+                    {day.description}
+                  </p>
+                  <p className="exp-itinerary-details">
+                    {day.details}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
+        {/* ROAD SECTION */}
         <div className="exp-itinerary-progress-wrapper">
           <div
             ref={progressBarRef}
             className="exp-itinerary-progress-bar"
           >
-            <div
-              className="exp-itinerary-progress-fill"
-              style={{ width: `${scrollProgress}%` }}
-            ></div>
-
-            <div
+            <img
+              src={scrollCar}
+              alt="car"
               className="exp-itinerary-progress-car"
               style={{ left: `${scrollProgress}%` }}
               onMouseDown={handleMouseDown}
-            >
-              🚙
-            </div>
+              onTouchStart={handleTouchStart}
+              draggable={false}
+            />
           </div>
         </div>
       </div>
