@@ -1,5 +1,5 @@
-// src/components/ExpeditionSlide.jsx
 import "./UpcomingExpeditions/UpcomingExpeditions.css";
+import womanIcon from "../assets/images/womanicon.svg";
 
 export default function ExpeditionSlide({ image, title, subtitle, date }) {
   return (
@@ -10,14 +10,18 @@ export default function ExpeditionSlide({ image, title, subtitle, date }) {
       <div className="slide-overlay">
         <h1 className="slide-title">{title}</h1>
 
-        <p className="slide-subtitle">{subtitle}</p>
+        <p className="slide-subtitle">
+          {subtitle}. India at its widest
+        </p>
 
         <div className="slide-meta">
-          <span className="badge">All Women</span>
+          <span className="badge">
+            <img src={womanIcon} alt="women" />
+            All Women
+          </span>
           <span className="date">{date}</span>
         </div>
       </div>
     </div>
   );
 }
-
