@@ -1,6 +1,6 @@
 .route-plan {
   background-color: #fcf5e4;
-  padding: 80px 24px;
+  padding: 70px 24px 40px 24px;
 }
 
 .route-container {
@@ -16,31 +16,59 @@
   margin-bottom: 60px;
 }
 
-/* Image Wrapper */
+/* ============================= */
+/* IMAGE WRAPPER */
+/* ============================= */
+
 .route-image-wrapper {
-  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Image */
+/* ============================= */
+/* IMAGES */
+/* ============================= */
+
+/* DESKTOP IMAGE */
 .route-image {
   width: 100%;
   max-width: 100%;
   height: auto;
-  transition: transform 0.3s ease;
+  display: block;
 }
 
-/* Mobile Rotation */
+/* MOBILE IMAGE (hidden by default) */
+.route-image.mobile {
+  display: none;
+}
+
+/* ============================= */
+/* MOBILE STYLES */
+/* ============================= */
+
 @media (max-width: 768px) {
-  .route-title {
-    font-size: 38px;
+
+  .route-plan {
+    padding: 60px 20px 30px 20px;
   }
 
+  .route-title {
+    font-size: 38px;
+    margin-bottom: 40px; /* 👈 controlled spacing */
+  }
+
+  /* HIDE DESKTOP IMAGE */
   .route-image {
-    max-width: 600px;
-    transform: rotate(90deg);
+    display: none;
+  }
+
+  /* SHOW MOBILE IMAGE */
+ .route-image.mobile {
+    width: 180px;   /* 👈 control size */
+    max-width: 100%;
+    margin: 0 auto; /* center it */
+    display: block;
   }
 }

@@ -4,20 +4,14 @@
 
 .our-story {
   background: #ffffff;
-
-  /* 🔹 DESKTOP TOP SPACING (increase/decrease here) */
-  padding-top: 70px;
-
-  /* 🔹 DESKTOP BOTTOM SPACING (increase/decrease here) */
-  padding-bottom: 70px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
-/* Wrapper controls left-right spacing */
+/* Wrapper */
 .our-story-wrapper {
-  max-width: 1500px;
+  max-width: 1400px;
   margin: 0 auto;
-
-  /* 🔹 DESKTOP SIDE SPACING (increase/decrease here) */
   padding-left: 120px;
   padding-right: 120px;
 }
@@ -28,14 +22,13 @@
 
 .our-story-heading {
   font-family: "Fraunces", serif;
-
-  /* 🔹 DESKTOP HEADING SIZE */
   font-size: 72px;
-
   font-weight: 600;
   color: #3f3f3f;
   line-height: 1.05;
-  margin-bottom: 32px; /* 🔹 Space below heading */
+  margin-bottom: 28px;
+
+  letter-spacing: -0.5px; /* 🔥 premium typography */
 }
 
 /* ============================= */
@@ -46,9 +39,8 @@
   font-family: "Roboto Flex", sans-serif;
   font-size: 15px;
   font-style: italic;
-  color: #5c5c5c;
-
-  margin-bottom: 28px; /* 🔹 Space below subtitle */
+  color: #6a6a6a;
+  margin-bottom: 24px;
 }
 
 /* ============================= */
@@ -57,24 +49,26 @@
 
 .our-story-description {
   font-family: "Roboto Flex", sans-serif;
-
-  /* 🔹 DESKTOP PARAGRAPH SIZE */
   font-size: 18px;
-
-  line-height: 1.85;
+  line-height: 1.9;
   color: #555555;
+  max-width: 1000px;
 
-  max-width: 1200px;
+  transition: color 0.4s ease;
+}
+
+/* subtle hover polish (barely noticeable but premium) */
+.our-story-description:hover {
+  color: #333333;
 }
 
 /* ============================= */
 /* RESPONSIVE */
 /* ============================= */
 
-/* Tablet */
 @media (max-width: 992px) {
   .our-story-heading {
-    font-size: 48px; /* 🔹 Tablet heading size */
+    font-size: 48px;
   }
 
   .our-story-description {
@@ -82,33 +76,25 @@
   }
 }
 
-/* Mobile */
 @media (max-width: 768px) {
-
   .our-story {
-
-    /* 🔹 MOBILE TOP SPACING (reduce more if needed) */
-    padding-top: 84px;
-
-    /* 🔹 MOBILE BOTTOM SPACING (reduce more if needed) */
+    padding-top: 70px;
     padding-bottom: 60px;
   }
 
   .our-story-wrapper {
-
-    /* 🔹 MOBILE SIDE SPACING (increase/decrease here) */
     padding-left: 24px;
     padding-right: 24px;
   }
 
   .our-story-heading {
-    font-size: 36px; /* 🔹 Mobile heading size */
-    margin-bottom: 22px;
+    font-size: 36px;
+    margin-bottom: 20px;
   }
 
   .our-story-subheading {
     font-size: 14px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
   .our-story-description {
@@ -117,10 +103,9 @@
   }
 }
 
-/* Small phones */
 @media (max-width: 480px) {
   .our-story-heading {
-    font-size: 30px; /* 🔹 Small phone heading */
+    font-size: 30px;
   }
 
   .our-story-description {

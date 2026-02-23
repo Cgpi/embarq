@@ -65,11 +65,13 @@
 
 @media (max-width: 768px) {
   .expwr-inner {
-    align-items: flex-end; /* 🔥 text lower like your screenshot */
+    align-items: center; /* 🔥 vertical center */
+    justify-content: center; /* (optional but safer) */
   }
 
   .expwr-content {
     padding: 24px;
+    text-align: left; /* or center if you want */
   }
 
   .expwr-heading {
