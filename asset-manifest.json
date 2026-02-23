@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/embarq/static/css/main.3f0e2a87.css",
-    "main.js": "/embarq/static/js/main.f59f5324.js",
+    "main.css": "/embarq/static/css/main.0bd6fe98.css",
+    "main.js": "/embarq/static/js/main.0d69327c.js",
     "static/media/whyroads.png": "/embarq/static/media/whyroads.df2f985cbbbb1f78c715.png",
     "static/media/hero.mp4": "/embarq/static/media/hero.859908dc9f1a3412998d.mp4",
     "static/media/georgia.png": "/embarq/static/media/georgia.0a658cbbb0674a2dd69d.png",
@@ -23,13 +23,15 @@
     "static/media/Balkans.png": "/embarq/static/media/Balkans.459dd9d0a21af20f1e6d.png",
     "static/media/10.png": "/embarq/static/media/10.e4ef24fd832fc4879b2f.png",
     "static/media/8.png": "/embarq/static/media/8.e4ef24fd832fc4879b2f.png",
+    "static/media/japan.jpg": "/embarq/static/media/japan.1f5ff068cf1a56a47df5.jpg",
     "static/media/excar2.jpg": "/embarq/static/media/excar2.00990f3ddb2a3105f3fd.jpg",
     "static/media/IndiaSpain.png": "/embarq/static/media/IndiaSpain.72d2c2d135c8c1746f3b.png",
     "static/media/Gift-1.png": "/embarq/static/media/Gift-1.7de9a6ea04aefb63407d.png",
+    "static/media/scotland.jpg": "/embarq/static/media/scotland.ca3aa026e69337672771.jpg",
     "static/media/excar1.png": "/embarq/static/media/excar1.fa4ca6fe434ea00cfdf9.png",
+    "static/media/finland.jpg": "/embarq/static/media/finland.7133f84418c54f6b1a54.jpg",
     "static/media/FormImage.png": "/embarq/static/media/FormImage.b988707002d15cd9011b.png",
     "static/media/g9.jpg": "/embarq/static/media/g9.079d3b47dff70553c157.jpg",
-    "static/media/car4.png": "/embarq/static/media/car4.715a773617a6f35d7127.png",
     "static/media/Archana Singh.jpg": "/embarq/static/media/Archana Singh.93a0d73640510e6cec75.jpg",
     "static/media/Gift-Hero.webp": "/embarq/static/media/Gift-Hero.b80117529218807c46f7.webp",
     "static/media/3.png": "/embarq/static/media/3.e11dea0f5293aa919f4e.png",
@@ -45,6 +47,7 @@
     "static/media/g1.jpg": "/embarq/static/media/g1.8c90490c5aae756a7282.jpg",
     "static/media/logo.png": "/embarq/static/media/logo.0f48839fc0182cd5cbe3.png",
     "static/media/member1.png": "/embarq/static/media/member1.52a90e9e280d796a28c9.png",
+    "static/media/hero_optimized.png": "/embarq/static/media/hero_optimized.6c48dec62894b35d43ce.png",
     "static/media/memeber2.png": "/embarq/static/media/memeber2.f4504eabe3498dca35aa.png",
     "static/media/founder1.jpg": "/embarq/static/media/founder1.f637de228fbf31f26d26.jpg",
     "static/media/14.jpg": "/embarq/static/media/14.f297939a96c9703d05f5.jpg",
@@ -53,6 +56,7 @@
     "static/media/1.jpg": "/embarq/static/media/1.1b6d7af495d95e381343.jpg",
     "static/media/2.jpg": "/embarq/static/media/2.45820a6ede0ee2f6e518.jpg",
     "static/media/faqbg.jpg": "/embarq/static/media/faqbg.45820a6ede0ee2f6e518.jpg",
+    "static/media/routeverticle.png": "/embarq/static/media/routeverticle.1c19331cc4838d4ec93e.png",
     "static/media/4.jpg": "/embarq/static/media/4.07da0cb5548d62af4b2b.jpg",
     "static/media/7.jpg": "/embarq/static/media/7.d24b2d046e097a905772.jpg",
     "static/media/9.jpg": "/embarq/static/media/9.d24b2d046e097a905772.jpg",
@@ -70,12 +74,13 @@
     "static/media/blog2.jpg": "/embarq/static/media/blog2.6ff9b5a53d7ee67c2f70.jpg",
     "static/media/fraunces-vietnamese-wght-normal.woff2": "/embarq/static/media/fraunces-vietnamese-wght-normal.c53893a52fe93c11cf60.woff2",
     "static/media/expbgtorn.svg": "/embarq/static/media/expbgtorn.24609a6efc38d68c5d1da9d4d00465c8.svg",
+    "static/media/womanicon.svg": "/embarq/static/media/womanicon.bba68430e2e8b5234f37e0fb165cc0c6.svg",
     "index.html": "/embarq/index.html",
-    "main.3f0e2a87.css.map": "/embarq/static/css/main.3f0e2a87.css.map",
-    "main.f59f5324.js.map": "/embarq/static/js/main.f59f5324.js.map"
+    "main.0bd6fe98.css.map": "/embarq/static/css/main.0bd6fe98.css.map",
+    "main.0d69327c.js.map": "/embarq/static/js/main.0d69327c.js.map"
   },
   "entrypoints": [
-    "static/css/main.3f0e2a87.css",
-    "static/js/main.f59f5324.js"
+    "static/css/main.0bd6fe98.css",
+    "static/js/main.0d69327c.js"
   ]
 }
