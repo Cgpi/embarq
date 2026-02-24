@@ -10,7 +10,7 @@ import FAQ from "../pages/FAQ";
 import Blog from "../pages/blog";
 
 
-import Expedition from "../pages/expedition";
+import Expedition from "../pages/Expeditions/expedition";
 
 
 function AppRoutes() {

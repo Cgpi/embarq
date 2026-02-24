@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import "./Leadership.css";
-import founder1 from "../../assets/aboutimages/founder1.jpg";
-import founder2 from "../../assets/aboutimages/founder2.jpg";
+import founder1 from "../../assets/aboutimages/Medhajoseph.jpg";
+import founder2 from "../../assets/aboutimages/sujal.jpg";
 
 /* ===== ANIMATION VARIANTS ===== */
 

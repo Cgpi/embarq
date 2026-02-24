@@ -3,9 +3,9 @@
 /* ============================= */
 
 .our-story {
-  background: #ffffff;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  background: #FCF7E3;
+  padding-top: 20px;
+  padding-bottom: 30px;
 }
 
 /* Wrapper */
@@ -24,7 +24,7 @@
   font-family: "Fraunces", serif;
   font-size: 72px;
   font-weight: 600;
-  color: #3f3f3f;
+  color: #F6A61D;
   line-height: 1.05;
   margin-bottom: 28px;
 
@@ -39,7 +39,7 @@
   font-family: "Roboto Flex", sans-serif;
   font-size: 15px;
   font-style: italic;
-  color: #6a6a6a;
+  color: #5A5A5C;
   margin-bottom: 24px;
 }
 
@@ -51,8 +51,9 @@
   font-family: "Roboto Flex", sans-serif;
   font-size: 18px;
   line-height: 1.9;
-  color: #555555;
-  max-width: 1000px;
+  /* color: #555555; */
+  color: #5A5A5C;
+  max-width: 1400px;
 
   transition: color 0.4s ease;
 }

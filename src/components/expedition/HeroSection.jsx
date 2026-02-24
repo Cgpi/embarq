@@ -1,7 +1,7 @@
 import "./HeroSection.css";
 import heroImage from "../../assets/expedition/expbg.jpg";
 import mapImage from "../../assets/expedition/Vector.png";
-import tornImage from "../../assets/expedition/expbgtorn.svg";
+import tornImage from "../../assets/svg/torn.svg";
 
 function HeroSection() {
   return (

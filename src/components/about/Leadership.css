@@ -1,7 +1,7 @@
 /* ===== SECTION WRAPPER ===== */
 .leadership {
   padding: 1rem 15%;           /* Top-bottom spacing + left-right breathing */
-  background-color: #f3f3f1;     /* Light grey like Figma */
+  background-color: #FCF7E3;     /* Light grey like Figma */
   margin: 0; 
 }
 
@@ -11,7 +11,7 @@
   font-family: "Fraunces", serif;
 
   font-size: 4.25rem;     /* 68px converted to rem */
-  color: #4a4a4a;
+  color: #F6A61D;       /* Golden orange like Figma */
 
   margin-bottom: 6rem;
 

@@ -122,3 +122,26 @@
     letter-spacing: 2px;
   }
 }
+
+/* ============================== */
+/* TORN BOTTOM EFFECT */
+/* ============================== */
+
+.torn-wrapper {
+  position: absolute;
+  bottom: -1px; /* slight overlap fix */
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.torn-wrapper img {
+  width: 100%;
+  height: auto;
+
+  /* 🔥 KEY PART */
+  transform: translateY(90%); 
+  /* pushes SVG down so only top torn edge is visible */
+}

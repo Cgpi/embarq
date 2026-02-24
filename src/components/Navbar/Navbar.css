@@ -7,6 +7,9 @@
   top: 0;
   width: 100%;
   z-index: 50;
+
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
   transition: 
     background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     backdrop-filter 0.4s ease,
@@ -18,8 +21,8 @@
 /* ============================= */
 
 .navbar.scrolled {
-  background: rgba(10, 10, 10, 0.96);
-  backdrop-filter: blur(18px);
+  background: rgba(0, 0, 0, 0.65);
+  /* backdrop-filter: blur(20px); */
   box-shadow: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -248,4 +251,29 @@
     border: none !important;
   }
 
+}
+
+/* call now button */
+.call-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  background: transparent;
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 0.6rem 1.4rem;
+  border-radius: 2rem;
+
+  font-family: "Roboto Flex";
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.call-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
 }

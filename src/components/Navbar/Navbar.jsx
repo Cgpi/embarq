@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
-import { Plane, Menu, X } from "lucide-react";
+import { Plane, Menu, X,PhoneCall } from "lucide-react";
 import EnquiryPopup from "../../pages/EnquiryPopup";
 
 function Navbar() {
@@ -88,6 +88,11 @@ function Navbar() {
             <Link to="/testimonials">In the Media</Link>
           </nav>
 
+          <button className="call-btn">
+  <PhoneCall size={16} />
+  Call
+</button>
+
           <button className="book-btn" onClick={handleOpenEnquiry}>
             <Plane size={16} />
             Book a Trip
@@ -112,6 +117,11 @@ function Navbar() {
         <Link to="/gallery" onClick={closeMenu}>In the Media</Link>
         <Link to="/faq" onClick={closeMenu}>FAQ</Link>
         <Link to="/blog" onClick={closeMenu}>Blog</Link>
+
+         <button className="call-btn">
+  <PhoneCall size={16} />
+  Call
+</button>
 
         <button className="book-btn" onClick={handleOpenEnquiry}>
           <Plane size={16} />

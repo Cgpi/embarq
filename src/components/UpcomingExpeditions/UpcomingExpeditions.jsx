@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const expeditions = [
   {
-    title: "Kutch to Kibithoo",
+    title: "KUTCH TO KIBITHOO",
     subtitle: "Salt flats to North eastern mountains",
     date: "18–28 December, 2026",
     image: slide1,
