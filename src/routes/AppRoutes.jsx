@@ -26,7 +26,7 @@ function AppRoutes() {
      
      
       <Route path="/testimonials" element={<Testimonials />} />
-      <Route path="/expedition" element={<Expedition />} />
+      <Route path="/expedition/:slug" element={<Expedition />} />
     </Routes>
   );
 }

@@ -190,22 +190,42 @@
 /* TORN EFFECT (IMAGE VERSION)  */
 /* ============================= */
 
-.exp-hero-torn {
+.exp-hero {
+  position: relative; /* IMPORTANT */
+}
+
+.exp-hero-torn-wrapper {
   position: absolute;
-  bottom: -1200px; /* removes gap */
+  bottom: -1px;
   left: 0;
   width: 100%;
-  z-index: 5;
-  pointer-events: none;
+  overflow: hidden;
   line-height: 0;
+  pointer-events: none;
+  z-index: 5;
 }
 
-.exp-hero-torn img {
+.exp-hero-torn-wrapper img {
   width: 100%;
   height: auto;
-  display: block;
+
+  /* same trick */
+  transform: translateY(93%);
 }
 
+/* Tablet */
+@media (max-width: 1024px) {
+  .exp-hero-torn-wrapper img {
+    transform: translateY(88%);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .exp-hero-torn-wrapper img {
+    transform: translateY(85%);
+  }
+}
 
 /* ============================= */
 /* RESPONSIVE */
@@ -235,4 +255,16 @@
   .exp-hero-pill {
     display: none;
   }
+}
+
+/* woman icon svg */
+.exp-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge-icon {
+  width: 15px;
+  height: 15px;
 }

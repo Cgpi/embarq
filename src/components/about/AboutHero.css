@@ -142,6 +142,19 @@
   height: auto;
 
   /* 🔥 KEY PART */
-  transform: translateY(90%); 
+  transform: translateY(93%); 
   /* pushes SVG down so only top torn edge is visible */
+}
+/* Tablet */
+@media (max-width: 1024px) {
+  .torn-wrapper img {
+    transform: translateY(88%);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .torn-wrapper img {
+    transform: translateY(85%);
+  }
 }

@@ -1,6 +1,6 @@
 import "./AboutTrip.css";
 
-function AboutTrip() {
+function AboutTrip({ data }) {
   return (
     <section className="about-trip">
       <div className="about-container">
@@ -10,41 +10,34 @@ function AboutTrip() {
           <div className="about-column">
             <div className="about-item">
               <h3>Destination</h3>
-              <p>Georgia</p>
+              <p>{data.destination}</p>
             </div>
 
             <div className="about-item">
               <h3>Duration</h3>
-              <p>8 Days / 7 Nights</p>
+              <p>{data.duration}</p>
             </div>
 
             <div className="about-item">
               <h3>Trip Cost</h3>
-              <p>
-                USD 4,000.00 per person
-                <span className="cost-note">
-                  (Considering 2 people in 1 car and stay on twin sharing)
-                </span>
-              </p>
+              <p>{data.cost}</p>
             </div>
           </div>
 
           <div className="about-column">
             <div className="about-item">
               <h3>Travel Dates</h3>
-              <p>
-                8<sup>th</sup> August to 16<sup>th</sup> August, 2026
-              </p>
+              <p>{data.travelDates}</p>
             </div>
 
             <div className="about-item">
               <h3>Vehicle</h3>
-              <p>Self-Drive 4x4 SUV</p>
+              <p>{data.vehicle}</p>
             </div>
 
             <div className="about-item">
               <h3>Driving Distance</h3>
-              <p>Approx. 1,845 km</p>
+              <p>{data.distance}</p>
             </div>
           </div>
         </div>

@@ -32,6 +32,7 @@
 /* Reverse layout for second founder */
 .leader-block.reverse {
   flex-direction: row-reverse;
+  margin-bottom: 3rem; 
 }
 
 /* ===== IMAGE WRAPPER ===== */
@@ -103,6 +104,7 @@
 
   .leader-block.reverse {
     flex-direction: column;      /* Remove reverse on mobile */
+    margin-bottom: 0.5rem; 
   }
 
   .leader-image,

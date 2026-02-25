@@ -61,17 +61,12 @@ const itineraryData = [
       "Last-minute shopping and farewell dinner before your journey home.",
   },
 ];
-
-function Itinerary() {
+function Itinerary({ data }) {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
 
   const contentRef = useRef(null);
   const progressBarRef = useRef(null);
-
-  /* ============================= */
-  /* SCROLL SYNC                   */
-  /* ============================= */
 
   const handleScroll = () => {
     if (!contentRef.current) return;
@@ -79,33 +74,23 @@ function Itinerary() {
     const { scrollTop, scrollHeight, clientHeight } = contentRef.current;
     const maxScroll = scrollHeight - clientHeight;
 
-    const progress =
-      maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
-
-    const percentage = Math.min(progress, 100);
-
-    setScrollProgress(percentage);
+    const progress = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+    setScrollProgress(Math.min(progress, 100));
   };
-
-  /* ============================= */
-  /* DRAG CAR (MOUSE + TOUCH)     */
-  /* ============================= */
 
   const updatePosition = (clientX) => {
     if (!progressBarRef.current || !contentRef.current) return;
 
     const rect = progressBarRef.current.getBoundingClientRect();
-    const x = clientX - rect.left;
     const percentage = Math.max(
       0,
-      Math.min(100, (x / rect.width) * 100)
+      Math.min(100, ((clientX - rect.left) / rect.width) * 100)
     );
 
     const { scrollHeight, clientHeight } = contentRef.current;
     const maxScroll = scrollHeight - clientHeight;
-    const scrollTo = (percentage / 100) * maxScroll;
 
-    contentRef.current.scrollTop = scrollTo;
+    contentRef.current.scrollTop = (percentage / 100) * maxScroll;
     setScrollProgress(percentage);
   };
 
@@ -121,28 +106,23 @@ function Itinerary() {
   };
 
   useEffect(() => {
-    const handleMove = (e) => {
+    const move = (e) => {
       if (!isDragging) return;
-
-      if (e.type === "mousemove") {
-        updatePosition(e.clientX);
-      } else if (e.type === "touchmove") {
-        updatePosition(e.touches[0].clientX);
-      }
+      updatePosition(e.type === "mousemove" ? e.clientX : e.touches[0].clientX);
     };
 
-    const handleUp = () => setIsDragging(false);
+    const up = () => setIsDragging(false);
 
-    document.addEventListener("mousemove", handleMove);
-    document.addEventListener("mouseup", handleUp);
-    document.addEventListener("touchmove", handleMove);
-    document.addEventListener("touchend", handleUp);
+    document.addEventListener("mousemove", move);
+    document.addEventListener("mouseup", up);
+    document.addEventListener("touchmove", move);
+    document.addEventListener("touchend", up);
 
     return () => {
-      document.removeEventListener("mousemove", handleMove);
-      document.removeEventListener("mouseup", handleUp);
-      document.removeEventListener("touchmove", handleMove);
-      document.removeEventListener("touchend", handleUp);
+      document.removeEventListener("mousemove", move);
+      document.removeEventListener("mouseup", up);
+      document.removeEventListener("touchmove", move);
+      document.removeEventListener("touchend", up);
     };
   }, [isDragging]);
 
@@ -151,10 +131,7 @@ function Itinerary() {
       <div className="exp-itinerary-container">
         <h2 className="exp-itinerary-title">Itinerary</h2>
 
-        {/* LAYOUT WRAPPER */}
         <div className="exp-itinerary-layout">
-
-          {/* LEFT PROGRESS BAR */}
           <div className="exp-itinerary-left-bar">
             <div
               className="exp-itinerary-left-progress"
@@ -162,13 +139,12 @@ function Itinerary() {
             />
           </div>
 
-          {/* SCROLLABLE CONTENT */}
           <div
             ref={contentRef}
             onScroll={handleScroll}
             className="exp-itinerary-scroll"
           >
-            {itineraryData.map((day) => (
+            {data.map((day) => (
               <div key={day.day} className="exp-itinerary-item">
                 <div className="exp-itinerary-day-badge">
                   DAY {day.day}
@@ -188,12 +164,8 @@ function Itinerary() {
           </div>
         </div>
 
-        {/* ROAD SECTION */}
         <div className="exp-itinerary-progress-wrapper">
-          <div
-            ref={progressBarRef}
-            className="exp-itinerary-progress-bar"
-          >
+          <div ref={progressBarRef} className="exp-itinerary-progress-bar">
             <img
               src={scrollCar}
               alt="car"
@@ -209,5 +181,4 @@ function Itinerary() {
     </section>
   );
 }
-
 export default Itinerary;

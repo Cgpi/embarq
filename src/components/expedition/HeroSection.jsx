@@ -2,62 +2,42 @@ import "./HeroSection.css";
 import heroImage from "../../assets/expedition/expbg.jpg";
 import mapImage from "../../assets/expedition/Vector.png";
 import tornImage from "../../assets/svg/torn.svg";
-
-function HeroSection() {
+import womanIcon from "../../assets/svg/womanicon.svg";
+function HeroSection({ data }) {
   return (
     <section className="exp-hero">
-
-      {/* Background */}
       <div className="exp-hero-bg">
-        <img src={heroImage} alt="Georgia landscape" />
+        <img src={data.bgImage} alt={data.title} />
         <div className="exp-hero-overlay"></div>
       </div>
 
-      {/* Left Vertical Pill */}
-      <div className="exp-hero-pill">
+      {/* <div className="exp-hero-pill">
         <span>Expedition</span>
-      </div>
+      </div> */}
 
-      {/* Content */}
       <div className="exp-hero-content">
+        {/* <img src={data.mapImage} alt="" className="exp-hero-map" /> */}
 
-        <img
-          src={mapImage}
-          alt="Georgia map"
-          className="exp-hero-map"
-        />
-
-        <h1 className="exp-hero-heading">Georgia</h1>
+        <h1 className="exp-hero-heading">{data.title}</h1>
 
         <div className="exp-hero-card">
-          <h2 className="exp-hero-subheading">
-            A Self-Drive Expedition
-          </h2>
+          <h2 className="exp-hero-subheading">{data.subtitle}</h2>
 
           <div className="exp-hero-badge">
-            👩‍👩‍👧 All Women
-          </div>
+  <img src={womanIcon} alt="women icon" className="badge-icon" />
+  <span>{data.badge}</span>
+</div>
 
           <div className="exp-hero-text">
             <h3>Trip Overview:</h3>
-            <p>
-              A premium all-women self-drive road expedition through Georgia,
-              covering historic cities, wine regions, dramatic mountain passes,
-              alpine terrain, lush canyons, coastal landscapes, and mineral-rich
-              valleys. The journey blends scenic driving, cultural immersion,
-              and convoy-supported self-drive freedom, curated and led by the
-              Embark co-founder.
-            </p>
+            <p>{data.description}</p>
           </div>
         </div>
-
       </div>
 
-      {/* Torn Bottom */}
-      <div className="exp-hero-torn">
-        <img src={tornImage} alt="Torn effect" />
-      </div>
-
+      <div className="exp-hero-torn-wrapper">
+  <img src={tornImage} alt="torn edge" />
+</div>
     </section>
   );
 }

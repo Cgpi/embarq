@@ -2,14 +2,15 @@ html {
   font-size: 16px;
 }
 
+/* Section */
 .stats {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 5rem 8%;
-  background: #fcf7e3;
+  background: #ffffff; /* 🔥 changed to white */
   text-align: center;
-  gap: 3rem;
+  gap: 4rem;
 }
 
 /* Individual stat */
@@ -17,29 +18,31 @@ html {
   flex: 1;
 }
 
+/* Numbers */
 .stat-item h3 {
-  font-size: 3rem;
-  font-family: "Poppins", serif;
-  margin-bottom: 0.8rem;
+  font-size: 3.5rem;
+  font-family: "Fraunces", serif; /* 🔥 changed */
+  margin-bottom: 0.6rem;
   color: #111;
-  font-weight: 500;
+  font-weight: 600;
 }
 
+/* Text */
 .stat-item p {
   font-size: 1rem;
-  font-family: "Roboto Flex", sans-serif;
-  color: #333;
+  font-family: "Roboto Flex", sans-serif; /* 🔥 changed */
+  color: #555;
 }
 
 /* Divider lines */
 .divider {
-  width: 1px;
-  height: 5rem;
-  background-color: rgba(0, 0, 0, 0.2);
+  width: 2px; /* 🔥 thicker */
+  height: 5.5rem;
+  background-color: rgba(0, 0, 0, 0.35); /* 🔥 darker */
 }
 
 /* ========================= */
-/* MOBILE RESPONSIVE */
+/* MOBILE */
 /* ========================= */
 
 @media (max-width: 768px) {

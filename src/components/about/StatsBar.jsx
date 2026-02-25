@@ -18,12 +18,10 @@ function Counter({ target, duration = 2000, suffix = "+" }) {
     );
 
     if (ref.current) observer.observe(ref.current);
-
     return () => observer.disconnect();
   }, []);
 
   const animateCount = () => {
-    let start = 0;
     const startTime = performance.now();
 
     const update = (currentTime) => {
@@ -32,9 +30,7 @@ function Counter({ target, duration = 2000, suffix = "+" }) {
       const value = Math.floor(easeOut * target);
       setCount(value);
 
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      }
+      if (progress < 1) requestAnimationFrame(update);
     };
 
     requestAnimationFrame(update);
@@ -67,7 +63,7 @@ function StatsBar() {
 
       <div className="stat-item">
         <Counter target={1000} />
-        <p>Happy Customer's</p>
+        <p>Happy Customers</p>
       </div>
     </section>
   );
