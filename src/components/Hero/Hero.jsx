@@ -2,7 +2,8 @@ import { useLayoutEffect, useRef } from "react";
 import "./Hero.css";
 
 import carDesktop from "../../assets/images/car1.png";
-import carMobile from "../../assets/images/car4.png";
+// import carMobile from "../../assets/images/car4.png";
+import carMobile from "../../assets/images/hero_optimized.png";
 import roadVideo from "../../assets/video/hero.mp4";
 
 import { Globe, Car, Map, Users } from "lucide-react";

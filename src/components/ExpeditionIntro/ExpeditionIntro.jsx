@@ -1,119 +1,164 @@
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import "./ExpeditionIntro.css";
-
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import bgImage from "../../assets/images/expbg.jpg";
 import expcar1 from "../../assets/images/excar1.png";
 import expcar2 from "../../assets/images/excar2.jpg";
 
-gsap.registerPlugin(ScrollTrigger);
+// TEXT STAGGER CONTAINER
+const container = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.25,
+    },
+  },
+};
 
+// TEXT ANIMATION
+const fadeLeft = {
+  hidden: {
+    x: -80,
+    opacity: 0,
+    filter: "blur(6px)",   // 👈 add this
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    filter: "blur(0px)",   // 👈 smooth clarity effect
+    transition: {
+      duration: 1.4,       // 👈 slower (was 0.8)
+      ease: [0.22, 1, 0.36, 1], // 👈 premium easing
+    },
+  },
+};
+
+// EDGE LABEL
+const edgeAnim = {
+  hidden: {
+    x: -60,
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
+// BIG CARD
+const bigCardAnim = {
+  hidden: {
+    x: -60,
+    opacity: 0,
+    scale: 0.95,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.9,
+      ease: "easeOut",
+    },
+  },
+};
+
+// SMALL CARD
+const smallCardAnim = {
+  hidden: {
+    x: 120,
+    y: 120,
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.9,
+      ease: "easeOut",
+    },
+  },
+};
 export default function ExpeditionIntro() {
-  const sectionRef = useRef(null);
-  const textRef = useRef(null);
-  const bigCardRef = useRef(null);
-  const smallCardRef = useRef(null);
-  const edgeRef = useRef(null);
-
-useEffect(() => {
-  const ctx = gsap.context(() => {
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 80%",
-        end: "top 20%",
-        scrub: 1.2,
-      }
-    });
-
-    tl.fromTo(
-      edgeRef.current,
-      { x: -80, opacity: 0 },
-      { x: 0, opacity: 1, ease: "power2.out" },
-      0
-    );
-
-    tl.fromTo(
-      textRef.current,
-      { x: -100, opacity: 0 },
-      { x: 0, opacity: 1, ease: "power2.out" },
-      0.1
-    );
-
-    tl.fromTo(
-      bigCardRef.current,
-      { x: -60, opacity: 0, scale: 0.95 },
-      { x: 0, opacity: 1, scale: 1, ease: "power2.out" },
-      0.2
-    );
-
-    tl.fromTo(
-      smallCardRef.current,
-      { x: 120, y: 120, opacity: 0 },
-      { x: 0, y: 0, opacity: 1, ease: "power2.out" },
-      0.25
-    );
-
-  }, sectionRef);
-
-  return () => ctx.revert();   // ✅ Only this. Nothing else.
-}, []);
-
-
-
   return (
     <section
-      ref={sectionRef}
       className="expedition-intro"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="bg-overlay" />
 
-      <div ref={edgeRef} className="edge-label">
+      {/* EDGE LABEL */}
+      <motion.div
+        className="edge-label"
+        variants={edgeAnim}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
+      >
         <span>We are Embarq</span>
-      </div>
+      </motion.div>
 
       <div className="expedition-content">
 
-        <div ref={textRef} className="expedition-text">
-          <h2>Where Your Great Expedition Begins</h2>
+        {/* TEXT */}
+        <motion.div
+          className="expedition-text"
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.7 }}
+        >
+          <motion.h2 variants={fadeLeft}>
+            Where Your Great Expedition Begins
+          </motion.h2>
 
-          <p>
+          <motion.p variants={fadeLeft}>
             We are a luxury travel company focusing on road expeditions.
             We organize self-drive tours in the most incredible places on earth.
-          </p>
+          </motion.p>
 
-          <p>
+          <motion.p variants={fadeLeft}>
             Our experiences are exclusive and unforgettable. Our routes are handcrafted
             and full of adventure. Our vehicles are premium and luxurious.
-          </p>
+          </motion.p>
 
-          <p>
+          <motion.p variants={fadeLeft}>
             EMBARQ your holidays exploring various countries and their culture
             on our fully guided road expedition.
-          </p>
+          </motion.p>
 
-          <p className="signature">Let the road overtake…</p>
-        </div>
+          <motion.p variants={fadeLeft} className="signature">
+            Let the road overtake…
+          </motion.p>
+        </motion.div>
 
+        {/* CAR CARDS */}
         <div className="expedition-cards">
 
-          <div
-            ref={bigCardRef}
+          <motion.div
             className="expedition-card big-card"
+            variants={bigCardAnim}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
           >
             <img src={expcar1} alt="" />
-          </div>
+          </motion.div>
 
-          <div
-            ref={smallCardRef}
+          <motion.div
             className="expedition-card small-card"
+            variants={smallCardAnim}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
           >
             <img src={expcar2} alt="" />
-          </div>
+          </motion.div>
 
         </div>
       </div>

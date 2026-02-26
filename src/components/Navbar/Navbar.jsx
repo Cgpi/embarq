@@ -2,24 +2,38 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
-import { Plane, Menu, X } from "lucide-react";
+import { Plane, Menu, X, PhoneCall } from "lucide-react";
 import EnquiryPopup from "../../pages/EnquiryPopup";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [enquiryOpen, setEnquiryOpen] = useState(false);
+
   const menuRef = useRef(null);
   const location = useLocation();
 
   const closeMenu = () => setOpen(false);
-  const [enquiryOpen, setEnquiryOpen] = useState(false);
+
   const handleOpenEnquiry = () => {
     setEnquiryOpen(true);
-    setOpen(false); // close mobile menu if open
+    setOpen(false);
   };
 
   const handleCloseEnquiry = () => {
     setEnquiryOpen(false);
   };
+
+  // ✅ SCROLL DETECTION
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 60);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   // Close on ESC
   useEffect(() => {
     const handler = (e) => {
@@ -55,7 +69,7 @@ function Navbar() {
   }, [location]);
 
   return (
-    <header className="navbar">
+    <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
         {/* LOGO */}
         <div className="nav-left">
@@ -72,9 +86,12 @@ function Navbar() {
             <Link to="/stories">Travel Stories</Link>
             <Link to="/testimonials">Testimonials</Link>
             <Link to="/media">In the Media</Link>
-            <Link to="/faq">FAQ</Link>
-            <Link to="/blog">Blog</Link>
           </nav>
+
+          <button className="call-btn">
+            <PhoneCall size={16} />
+            Call
+          </button>
 
           <button className="book-btn" onClick={handleOpenEnquiry}>
             <Plane size={16} />
@@ -96,23 +113,6 @@ function Navbar() {
         <Link to="/about" onClick={closeMenu}>
           About
         </Link>
-        <Link to="/expeditions" onClick={closeMenu}>
-          Expeditions
-        </Link>
-        <Link to="/stories" onClick={closeMenu}>
-          Travel Stories
-        </Link>
-        <Link to="/testimonials" onClick={closeMenu}>
-          Testimonials
-        </Link>
-        <Link to="/media" onClick={closeMenu}>
-          In the Media
-        </Link>
-      </div>
-      <div ref={menuRef} className={`mobile-menu ${open ? "show" : ""}`}>
-        <Link to="/about" onClick={closeMenu}>
-          About
-        </Link>
         <Link to="/expedition" onClick={closeMenu}>
           Expeditions
         </Link>
@@ -125,20 +125,24 @@ function Navbar() {
         <Link to="/media" onClick={closeMenu}>
           In the Media
         </Link>
-
         <Link to="/faq" onClick={closeMenu}>
           FAQ
         </Link>
-
         <Link to="/blog" onClick={closeMenu}>
           Blog
         </Link>
+
+        <button className="call-btn">
+          <PhoneCall size={16} />
+          Call
+        </button>
 
         <button className="book-btn" onClick={handleOpenEnquiry}>
           <Plane size={16} />
           Book a Trip
         </button>
       </div>
+
       <EnquiryPopup open={enquiryOpen} handleClose={handleCloseEnquiry} />
     </header>
   );

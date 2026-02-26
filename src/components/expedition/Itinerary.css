@@ -4,50 +4,95 @@
 }
 
 .exp-itinerary-container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
 }
+
+/* ============================= */
+/* TITLE */
+/* ============================= */
 
 .exp-itinerary-title {
   font-family: "Fraunces", serif;
   font-size: 56px;
   font-weight: 700;
   color: #f6b43f;
-  margin-bottom: 60px;
-}
-
-.exp-itinerary-scroll {
-  height: 400px;
-  overflow-y: auto;
-  padding-right: 20px;
-  margin-bottom: 40px;
-}
-
-.exp-itinerary-item {
-  position: relative;
-  padding-left: 40px;
-  border-left: 4px solid #f6b43f;
   margin-bottom: 50px;
 }
 
-.exp-itinerary-day-badge {
+/* ============================= */
+/* LAYOUT WRAPPER */
+/* ============================= */
+
+.exp-itinerary-layout {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* ============================= */
+/* LEFT FIXED PROGRESS BAR */
+/* ============================= */
+
+.exp-itinerary-left-bar {
+  position: relative;
+  width: 3px;
+  height: 420px;
+  background: #d1d5db;
+  border-radius: 10px;
+  margin-right: 40px;
+  flex-shrink: 0;
+}
+
+.exp-itinerary-left-progress {
   position: absolute;
-  left: -18px;
   top: 0;
+  left: 0;
+  width: 100%;
+  background: #f6b43f;
+  border-radius: 10px;
+  transition: height 0.15s linear;
+}
+
+/* ============================= */
+/* SCROLL CONTENT */
+/* ============================= */
+
+.exp-itinerary-scroll {
+  height: 420px;
+  overflow-y: auto;
+  padding-right: 20px;
+  flex: 1;
+
+  scrollbar-width: none;
+}
+
+.exp-itinerary-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================= */
+/* ITINERARY ITEMS */
+/* ============================= */
+
+.exp-itinerary-item {
+  margin-bottom: 50px; /* reduced spacing */
+  max-width: 650px; /* reduce content width like figma */
+}
+
+.exp-itinerary-day-badge {
+  display: inline-block;
   background: #4b5563;
   color: white;
-  padding: 6px 14px;
+  padding: 6px 18px;
   border-radius: 50px;
   font-size: 12px;
   font-weight: bold;
-}
-
-.exp-itinerary-content {
-  padding-top: 40px;
+  margin-bottom: 16px;
 }
 
 .exp-itinerary-content h3 {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   color: #111827;
   margin-bottom: 10px;
@@ -55,51 +100,101 @@
 
 .exp-itinerary-description {
   color: #1f2937;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .exp-itinerary-details {
   color: #374151;
-  font-size: 14px;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
+/* ============================= */
+/* ROAD SECTION */
+/* ============================= */
+
 .exp-itinerary-progress-wrapper {
-  padding-top: 30px;
+  padding-top: 50px;
 }
 
 .exp-itinerary-progress-bar {
   position: relative;
-  height: 8px;
-  background: #d1d5db;
+  height: 14px;
   border-radius: 50px;
-  cursor: pointer;
+  background: linear-gradient(to right, #2f2f2f, #444);
+  margin: 0 60px;
 }
 
-.exp-itinerary-progress-fill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background: #374151;
-  border-radius: 50px;
-  transition: width 0.2s ease;
-}
-
-.exp-itinerary-progress-car {
+/* Road stripes */
+.exp-itinerary-progress-bar::after {
+  content: "";
   position: absolute;
   top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 26px;
-  cursor: grab;
-  transition: left 0.2s ease;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: repeating-linear-gradient(
+    to right,
+    #fff 0px,
+    #fff 18px,
+    transparent 18px,
+    transparent 36px
+  );
+  transform: translateY(-50%);
+  opacity: 0.4;
 }
 
+/* Car above road */
+.exp-itinerary-progress-car {
+  position: absolute;
+  top: -28px;
+  transform: translateX(-50%);
+  height: 60px;
+  width: auto;
+  cursor: grab;
+  user-select: none;
+  transition: left 0.1s linear;
+  z-index: 5;
+  filter: drop-shadow(0 10px 12px rgba(0,0,0,0.35));
+}
+
+.exp-itinerary-progress-car:active {
+  cursor: grabbing;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
 @media (max-width: 768px) {
+
   .exp-itinerary-title {
     font-size: 38px;
   }
 
+  .exp-itinerary-layout {
+    gap: 20px;
+  }
+
+  .exp-itinerary-left-bar {
+    height: 320px;
+    margin-right: 20px;
+  }
+
   .exp-itinerary-scroll {
-    height: 300px;
+    height: 320px;
+  }
+
+  .exp-itinerary-item {
+    max-width: 100%;
+  }
+
+  .exp-itinerary-progress-bar {
+    margin: 0 25px;
+  }
+
+  .exp-itinerary-progress-car {
+    height: 45px;
+    top: -20px;
   }
 }

@@ -1,73 +1,85 @@
-.whyroads {
+/* ============================= */
+/* WHY ROADS PREMIUM            */
+/* ============================= */
+
+.expwr-section {
   position: relative;
   height: 100vh;
   width: 100%;
   overflow: hidden;
-  scroll-snap-align: start;
 }
 
 /* Background */
-.whyroads-bg {
+.expwr-bg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 1;
 }
 
 /* Overlay */
-.whyroads-overlay {
+.expwr-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.28);
-  z-index: 2;
+  background: rgba(0, 0, 0, 0.35);
 }
 
-/* Centers content vertically */
-.whyroads-inner {
+/* Layout */
+.expwr-inner {
   position: relative;
-  z-index: 3;
+  z-index: 2;
   height: 100%;
   display: flex;
   align-items: center;
 }
 
-/* Text block */
-.whyroads-content {
-  max-width: 760px;
-  padding-left: 8vw;
-  color: #fff;
+/* Content */
+.expwr-content {
+  max-width: 720px;
+  padding-left: 6vw;
+  color: #ffffff;
 }
 
-/* Fonts */
-.whyroads-content h1 {
+/* Heading */
+.expwr-heading {
   font-family: "Fraunces", serif;
-  font-size: clamp(36px, 4vw, 56px);
+  font-size: clamp(36px, 4vw, 60px);
   line-height: 1.1;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
-.whyroads-content p {
+/* Paragraph */
+.expwr-content p {
   font-family: "Roboto Flex", sans-serif;
-  font-size: 16px;
-  line-height: 1.7;
-  opacity: 0.9;
-  margin-bottom: 16px;
-  max-width: 560px;
+  font-size: 15.5px;
+  line-height: 1.75;
+  opacity: 0.92;
+  margin-bottom: 10px;
+  max-width: 600px;
 }
+
+/* ============================= */
+/* MOBILE (FIGMA STYLE)         */
+/* ============================= */
+
 @media (max-width: 768px) {
-  .whyroads-inner {
-    justify-content: center;
-    text-align: center;
+  .expwr-inner {
+    align-items: center; /* 🔥 vertical center */
+    justify-content: center; /* (optional but safer) */
   }
 
-  .whyroads-content {
-    padding: 0 24px;
+  .expwr-content {
+    padding: 24px;
+    text-align: left; /* or center if you want */
   }
 
-  .whyroads-content p {
-    margin-left: auto;
-    margin-right: auto;
+  .expwr-heading {
+    font-size: 34px;
+  }
+
+  .expwr-content p {
+    font-size: 14px;
+    line-height: 1.6;
   }
 }

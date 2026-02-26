@@ -1,0 +1,117 @@
+/* IMPORT FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Roboto+Flex:opsz,wght@8..144,300;8..144,400;8..144,500&display=swap');
+
+/* RESET */
+.why-wrapper {
+  position: relative;
+  height: 100vh; /* 🔥 only viewport */
+  overflow: hidden;
+}
+
+/* ✅ BACKGROUND */
+.why-bg {
+  position: absolute;  /* 🔥 not fixed, not sticky */
+  inset: 0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: 0;
+}
+
+/* ✅ CONTENT OVERLAY */
+.why-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+/* LAYOUT */
+.why-container {
+  display: flex;
+  height: 100%;
+  padding: 80px;
+  gap: 60px;
+  color: white;
+}
+
+/* LEFT */
+.why-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.why-left h1 {
+  font-family: "Fraunces", serif;
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.why-left p {
+  font-family: "Roboto Flex", sans-serif;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+/* RIGHT */
+.why-right {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+/* Vertical line */
+.why-line {
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ITEM */
+.why-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  font-family: "Roboto Flex", sans-serif;
+}
+
+.why-icon {
+  min-width: 28px;
+}
+
+/* TITLE */
+.why-item h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+/* DESC */
+.why-item p {
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media (max-width: 900px) {
+  .why-container {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .why-left h1 {
+    font-size: 34px;
+  }
+}

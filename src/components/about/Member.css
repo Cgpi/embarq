@@ -1,0 +1,73 @@
+/* Section */
+#members-section {
+  background: #FFFFFF; /* 🔥 light grey like figma */
+  padding: 6rem 8%;
+  text-align: center;
+}
+
+/* Container */
+.members-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Title */
+.members-title {
+  font-family: "Fraunces", serif;
+  font-size: 3.6rem;
+  font-weight: 600;
+  color: #f4a21e; /* 🔥 brand orange */
+  margin-bottom: 3rem;
+}
+
+/* Logos wrapper */
+.members-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+}
+
+/* Logos */
+.members-logos img {
+  max-height: 80px;
+  object-fit: contain;
+}
+
+/* ========================= */
+/* TABLET */
+/* ========================= */
+@media (max-width: 1024px) {
+  .members-title {
+    font-size: 2.4rem;
+  }
+
+  .members-logos img {
+    max-height: 55px;
+  }
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+@media (max-width: 768px) {
+  #members-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .members-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* 🔥 stack logos vertically */
+  .members-logos {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .members-logos img {
+    max-height: 50px;
+  }
+}

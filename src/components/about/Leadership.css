@@ -1,7 +1,7 @@
 /* ===== SECTION WRAPPER ===== */
 .leadership {
   padding: 1rem 15%;           /* Top-bottom spacing + left-right breathing */
-  background-color: #f3f3f1;     /* Light grey like Figma */
+  background-color: #FCF7E3;     /* Light grey like Figma */
   margin: 0; 
 }
 
@@ -11,7 +11,7 @@
   font-family: "Fraunces", serif;
 
   font-size: 4.25rem;     /* 68px converted to rem */
-  color: #4a4a4a;
+  color: #F6A61D;       /* Golden orange like Figma */
 
   margin-bottom: 6rem;
 
@@ -32,6 +32,7 @@
 /* Reverse layout for second founder */
 .leader-block.reverse {
   flex-direction: row-reverse;
+  margin-bottom: 3rem; 
 }
 
 /* ===== IMAGE WRAPPER ===== */
@@ -103,6 +104,7 @@
 
   .leader-block.reverse {
     flex-direction: column;      /* Remove reverse on mobile */
+    margin-bottom: 0.5rem; 
   }
 
   .leader-image,
@@ -139,3 +141,22 @@
 }
 
 
+/* Smooth image hover (premium feel) */
+.leader-image img {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.leader-image:hover img {
+  transform: scale(1.05);
+}
+
+/* smoother underline base */
+.designation .line {
+  height: 3px;
+  background-color: #d89b2b;
+  margin-top: 8px;
+  width: 120px;
+}

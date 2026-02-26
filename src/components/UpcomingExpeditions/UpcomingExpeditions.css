@@ -1,4 +1,6 @@
-/* Wrapper */
+/* ============================= */
+/* WRAPPER */
+/* ============================= */
 .upcoming-wrapper {
   position: relative;
   width: 100%;
@@ -7,14 +9,18 @@
   background: #000;
 }
 
-/* Horizontal track */
+/* ============================= */
+/* HORIZONTAL TRACK */
+/* ============================= */
 .horizontal-track {
   display: flex;
   height: 100vh;
   will-change: transform;
 }
 
-/* Slides */
+/* ============================= */
+/* SLIDES */
+/* ============================= */
 .expedition-slide {
   min-width: 100vw;
   height: 100vh;
@@ -23,77 +29,100 @@
   position: relative;
 }
 
-/* Gradient overlay */
+/* ============================= */
+/* GRADIENT OVERLAY (IMPROVED) */
+/* ============================= */
 .expedition-slide::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0.15)
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0)
   );
 }
 
-/* Text overlay */
+/* ============================= */
+/* TEXT OVERLAY */
+/* ============================= */
 .slide-overlay {
   position: absolute;
   left: 10%;
-  top: 38%;
-  transform: translateY(-40%);
+  top: 48%;
+  transform: translateY(-50%);
   color: white;
-  max-width: 1000px;
+  max-width: 1200px; /* 🔥 important for single line */
 }
 
+/* ============================= */
+/* DATE */
+/* ============================= */
+.slide-date-top {
+  font-size: 1rem;
+  opacity: 0.75;
+  margin-bottom: 16px;
+  letter-spacing: 0.6px;
+}
 
+/* ============================= */
+/* TITLE (MAIN FIX) */
+/* ============================= */
 .slide-title {
   font-family: 'Fraunces Variable', serif;
-  
-}
 
-
-/* Title */
-.slide-title {
-  font-size: clamp(3rem, 5vw, 5rem);
+  font-size: clamp(2.4rem, 3.6vw, 3.9rem); /* 🔥 bigger like figma */
   font-weight: 500;
-  white-space: nowrap;   /* FORCE ONE LINE */
-  margin-bottom: 10px;
+  letter-spacing: 1.5px;
+
+  white-space: nowrap;   /* 🔥 FORCE SINGLE LINE */
+  overflow: hidden;
+
+  margin-bottom: 18px;
 }
 
-/* Subtitle */
+/* ============================= */
+/* SUBTITLE */
+/* ============================= */
 .slide-subtitle {
   font-size: 1.2rem;
   opacity: 0.85;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
+  max-width: 520px;
+  line-height: 1.6;
 }
 
-/* Meta row */
-.slide-meta {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  flex-wrap: nowrap;     /* FORCE ONE LINE */
-}
+/* ============================= */
+/* CTA BUTTON */
+/* ============================= */
+.brochure-btn {
+  background: linear-gradient(135deg, #f5a623, #f2b94b);
+  color: white;
 
-/* Badge */
-.badge {
-  padding: 10px 22px;
-  background: #f5a623;
+  border: none;
+  padding: 12px 26px;
   border-radius: 999px;
-  color: #000;
-  font-weight: 600;
-  white-space: nowrap;
+
+  font-weight: 400;
+  font-family: "Roboto Flex";
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Date */
-.date {
-  font-size: 1.25rem;
-  font-weight: 500;
-  white-space: nowrap;
+.brochure-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(245, 166, 35, 0.4);
 }
 
-
-/* Side vertical label */
+/* ============================= */
+/* SIDE LABEL */
+/* ============================= */
 .side-label {
   position: absolute;
   left: 0;
@@ -108,17 +137,110 @@
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 
-  writing-mode: vertical-rl;   /* keep this */
+  writing-mode: vertical-rl;
 }
 
-/* 🔥 Flip ONLY the text */
 .side-label span {
   display: inline-block;
   transform: rotate(180deg);
 
   font-family: "Roboto Flex", sans-serif;
-  font-weight: 500;        /* Try 400–600 */
-  letter-spacing: 2px;     /* Vertical text needs more spacing */
-
+  font-weight: 500;
+  letter-spacing: 2px;
   color: white;
+}
+
+/* ============================= */
+/* DOTS */
+/* ============================= */
+.dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #f5a623;
+  transform: scale(1.4);
+}
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+@media (max-width: 768px) {
+
+  .slide-overlay {
+    left: 20px;
+    right: 20px;
+    top: 42%;
+    transform: translateY(-35%);
+    max-width: 100%;
+  }
+
+  .slide-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .slide-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .brochure-btn {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+
+  .side-label {
+    display: none;
+  }
+
+  .dots {
+    bottom: 20px;
+  }
+
+  .horizontal-track {
+    touch-action: pan-y;
+  }
+
+  .expedition-slide {
+    min-width: 100%;
+    flex-shrink: 0;
+  }
+
+  .expedition-slide::before {
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.85),
+      rgba(0, 0, 0, 0.3)
+    );
+  }
+}
+
+/* svg */
+
+.brochure-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; /* space between icon & text */
+}
+
+/* SVG size control */
+.brochure-btn img {
+  width: 16px;
+  height: 16px;
 }
