@@ -1,60 +1,94 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Box, Container, Typography, Chip, IconButton } from "@mui/material";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import rightArrow from "../assets/gallery/right-arrow.png";
+import leftArrow from "../assets/gallery/left-arrow.png";
 
-import img1 from "../assets/gallery/1.jpg";
-import img2 from "../assets/gallery/2.jpg";
-import img3 from "../assets/gallery/3.png";
-import img4 from "../assets/gallery/4.jpg";
-import img5 from "../assets/gallery/5.jpg";
-import img6 from "../assets/gallery/6.jpg";
-import img7 from "../assets/gallery/7.jpg";
-import img8 from "../assets/gallery/8.png";
-import img9 from "../assets/gallery/9.jpg";
-import img10 from "../assets/gallery/10.png";
-import img11 from "../assets/gallery/11.png";
-import img12 from "../assets/gallery/12.png";
-import img13 from "../assets/gallery/13.jpg";
-import img14 from "../assets/gallery/14.jpg";
+import kyrgyzstanHero from "../assets/gallery/Kyrgyzstan/Kyrgyzstan.png";
+import spainHero from "../assets/gallery/Spain/Spain.png";
+import balkansHero from "../assets/gallery/Balkans/Balkans.png";
+import indiaSpainHero from "../assets/gallery/India and Spain/IndiaSpain.png";
+import indiaThailandHero from "../assets/gallery/India and Thailand/Spiti.avif";
+import kashmirHero from "../assets/gallery/Kashmir/Spiti.avif";
+import mongoliaHero from "../assets/gallery/Mongolia/Spiti.avif";
+import newZealandHero from "../assets/gallery/New Zealand/Spiti.avif";
+import northEastHero from "../assets/gallery/NorthEast/Spiti.avif";
+import peruHero from "../assets/gallery/Peru/Spiti.avif";
+import russiaHero from "../assets/gallery/Russia/Spiti.avif";
+import scoatlandHero from "../assets/gallery/Scotland/Spiti.avif";
+import spitiHero from "../assets/gallery/Spiti/Spiti.avif";
+import uzbekistanHero from "../assets/gallery/Uzbekistan/Spiti.avif";
 
-import Kyrgyzstan from "../assets/gallery/Kyrgyzstan.png";
-import Spain from "../assets/gallery/Spain.png";
-import Balkans from "../assets/gallery/Balkans.png";
-import IndiaSpain from "../assets/gallery/IndiaSpain.png";
+import kyrgyzstanGallery from "../../src/galleryData/kyrgyzstanGallery";
+import spainGallery from "../../src/galleryData/spainGallery";
+import balkansGallery from "../../src/galleryData/balkansGallery";
+import indiaSpainGallery from "../../src/galleryData/indiaSpainGallery";
+import indiaThailandGallery from "../galleryData/indiaThailandGallery";
+import kashmirGallery from "../galleryData/kashmirGallery";
+import mongoliaGallery from "../galleryData/mongoliaGallery";
+import newZealandGallery from "../galleryData/newZealandGallery";
+import northEastGallery from "../galleryData/northEastGallery";
+import peruGallery from "../galleryData/peruGallery";
+import russiaGallery from "../galleryData/russiaGallery";
+import scotlandGallery from "../galleryData/scotlandGallery";
+import spitiGallery from "../galleryData/spitiGallery";
+import uzbekistanGallery from "../galleryData/uzbekistanGallery";
 
 const initialDestinations = [
   {
     title: "Kyrgyzstan",
-    img: Kyrgyzstan,
-    heading: "Crafting Memories By Letting The Road Overtake",
-    subText: "Mountain passes. Offbeat routes. Oldest wine making.",
-    tag: "Kyrgyzstan",
-    date: "12th to 20th June, 2026",
+    img: kyrgyzstanHero,
   },
   {
     title: "Spain",
-    img: Spain,
-    heading: "Crafting Memories By Letting The Road Overtake",
-    subText: "Mountain passes. Offbeat routes. Oldest wine making.",
-    tag: "Spain",
-    date: "8th to 16th August, 2026",
+    img: spainHero,
   },
   {
     title: "Balkans",
-    img: Balkans,
-    heading: "Crafting Memories By Letting The Road Overtake",
-    subText: "Mountain passes. Offbeat routes. Oldest wine making.",
-    tag: "Balkans",
-    date: "10th to 18th September, 2026",
+    img: balkansHero,
   },
   {
     title: "India and Spain",
-    img: IndiaSpain,
-    heading: "Crafting Memories By Letting The Road Overtake",
-    subText: "Mountain passes. Offbeat routes. Oldest wine making.",
-    tag: "India and Spain",
-    date: "1st to 12th October, 2026",
+    img: indiaSpainHero,
+  },
+  {
+    title: "India and Thailand",
+    img: indiaThailandHero,
+  },
+  {
+    title: "Kashmir",
+    img: kashmirHero,
+  },
+  {
+    title: "Mongolia",
+    img: mongoliaHero,
+  },
+  {
+    title: "New Zealand",
+    img: newZealandHero,
+  },
+  {
+    title: "North East",
+    img: northEastHero,
+  },
+  {
+    title: "Peru",
+    img: peruHero,
+  },
+  {
+    title: "Russia",
+    img: russiaHero,
+  },
+  {
+    title: "Scoatland",
+    img: scoatlandHero,
+  },
+  {
+    title: "Spiti",
+    img: spitiHero,
+  },
+  {
+    title: "Uzbekistan",
+    img: uzbekistanHero,
   },
 ];
 
@@ -72,6 +106,43 @@ const GallerySection = () => {
   const [backgroundImg, setBackgroundImg] = useState(
     initialDestinations[initialDestinations.length - 1].img,
   );
+
+  const getGalleryData = () => {
+    switch (activeDestination.title) {
+      case "Kyrgyzstan":
+        return kyrgyzstanGallery;
+      case "Spain":
+        return spainGallery;
+      case "Balkans":
+        return balkansGallery;
+      case "India and Spain":
+        return indiaSpainGallery;
+      case "India and Thailand":
+        return indiaThailandGallery;
+      case "Kashmir":
+        return kashmirGallery;
+      case "Mongolia":
+        return mongoliaGallery;
+      case "New Zealand":
+        return newZealandGallery;
+      case "North East":
+        return northEastGallery;
+      case "Peru":
+        return peruGallery;
+      case "Russia":
+        return russiaGallery;
+      case "Scotland":
+        return scotlandGallery;
+      case "Spiti":
+        return spitiGallery;
+      case "Uzbekistan":
+        return uzbekistanGallery;
+      default:
+        return [];
+    }
+  };
+
+  const galleryData = getGalleryData();
 
   const [expandingCard, setExpandingCard] = useState(null);
   const [cardStyle, setCardStyle] = useState({});
@@ -369,50 +440,16 @@ const GallerySection = () => {
             sx={{
               fontFamily: "'Fraunces', serif",
               fontWeight: 700,
-              fontSize: { xs: "28px", md: "65px" },
-              mb: 1,
+              fontSize: { xs: "40px", md: "90px" },
               ml: { xs: 0, md: 10 },
+              mt: { xs: 8, md: 15 },
               opacity: textVisible ? 1 : 0,
               transform: textVisible ? "translateY(0px)" : "translateY(30px)",
               transition: "all 0.6s cubic-bezier(.22,1,.36,1)",
             }}
           >
-            {activeDestination.heading}
+            {activeDestination.title}
           </Typography>
-
-          <Typography
-            sx={{
-              mb: 1,
-              ml: { xs: 0, md: 10 },
-              opacity: textVisible ? 1 : 0,
-              transform: textVisible ? "translateY(0px)" : "translateY(40px)",
-              transition: "all 0.7s cubic-bezier(.22,1,.36,1)",
-            }}
-          >
-            {activeDestination.subText}
-          </Typography>
-
-          <Box
-            sx={{
-              display: "flex",
-              gap: 3,
-              mb: 4,
-              ml: { xs: 0, md: 10 },
-              opacity: textVisible ? 1 : 0,
-              transform: textVisible ? "translateY(0px)" : "translateY(50px)",
-              transition: "all 0.8s cubic-bezier(.22,1,.36,1)",
-            }}
-          >
-            <Chip
-              label={activeDestination.tag}
-              sx={{
-                backgroundColor: "#f5b942",
-                color: "#000",
-                fontWeight: 600,
-              }}
-            />
-            <Typography>{activeDestination.date}</Typography>
-          </Box>
 
           {/* SLIDER */}
           <Box sx={{ overflow: "hidden", ml: { xs: 0, md: 80 } }}>
@@ -433,31 +470,58 @@ const GallerySection = () => {
                   ref={(el) => (cardRefs.current[index] = el)}
                   onClick={() => handleCardClick(index, visibleCards)}
                   sx={{
-                    width: CARD_WIDTH,
-                    height: 300,
+                    width: 200,
+                    height: 260,
                     flexShrink: 0,
-                    borderRadius: 4,
-                    overflow: "hidden",
+                    borderRadius: "32px",
                     cursor: "pointer",
-                    backdropFilter: "blur(10px)",
-                    background: "rgba(255,255,255,0.15)",
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
-                    transition: "all 0.4s ease",
+                    position: "relative",
+                    padding: "14px",
+                    background: "rgba(255, 255, 255, 0.14)",
+                    backdropFilter: "blur(2px)", // 🔥 stronger blur
+                    WebkitBackdropFilter: "blur(2px)",
+                    boxShadow: "0 25px 60px rgba(0,0,0,0.35)",
+                    transition: "all 0.4s cubic-bezier(.22,1,.36,1)",
+                    "&:hover": {
+                      transform: "translateY(-6px)",
+                    },
                   }}
                 >
+                  {/* INNER IMAGE CONTAINER */}
                   <Box
-                    component="img"
-                    src={item.img}
-                    alt={item.title}
                     sx={{
                       width: "100%",
-                      height: "75%",
-                      objectFit: "cover",
+                      height: "78%",
+                      borderRadius: "22px",
+                      overflow: "hidden",
                     }}
-                  />
-                  <Box sx={{ p: 2 }}>
-                    <Typography fontWeight={600}>{item.title}</Typography>
+                  >
+                    <Box
+                      component="img"
+                      src={item.img}
+                      alt={item.title}
+                      sx={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
                   </Box>
+
+                  {/* TITLE OUTSIDE IMAGE (LIKE SCREENSHOT) */}
+                  <Typography
+                    sx={{
+                      position: "absolute",
+                      bottom: 18,
+                      left: 22,
+                      color: "#fff",
+                      fontWeight: 500,
+                      fontSize: "16px",
+                      letterSpacing: "0.5px",
+                    }}
+                  >
+                    {item.title}
+                  </Typography>
                 </Box>
               ))}
             </Box>
@@ -468,23 +532,30 @@ const GallerySection = () => {
                 mt: 3,
                 display: "flex",
                 alignItems: "center",
-                gap: 3,
+                gap: 1,
                 maxWidth: 600,
                 ml: { xs: 0, md: 0 },
               }}
             >
-              <IconButton
-                onClick={handlePrev}
-                sx={{ background: "rgba(255,255,255,0.2)" }}
-              >
-                <ArrowBackIosNewIcon sx={{ color: "#fff" }} />
+              <IconButton onClick={handleNext}>
+                <Box
+                  component="img"
+                  src={leftArrow}
+                  sx={{
+                    width: 18,
+                    height: 18,
+                  }}
+                />
               </IconButton>
-
-              <IconButton
-                onClick={handleNext}
-                sx={{ background: "rgba(255,255,255,0.2)" }}
-              >
-                <ArrowForwardIosIcon sx={{ color: "#fff" }} />
+              <IconButton onClick={handlePrev}>
+                <Box
+                  component="img"
+                  src={rightArrow}
+                  sx={{
+                    width: 18,
+                    height: 18,
+                  }}
+                />
               </IconButton>
 
               <Box
@@ -526,24 +597,14 @@ const GallerySection = () => {
               },
             }}
           >
-            <GalleryItem img={img1} rowSpan={2} />
-            <GalleryItem img={img2} colSpan={2} />
-            <GalleryItem img={img3} />
-
-            <GalleryItem img={img4} />
-            <GalleryItem img={img5} />
-            <GalleryItem img={img6} rowSpan={2} />
-
-            <GalleryItem img={img7} colSpan={2} />
-            <GalleryItem img={img8} />
-
-            <GalleryItem img={img9} rowSpan={2} />
-            <GalleryItem img={img10} />
-            <GalleryItem img={img11} />
-
-            <GalleryItem img={img12} />
-            <GalleryItem img={img13} />
-            <GalleryItem img={img14} colSpan={2} />
+            {galleryData.map((item, index) => (
+              <GalleryItem
+                key={index}
+                img={item.img}
+                rowSpan={item.rowSpan || 1}
+                colSpan={item.colSpan || 1}
+              />
+            ))}
           </Box>
         </Container>
       </Box>

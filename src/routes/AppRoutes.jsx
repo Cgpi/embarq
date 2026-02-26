@@ -7,6 +7,7 @@ import FAQ from "../pages/FAQ";
 import Blog from "../pages/blog";
 
 import Expedition from "../pages/expedition";
+import InTheMedia from "../pages/InTheMedia";
 
 function AppRoutes() {
   return (
@@ -19,6 +20,7 @@ function AppRoutes() {
       <Route path="/blog" element={<Blog />} />
       <Route path="/testimonials" element={<Testimonials />} />
       <Route path="/expedition" element={<Expedition />} />
+      <Route path="/media" element={<InTheMedia />} />
     </Routes>
   );
 }

@@ -71,7 +71,7 @@ function Navbar() {
             <Link to="/expedition">Expeditions</Link>
             <Link to="/stories">Travel Stories</Link>
             <Link to="/testimonials">Testimonials</Link>
-            <Link to="/gallery">In the Media</Link>
+            <Link to="/media">In the Media</Link>
             <Link to="/faq">FAQ</Link>
             <Link to="/blog">Blog</Link>
           </nav>
@@ -105,7 +105,7 @@ function Navbar() {
         <Link to="/testimonials" onClick={closeMenu}>
           Testimonials
         </Link>
-        <Link to="/gallery" onClick={closeMenu}>
+        <Link to="/media" onClick={closeMenu}>
           In the Media
         </Link>
       </div>
@@ -122,7 +122,7 @@ function Navbar() {
         <Link to="/testimonials" onClick={closeMenu}>
           Testimonials
         </Link>
-        <Link to="/gallery" onClick={closeMenu}>
+        <Link to="/media" onClick={closeMenu}>
           In the Media
         </Link>
 

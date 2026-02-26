@@ -12,14 +12,17 @@ import {
   useMediaQuery,
 } from "@mui/material";
 
-import bgImage from "../assets/testimonials/testimonials-bg.jpg";
-import quoteImg from "../assets/testimonials/Vector 16.png";
+import bgImage from "../assets/testimonials/testimonialsbg.jpg";
+import quoteImg from "../assets/testimonials/Vector.png";
 
 import archana from "../assets/testimonials/Archana Singh.jpg";
 import binaa from "../assets/testimonials/Binaa Shah.jpg";
 import jyotsna from "../assets/testimonials/Jyotsna Kancherla.jpg";
 import priyanka from "../assets/testimonials/Priyanka Rai.jpg";
 import sanchayeeta from "../assets/testimonials/Sanchayeeta Verma.jpg";
+import anupreeti from "../assets/testimonials/Anupreeti More.jpg";
+import anthony from "../assets/testimonials/Anthony Huang.jpg";
+import anitha from "../assets/testimonials/Anitha Vinod.jpg";
 
 const testimonialsData = [
   {
@@ -28,9 +31,9 @@ const testimonialsData = [
     text: "“My incredible New Zealand road trip with Embarq unveiled a new way to explore a country. The stunning natural beauty and well-developed infrastructure were enhanced by Embarq’s meticulous planning. Thanks to their detailed scouting, we witnessed breathtaking vistas off the beaten track. The journey fostered amazing connections among travellers and elevated the entire experience. Every detail – itinerary, local partnerships, hotels, and care – showed true professionalism.”",
   },
   {
-    name: "Binaa Shah",
-    image: binaa,
-    text: "“I have done two road trips with EMBARQ MOTORWORLD — India to Thailand via Myanmar (an all-women road trip) and Kyrgyzstan Snow Drive. Both were life-changing experiences with premium stays, great food, safety, and amazing terrain. Highly recommended and trustworthy.”",
+    name: "Anthony Huang",
+    image: anthony,
+    text: "“Though travel excites me, venturing off the beaten path sparks anxiety — especially around accommodations, safety, and food. As a hospitality professional with high expectations, my second self-drive trip with Embarq (after Spain) to Arunachal Pradesh, the Indo-China border, and Kaziranga exceeded all worries. Every route was thoroughly scouted, every hotel personally inspected, and menus thoughtfully curated. The local cuisine and stunning locations made it unforgettable.”",
   },
   {
     name: "Archana Singh",
@@ -38,14 +41,31 @@ const testimonialsData = [
     text: "“One of the best self-drive group trips I’ve taken recently. Very well curated and organised with each person’s comfort in mind. Sujal is an amazing trip organiser and a great companion throughout the tour.”",
   },
   {
-    name: "Jyotsna Kancherla",
-    image: jyotsna,
-    text: "“I love travelling. This s the first travelling in a group n i loved every bit of it. Embarq gave the best of stay n all of them r very frindly n like minded. The guide Andrea was very informative n she knew every bit of place n she gave good instructions in driving as well. My personal favourites r Scottish dancing n whisky tours.....on the whole my experience with Embarq was a life time one n would go bk again n again with them n make lovely memories. Big thumbs up to u Embarq.”",
+    name: "Binaa Shah",
+    image: binaa,
+    text: "“I have done two road trips with EMBARQ MOTORWORLD — India to Thailand via Myanmar (an all-women road trip) and Kyrgyzstan Snow Drive. Both were life-changing experiences with premium stays, great food, safety, and amazing terrain. Highly recommended and trustworthy.”",
   },
+  {
+    name: "Anupreeti More",
+    image: anupreeti,
+    text: "“The motive of our All Women India to Thailand Road trip 2019 will keep us inspired forever. #WomenCrossingBoundaries will keep us motivated n inspired forever. Thank you Team Embarq for a mesmerizing journey through beautiful Myanmar and Thailand and giving us an opportunity to explore Local food,people and their lifestyle.”",
+  },
+
   {
     name: "Priyanka Rai",
     image: priyanka,
-    text: "Taking away immense energy, abundance of incredible experiences and some very beautiful bonds to cherish for lifetime from the soul churning Kashmir to Kanyakumar - K2K2025 drive. ⁨Medha Joseph⁩ and ⁨Sujal Patwardhan⁩ Forever grateful to you guys for putting this in my dream list and checking it off to eye the next K2K already! More power to you and you’ve impacted us in ways we can’t possibly describe as yet!",
+    text: "Taking away immense energy, abundance of incredible experiences and some very beautiful bonds to cherish for lifetime from the soul churning Kashmir to Kanyakumar - K2K2025 drive. ⁨Medha Joseph⁩ and ⁨Sujal Patwardhan⁩ Forever grateful to you guys for putting this in my dream list and checking it off to eye the next K2K already! More power to you and you’ve impacted us in ways we can’t possibly describe as yet!”",
+  },
+
+  {
+    name: "Anitha Vinod",
+    image: anitha,
+    text: "“Embarking on a long solo drive had always been a dream of mine. Little did I know that life was about to gift me the ultimate journey—a solo drive from Kashmir to Kanyakumari. It felt like a divine blessing, one that I cherished with every passing mile.”",
+  },
+  {
+    name: "Jyotsna Kancherla",
+    image: jyotsna,
+    text: "“I love travelling. This s the first travelling in a group n i loved every bit of it. Embarq gave the best of stay n all of them r very frindly n like minded. The guide Andrea was very informative n she knew every bit of place n she gave good instructions in driving as well. My personal favourites r Scottish dancing n whisky tours.....on the whole my experience with Embarq was a life time one n would go bk again n again with them n make lovely memories. Big thumbs up to u Embarq.”",
   },
 ];
 
@@ -61,21 +81,18 @@ const Testimonials = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries, observerInstance) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.style.opacity = 1;
             entry.target.style.transform = "translateX(0)";
-          } else {
-            entry.target.style.opacity = 0;
-            entry.target.style.transform =
-              entry.target.dataset.direction === "left"
-                ? "translateX(-120px)"
-                : "translateX(120px)";
+
+            // ✅ Stop observing after animation
+            observerInstance.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.05 },
+      { threshold: 0.2 },
     );
 
     cardsRef.current.forEach((card) => {
@@ -83,7 +100,7 @@ const Testimonials = () => {
     });
 
     return () => observer.disconnect();
-  }, [showAll]); // ✅ ADD THIS
+  }, [showAll]);
 
   return (
     <>
@@ -102,7 +119,7 @@ const Testimonials = () => {
           sx={{
             position: "absolute",
             inset: 0,
-            backgroundColor: "rgba(16,16,16,0.5)",
+            backgroundColor: "rgba(16, 16, 16, 0.15)",
           }}
         />
 
@@ -110,82 +127,63 @@ const Testimonials = () => {
         <Box
           sx={{
             position: "relative",
-            height: { xs: 300, md: 680 },
+            py: { xs: 8, md: 16 },
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            textAlign: "center",
-            overflow: "hidden",
           }}
         >
-          {/* Title Wrapper */}
-          <Box
-            sx={{
-              position: "relative",
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            {/* RIGHT TOP QUOTES */}
+          <Container maxWidth="xl">
             <Box
               sx={{
-                position: "absolute",
-                top: { xs: -30, md: -60 },
-                right: { xs: -60, md: -160 },
                 display: "flex",
-                gap: 1,
-                transform: "scaleX(-1)",
+                alignItems: "center",
+                justifyContent: "space-between",
+                flexDirection: { xs: "column", md: "row" },
+                textAlign: { xs: "center", md: "left" },
+                gap: { xs: 4, sm: 6, md: 8 },
+                px: { xs: 3, sm: 4, md: 8, lg: 12 }, // responsive padding instead of margin
               }}
             >
+              {/* LEFT TEXT */}
+              <Typography
+                sx={{
+                  fontFamily: "Fraunces, serif",
+                  fontWeight: 700,
+                  fontSize: {
+                    xs: "22px", // small phones
+                    sm: "30px", // big phones
+                    md: "42px", // tablets
+                    lg: "50px", // laptops
+                    xl: "64px", // large screens
+                  },
+                  lineHeight: 1.2,
+                  color: "#ffffff",
+                  maxWidth: { md: "60%" },
+                }}
+              >
+                What our Clients <br />
+                say about us...
+              </Typography>
+
+              {/* RIGHT BIG QUOTE IMAGE */}
               <Box
                 component="img"
                 src={quoteImg}
-                sx={{ height: { xs: 50, md: 120 } }}
-              />
-              <Box
-                component="img"
-                src={quoteImg}
-                sx={{ height: { xs: 50, md: 120 } }}
+                alt="quote"
+                sx={{
+                  height: {
+                    xs: 60,
+                    sm: 90,
+                    md: 160,
+                    lg: 220,
+                    xl: 260,
+                  },
+                  opacity: 0.9,
+                }}
               />
             </Box>
-
-            {/* LEFT BOTTOM QUOTES */}
-            <Box
-              sx={{
-                position: "absolute",
-                bottom: { xs: -25, md: -60 },
-                left: { xs: -60, md: -160 },
-                display: "flex",
-                gap: 1,
-              }}
-            >
-              <Box
-                component="img"
-                src={quoteImg}
-                sx={{ height: { xs: 50, md: 120 } }}
-              />
-              <Box
-                component="img"
-                src={quoteImg}
-                sx={{ height: { xs: 50, md: 120 } }}
-              />
-            </Box>
-
-            {/* TITLE TEXT */}
-            <Typography
-              sx={{
-                fontFamily: "Fraunces, serif",
-                fontWeight: 700,
-                fontSize: { xs: "42px", md: "70px" },
-                color: "#fff",
-                lineHeight: 1.2,
-                px: 2,
-              }}
-            >
-              Impactful <br /> Successes
-            </Typography>
-          </Box>
+          </Container>
         </Box>
 
         {/* CARDS */}

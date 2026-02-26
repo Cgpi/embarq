@@ -127,8 +127,8 @@ const Blog = () => {
     
       <div className="pagination-wrapper">
         <div className="pagination-pill">
-          <button className="prev-btn">Prev</button>
-          <button className="next-btn active">Next</button>
+          <button className="blog-prev-btn">Prev</button>
+          <button className="blog-next-btn active">Next</button>
         </div>
       </div>
 
