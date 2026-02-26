@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import "./ExpeditionIntro.css";
 
-import bgImage from "../../assets/images/expbg.jpg";
-import expcar1 from "../../assets/images/excar1.png";
-import expcar2 from "../../assets/images/excar2.jpg";
+import bgImage from "../../assets/images/expbg.webp";
+import expcar1 from "../../assets/images/excar1.webp";
+import expcar2 from "../../assets/images/excar2.webp";
 
 // TEXT STAGGER CONTAINER
 const container = {

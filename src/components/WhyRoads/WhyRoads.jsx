@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import "./WhyRoads.css";
-import whyRoadsImg from "../../assets/images/whyroads.png";
+import whyRoadsImg from "../../assets/images/whyroads.webp";
 
 export default function ExpWhyRoads() {
   return (
