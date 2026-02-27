@@ -1,292 +1,99 @@
-import { useState, useEffect, useRef } from "react";
-import { Box, Container, Grid, Typography, Button } from "@mui/material";
-import logo from "../../assets/logo.png";
-import EnquiryPopup from "../../pages/EnquiryPopup";
+import "./Footer.css";
+import { Link } from "react-router-dom";
+import {
+  Phone,
+  Mail,
+  Facebook,
+  Instagram,
+  Twitter,
+  Linkedin,
+  Youtube,
+} from "lucide-react";
 
-import { Link as RouterLink } from "react-router-dom";
+import logo from "../../assets/logo.png";
+import visa from "../../assets/footer/fcards.png";
+import tripa from "../../assets/footer/tripa.png";
 
 
 export default function Footer() {
-    const [open, setOpen] = useState(false);
-     const [enquiryOpen, setEnquiryOpen] = useState(false);
-const handleOpenEnquiry = () => {
-  setEnquiryOpen(true);
-  setOpen(false); // close mobile menu if open
-};
-
-const handleCloseEnquiry = () => {
-  setEnquiryOpen(false);
-};
-    
   return (
-    <Box sx={{ backgroundColor: "#FCF7E3" }}>
+    <footer id="footer-section">
+      <div className="footer-container">
+        
+        {/* LEFT */}
+        <div className="footer-col footer-brand">
+          <img src={logo} alt="Embarq logo" className="footer-logo" />
+          <h3>Embarq Motorworld Pvt. Ltd.</h3>
 
-      {/* ================= TOP SECTION ================= */}
-     <Container
-  maxWidth={false}
-  disableGutters
-  sx={{
-    display: "flex",          // make container a flexbox
-    justifyContent: "center", // center the inner grid horizontally
-    px: { xs: 3, md: 8, lg: 14 },
-    py: { xs: 4, md: 6 },
-    color: "#4B4B4B" // ✅ all child text inherits this color
-  }}
->
-  <Grid
-  container
-  spacing={10}
-  alignItems="flex-start"
-  rowSpacing={{ xs: 3, md: 0 }}
-  
->
+          <img src={tripa} alt="Tripadvisor" className="footer-trip-logo" />
 
+          <button className="footer-review-btn">write a review</button>
+        </div>
 
-    {/* LOGO */}
-   <Grid
-  item
-  xs={12}
-  md={3}
-  order={{ xs: 1, md: 1 }}
-  sx={{
-    "@media (max-width:400px)": {
-      flex: "0 0 100%",
-      maxWidth: "100%",
-    }
-  }}
->
+        {/* LINKS 1 */}
+        <div className="footer-col">
+          <Link to="/">Home</Link>
+          <Link to="/about">About us</Link>
+          <Link to="/expeditions">Expeditions</Link>
+          <Link to="/gallery">Gallery</Link>
+          <Link to="/media">Media</Link>
+          <Link to="/blog">Blogs</Link>
+        </div>
 
+        {/* LINKS 2 */}
+        <div className="footer-col">
+          <Link to="/testimonials">Testimonials</Link>
+          <Link to="/gift-trip">Gift a Trip</Link>
+          <Link to="/partnership">Partnership</Link>
+          <Link to="/faq">FAQ’s</Link>
+          <Link to="/cancellation-policy">Cancellation Policy</Link>
+          <Link to="/privacy-policy">Privacy Policy</Link>
+        </div>
 
-      <Box>
-        <img
-          src={logo}   // ⭐ Replace with your logo path
-          alt="Embarq Logo"
-          style={{ width: "100px" }}
-        />
-      </Box>
-    </Grid>
+        {/* CONTACT */}
+        <div className="footer-col footer-contact">
+          <div className="footer-contact-item">
+            <Phone size={16} />
+            <div>
+              <p>Call us</p>
+              <span>(+91) 88678 09433</span>
+              <span>(+91) 92721 66615</span>
+            </div>
+          </div>
 
-   <Grid
-  item
-  xs={6}
-  md={3}
-  order={{ xs: 2, md: 2 }}
-  sx={{
-    "@media (max-width:400px)": {
-      flex: "0 0 100%",
-      maxWidth: "100%",
-    }
-  }}
->
+          <div className="footer-contact-item">
+            <Mail size={16} />
+            <p>
+              Mail us{" "}
+              <a href="mailto:enquiries@embarq.in">
+                enquiries@embarq.in
+              </a>
+            </p>
+          </div>
 
+          <div className="footer-social">
+            <p>Follow us</p>
+            <div className="footer-icons">
+              <Facebook size={18} />
+              <Instagram size={18} />
+              <Twitter size={18} />
+              <Linkedin size={18} />
+              <Youtube size={18} />
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <Typography
-        sx={{
-          fontWeight: 600,
-          mb: 1,
-          fontSize: "0.85rem",
-          fontFamily: '"Roboto Flex", sans-serif'
-        }}
-      >
-        Main Links
-      </Typography>
+      {/* BOTTOM BAR */}
+    <div className="footer-bottom">
+  <p>
+    Copyright © 2025 Embarq Motorworld Pvt. Ltd. | All Rights Reserved.
+  </p>
 
-    {[
-  { text: "Home", to: "/" },
-  { text: "About Us", to: "/about" },
-  { text: "All Self-Drive Expeditions", to: "/expeditions" },
-  { text: "Testimonials", to: "/testimonials" },
-  { text: "Blogs", to: "/blog" },
-].map((item) => (
-  <RouterLink
-    key={item.text}
-    to={item.to}
-    style={{
-      display: "block",
-      fontSize: "0.75rem",
-      marginBottom: "4px",
-      cursor: "pointer",
-      fontFamily: '"Roboto Flex", sans-serif',
-      textDecoration: "none",
-      color: "#4B4B4B",
-    }}
-    
-  >
-    {item.text}
-  </RouterLink>
-))}
-
-    </Grid>
-
-    {/* POLICY LINKS */}
-  <Grid
-  item
-  xs={6}
-  md={3}
-  order={{ xs: 3, md: 3 }}
-  sx={{
-    "@media (max-width:400px)": {
-      flex: "0 0 100%",
-      maxWidth: "100%",
-      marginTop: "-40px"
-    }
-  }}
->
-
-
-      {/* Invisible placeholder to align with Home row */}
-      <Typography
-        sx={{
-          fontWeight: 600,
-          mb: 1,
-          fontSize: "0.85rem",
-          fontFamily: '"Roboto Flex", sans-serif',
-          visibility: "hidden",
-        }}
-      >
-        Placeholder
-      </Typography>
-
-   {[
-  { label: "Cancellation Policy", path: "/cancellation" },
-  { label: "Media", path: "/media" },
-  { label: "Gallery", path: "/gallery" },
-  { label: "FAQ's", path: "/faq" },
-  { label: "Enquire Now", path: "/enquire" },
-].map((item) => (
-  <Typography
-    key={item.label}
-    component={RouterLink}
-    to={item.path}
-    sx={{
-      fontSize: "0.75rem",
-      mb: 0,
-      cursor: "pointer",
-      fontFamily: '"Roboto Flex", sans-serif',
-      textDecoration: "none",
-      color: "#4B4B4B",
-      display: "block",
-    }}
-  >
-    {item.label}
-  </Typography>
-))}
-
-    </Grid>
-
-    {/* CONTACT */}
- <Grid
-  item
-  xs={12}
-  md={3}
-  order={{ xs: 4, md: 4 }}
-  sx={{
-    "@media (max-width:400px)": {
-      flex: "0 0 100%",
-      maxWidth: "100%",
-    }
-  }}
->
-
-
-  <Typography
-    sx={{
-      fontWeight: 600,
-      fontSize: "0.8rem",
-      mb: 0.5,
-      fontFamily: '"Roboto Flex", sans-serif'
-    }}
-  >
-    Call:
-  </Typography>
-
-  <Typography sx={{ fontSize: "0.75rem", mt:1,fontFamily: '"Roboto Flex", sans-serif' }}>
-    (+91) 8867809433
-  </Typography>
-  <Typography sx={{ fontSize: "0.75rem", mb: 1.5, fontFamily: '"Roboto Flex", sans-serif' }}>
-    (+91) 9272166615
-  </Typography>
-
-  <Typography
-    sx={{
-      fontWeight: 600,
-      fontSize: "0.8rem",
-      mt: 1,
-      fontFamily: '"Roboto Flex", sans-serif'
-    }}
-  >
-    Email ID:
-  </Typography>
-
-  <Typography sx={{ fontSize: "0.75rem", mb: 2, fontFamily: '"Roboto Flex", sans-serif' }}>
-    enquiries@embarq.in
-  </Typography>
-</Grid>
-
-{/* ENQUIRY BUTTON */}
-<Grid
-  item
-  xs={12}
-  md={3}
-  order={{ xs: 5, md: 5 }}
-  sx={{
-    display: "flex",
-    justifyContent: { xs: "flex-start", md: "center" },
-    alignItems: "flex-end",
-    mt: { xs: 2, md: 12 },
-
-    "@media (max-width:400px)": {
-      flex: "0 0 100%",
-      maxWidth: "100%",
-    }
-  }}
->
-
-
-  <Button
-              variant="contained"
-              sx={{
-                backgroundColor: "#f2a93b",
-                borderRadius: "20px",
-                textTransform: "none",
-                fontSize: "0.75rem",
-                px: 2.5,
-                py: 0.5,
-                "&:hover": { backgroundColor: "#e59c2d" }
-              }}
-              onClick={handleOpenEnquiry} // ✅ opens popup
-            >
-              Quick Enquiry
-            </Button>
-</Grid>
-
-
-  </Grid>
-</Container>
-
-
-      {/* ================= BOTTOM STRIP ================= */}
-      <Box
-        sx={{
-          backgroundColor: "#5A5A5C",
-          textAlign: "center",
-          py: 3
-        }}
-      >
-        <Typography
-          sx={{
-            fontSize: "0.7rem",
-            color: "#fff",
-            fontFamily: '"Roboto Flex", sans-serif'
-          }}
-        >
-          Copyright © 2025 Embarq Motorworld Pvt. Ltd. | All Rights Reserved.
-        </Typography>
-      </Box>
-<EnquiryPopup
-  open={enquiryOpen}
-  handleClose={handleCloseEnquiry}
-/>
-    </Box>
+  <div className="footer-payments">
+    <img src={visa} alt="Payment methods" />
+  </div>
+</div>
+    </footer>
   );
 }

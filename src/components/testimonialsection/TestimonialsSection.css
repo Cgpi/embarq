@@ -1,0 +1,106 @@
+/* SECTION */
+#testi-section {
+  background: #f6f0dc;
+  padding: 5rem 8%;
+  text-align: center;
+}
+
+/* TITLE */
+.testi-title {
+  font-family: "Fraunces", serif;
+  font-size: 2.8rem;
+  color: #F6A61D;
+  margin-bottom: 3rem;
+}
+
+/* CONTAINER */
+.testi-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* CARD */
+.testi-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: #FFFFFF;
+  padding: 2rem;
+  border-radius: 2rem;
+  max-width: 900px;
+  text-align: left;
+}
+
+/* IMAGE */
+.testi-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.testi-content p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+  color: #333;
+}
+
+.testi-content h4 {
+  font-size: 0.95rem;
+  color: #F6A61D;
+  font-weight: 600;
+}
+
+/* BUTTON */
+.testi-btn {
+  margin-top: 2.5rem;
+  display: inline-block;
+  background: #F6A61D;
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+/* ========================= */
+/* TABLET */
+/* ========================= */
+@media (max-width: 1024px) {
+  .testi-card {
+    padding: 1.5rem;
+  }
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+@media (max-width: 768px) {
+  #testi-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .testi-title {
+    font-size: 2rem;
+  }
+
+  /* 🔥 stack properly */
+  .testi-card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .testi-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .testi-content p {
+    font-size: 0.9rem;
+  }
+}

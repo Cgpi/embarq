@@ -1,12 +1,14 @@
 import { useLayoutEffect, useRef } from "react";
 import "./Hero.css";
 
-import carDesktop from "../../assets/images/car1.png";
+import carDesktop from "../../assets/images/car1.webp";
 // import carMobile from "../../assets/images/car4.png";
 import carMobile from "../../assets/images/hero_optimized.png";
-import roadVideo from "../../assets/video/hero.mp4";
-
-import { Globe, Car, Map, Users } from "lucide-react";
+import roadVideo from "../../assets/video/heronew.mp4";
+import hero1 from "../../assets/svg/hero1.svg";
+import hero2 from "../../assets/svg/hero2.svg";
+import hero3 from "../../assets/svg/hero3.svg";
+import hero4 from "../../assets/svg/hero4.svg";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -123,14 +125,14 @@ useLayoutEffect(() => {
       <div className="hero-inner">
         <div ref={leftRef} className="hero-left">
           <h1>
-            Luxury self-drive expeditions:<br />
-            fully guided,<br />
-            wildly freeing.
+            World's First<br />
+            Women-Only<br />
+            Self-Drive <br />Expedition
           </h1>
 
           <p>
-            Handcrafted road journeys in the world's most dramatic landscapes —
-            premium vehicles, curated stays, and a like-minded crew.
+            Handcrafted road journeys in the world’s most dramatic landscapes —premium vehicles, curated stays,
+a lead-and-support convoy, and a like-minded crew. You drive. We choreograph the rest.
           </p>
 
           <div className="buttons">
@@ -139,12 +141,27 @@ useLayoutEffect(() => {
           </div>
         </div>
 
-        <div ref={rightRef} className="hero-right desktop-features">
-          <div className="feature"><Globe size={20} /> Limited departures</div>
-          <div className="feature"><Car size={20} /> Premium convoy support</div>
-          <div className="feature"><Map size={20} /> Curated routes</div>
-          <div className="feature"><Users size={20} /> Small groups</div>
-        </div>
+     <div ref={rightRef} className="hero-right desktop-features">
+  <div className="feature">
+    <img src={hero1} alt="Limited departures" />
+    Limited departures
+  </div>
+
+  <div className="feature">
+    <img src={hero2} alt="Premium convoy support" />
+    Premium convoy support
+  </div>
+
+  <div className="feature">
+    <img src={hero3} alt="Curated routes" />
+    Curated routes
+  </div>
+
+  <div className="feature">
+    <img src={hero4} alt="Small groups" />
+    Small groups
+  </div>
+</div>
       </div>
     </section>
   );

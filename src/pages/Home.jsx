@@ -4,6 +4,7 @@ import ExpeditionIntro from "../components/ExpeditionIntro/ExpeditionIntro";
 import UpcomingExpeditions from "../components/UpcomingExpeditions/UpcomingExpeditions";
 import WhyDifferent from "../components/WhyDifferent/WhyDifferent";
 import HowItWorks from "../components/HowItWorks/HowItWorks";
+import TestimonialsSection from "../components/testimonialsection/TestimonialsSection";
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
       <ExpeditionIntro />
       <WhyDifferent />
       {/* <HowItWorks /> */}
+      <TestimonialsSection />
     </>
   );
 }

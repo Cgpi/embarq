@@ -1,0 +1,214 @@
+/* ========================= */
+/* ROOT */
+/* ========================= */
+
+#footer-section {
+  background: #5A5A5C;
+  color: #ffffff;
+  font-family: "Roboto Flex", sans-serif;
+}
+
+/* ========================= */
+/* TOP SECTION */
+/* ========================= */
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 4rem 8%;
+  flex-wrap: wrap;
+}
+
+/* Columns */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-width: 160px;
+}
+
+/* Links */
+.footer-col a {
+  color: #e5e5e5;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+  color: #ffffff;
+}
+
+/* ========================= */
+/* BRAND */
+/* ========================= */
+
+.footer-logo {
+  width: 120px;
+}
+
+.footer-brand h3 {
+  font-size: 1rem;
+  margin: 0.8rem 0;
+  font-weight: 500;
+}
+
+.footer-trip {
+  margin: 0.4rem 0;
+  font-weight: 500;
+  color: #dcdcdc;
+}
+
+.footer-review-btn {
+  margin-top: 0.8rem;
+  padding: 0.55rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: transparent;
+  color: #fff;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.25s ease;
+}
+
+.footer-review-btn:hover {
+  background: #ffffff;
+  color: #5b5b5b;
+}
+
+/* ========================= */
+/* CONTACT */
+/* ========================= */
+
+.footer-contact-item {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.footer-contact-item svg {
+  margin-top: 3px;
+}
+
+.footer-contact-item p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.footer-contact-item span {
+  display: block;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+}
+
+.footer-contact a {
+  color: #F6A61D;
+  text-decoration: none;
+}
+
+/* ========================= */
+/* SOCIAL (FIGMA MATCH) */
+/* ========================= */
+
+.footer-social {
+  margin-top: 1.8rem;
+}
+
+/* Divider */
+.footer-social::before {
+  content: "";
+  display: block;
+  width: 85%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  margin-bottom: 1rem;
+}
+
+/* Follow text */
+.footer-social p {
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+  color: #e5e5e5;
+}
+
+/* Icons row */
+.footer-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+/* Icons */
+.footer-icons svg {
+  width: 18px;
+  height: 18px;
+  color: #dcdcdc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.footer-icons svg:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* ========================= */
+/* BOTTOM BAR */
+/* ========================= */
+
+.footer-bottom {
+  background: #110505;
+  padding: 1rem 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #ffffff;
+}
+
+/* Payment image */
+.footer-payments img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+.footer-trip-logo {
+  width: 140px;   /* adjust if needed */
+  margin: 0.6rem 0;
+  object-fit: contain;
+}
+.footer-brand {
+  align-items: flex-start;
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer-col {
+    width: 100%;
+  }
+
+  .footer-social::before {
+    width: 100%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
