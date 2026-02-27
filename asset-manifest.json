@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/embarq/static/css/main.4e122605.css",
-    "main.js": "/embarq/static/js/main.56fab339.js",
+    "main.js": "/embarq/static/js/main.7c1b33dd.js",
     "static/media/georgia.png": "/embarq/static/media/georgia.0a658cbbb0674a2dd69d.png",
     "static/media/skorea.jpg": "/embarq/static/media/skorea.2a652c4f1fffff06c505.jpg",
     "static/media/georgiabg.jpg": "/embarq/static/media/georgiabg.dc9ca9ef3c29a9fad780.jpg",
@@ -13,7 +13,6 @@
     "static/media/Anupreeti More.jpg": "/embarq/static/media/Anupreeti More.28bfac27b3f1b1ae3606.jpg",
     "static/media/romaniabg.jpg": "/embarq/static/media/romaniabg.1d5850410f9e71206dc6.jpg",
     "static/media/slide1.png": "/embarq/static/media/slide1.76d91f491ef06c29696f.png",
-    "static/media/heronew.mp4": "/embarq/static/media/heronew.6411683533e3e5f629f7.mp4",
     "static/media/romanihero.png": "/embarq/static/media/romanihero.27b7892881f2a861b2d2.png",
     "static/media/mediabg.jpg": "/embarq/static/media/mediabg.22e23670467d5b9b6f2d.jpg",
     "static/media/expbg.jpg": "/embarq/static/media/expbg.1add67730517dfb9f643.jpg",
@@ -28,6 +27,7 @@
     "static/media/8.png": "/embarq/static/media/8.ebd4323dc0802f72aadc.png",
     "static/media/japan.jpg": "/embarq/static/media/japan.1f5ff068cf1a56a47df5.jpg",
     "static/media/SouthKoreabg.jpg": "/embarq/static/media/SouthKoreabg.1437d26e3638058c0187.jpg",
+    "static/media/hero2mb.mp4": "/embarq/static/media/hero2mb.f298ed3f4f6013d6b4ff.mp4",
     "static/media/testimonialsbg.jpg": "/embarq/static/media/testimonialsbg.542ed419204846e08487.jpg",
     "static/media/IndiaSpain.png": "/embarq/static/media/IndiaSpain.72d2c2d135c8c1746f3b.png",
     "static/media/Gift-1.png": "/embarq/static/media/Gift-1.7de9a6ea04aefb63407d.png",
@@ -105,10 +105,10 @@
     "index.html": "/embarq/index.html",
     "static/media/download.svg": "/embarq/static/media/download.66dd99b8f6862bce26e6c2c65bf5df96.svg",
     "main.4e122605.css.map": "/embarq/static/css/main.4e122605.css.map",
-    "main.56fab339.js.map": "/embarq/static/js/main.56fab339.js.map"
+    "main.7c1b33dd.js.map": "/embarq/static/js/main.7c1b33dd.js.map"
   },
   "entrypoints": [
     "static/css/main.4e122605.css",
-    "static/js/main.56fab339.js"
+    "static/js/main.7c1b33dd.js"
   ]
 }
