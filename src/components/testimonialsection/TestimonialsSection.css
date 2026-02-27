@@ -1,15 +1,29 @@
-/* SECTION */
+/* SECTION BACKGROUND */
 #testi-section {
-  background: #f6f0dc;
-  padding: 5rem 8%;
+  position: relative;
+  padding: 3.5rem 8%;
   text-align: center;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
+/* DARK OVERLAY (important for readability) */
+/* .testi-overlay {
+  background: linear-gradient(
+    rgba(17, 5, 5, 0.4),
+    rgba(17, 5, 5, 0.4)
+  );
+  padding: 4rem 2rem;
+  border-radius: 20px;
+} */
 
 /* TITLE */
 .testi-title {
   font-family: "Fraunces", serif;
-  font-size: 2.8rem;
-  color: #F6A61D;
+  font-size: 3rem;
+  color: #f6a61d;
   margin-bottom: 3rem;
 }
 
@@ -21,15 +35,25 @@
   align-items: center;
 }
 
-/* CARD */
+/* GLASS CARD */
 .testi-card {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  background: #FFFFFF;
-  padding: 2rem;
-  border-radius: 2rem;
+
   max-width: 900px;
+  padding: 2rem;
+
+  border-radius: 20px;
+
+  /* 🔥 GLASS EFFECT */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  color: #fff;
   text-align: left;
 }
 
@@ -46,12 +70,12 @@
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 0.8rem;
-  color: #333;
+  color: #fff;
 }
 
 .testi-content h4 {
   font-size: 0.95rem;
-  color: #F6A61D;
+  color: #f6a61d;
   font-weight: 600;
 }
 
@@ -59,12 +83,17 @@
 .testi-btn {
   margin-top: 2.5rem;
   display: inline-block;
-  background: #F6A61D;
+  background: #f6a61d;
   color: #fff;
-  padding: 0.6rem 1.5rem;
+  padding: 0.7rem 1.8rem;
   border-radius: 999px;
   text-decoration: none;
   font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.testi-btn:hover {
+  background: #e59400;
 }
 
 /* ========================= */
@@ -88,11 +117,9 @@
     font-size: 2rem;
   }
 
-  /* 🔥 stack properly */
   .testi-card {
     flex-direction: column;
     align-items: flex-start;
-    text-align: left;
   }
 
   .testi-img {

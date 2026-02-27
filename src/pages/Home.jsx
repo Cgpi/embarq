@@ -5,6 +5,8 @@ import UpcomingExpeditions from "../components/UpcomingExpeditions/UpcomingExped
 import WhyDifferent from "../components/WhyDifferent/WhyDifferent";
 import HowItWorks from "../components/HowItWorks/HowItWorks";
 import TestimonialsSection from "../components/testimonialsection/TestimonialsSection";
+import HomeFAQ from "../components/HomeFAQ/HomeFAQ";
+import Wmembers from "../components/home_wam/wmembers";
 
 function Home() {
   return (
@@ -14,9 +16,11 @@ function Home() {
       <UpcomingExpeditions />
       <WhyRoads />
       <ExpeditionIntro />
-      <WhyDifferent />
+      {/* <WhyDifferent /> */}
       {/* <HowItWorks /> */}
       <TestimonialsSection />
+      <HomeFAQ />
+      <Wmembers />
     </>
   );
 }
