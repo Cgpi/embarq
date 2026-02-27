@@ -3,20 +3,20 @@ import { Box, Container, Typography, Chip, IconButton } from "@mui/material";
 import rightArrow from "../assets/gallery/right-arrow.png";
 import leftArrow from "../assets/gallery/left-arrow.png";
 
-import kyrgyzstanHero from "../assets/gallery/Kyrgyzstan/Kyrgyzstan.png";
-import spainHero from "../assets/gallery/Spain/Spain.png";
 import balkansHero from "../assets/gallery/Balkans/Balkans.png";
 import indiaSpainHero from "../assets/gallery/India and Spain/IndiaSpain.png";
-import indiaThailandHero from "../assets/gallery/India and Thailand/Spiti.avif";
-import kashmirHero from "../assets/gallery/Kashmir/Spiti.avif";
-import mongoliaHero from "../assets/gallery/Mongolia/Spiti.avif";
-import newZealandHero from "../assets/gallery/New Zealand/Spiti.avif";
-import northEastHero from "../assets/gallery/NorthEast/Spiti.avif";
-import peruHero from "../assets/gallery/Peru/Spiti.avif";
-import russiaHero from "../assets/gallery/Russia/Spiti.avif";
-import scoatlandHero from "../assets/gallery/Scotland/Spiti.avif";
-import spitiHero from "../assets/gallery/Spiti/Spiti.avif";
-import uzbekistanHero from "../assets/gallery/Uzbekistan/Spiti.avif";
+import indiaThailandHero from "../assets/gallery/India and Thailand/india-Thailand.jpg";
+import kashmirHero from "../assets/gallery/Kashmir/kashmir.avif";
+import kyrgyzstanHero from "../assets/gallery/Kyrgyzstan/Kyrgyzstan.png";
+import mongoliaHero from "../assets/gallery/Mongolia/Mongolia.jpg";
+import newZealandHero from "../assets/gallery/New Zealand/new-zealand.jpg";
+import northEastHero from "../assets/gallery/NorthEast/northeast.jpg";
+import peruHero from "../assets/gallery/Peru/peru.jpg";
+import russiaHero from "../assets/gallery/Russia/russia.jpg";
+import scoatlandHero from "../assets/gallery/Scotland/scotland.jpg";
+import spainHero from "../assets/gallery/Spain/spain.jpg";
+import spitiHero from "../assets/gallery/Spiti/spiti.jpg";
+import uzbekistanHero from "../assets/gallery/Uzbekistan/uzbekistan.jpg";
 
 import kyrgyzstanGallery from "../../src/galleryData/kyrgyzstanGallery";
 import spainGallery from "../../src/galleryData/spainGallery";
@@ -79,7 +79,7 @@ const initialDestinations = [
     img: russiaHero,
   },
   {
-    title: "Scoatland",
+    title: "Scotland",
     img: scoatlandHero,
   },
   {
@@ -97,6 +97,7 @@ const GAP = 24;
 
 const GallerySection = () => {
   const [destinations, setDestinations] = useState(initialDestinations);
+  const [scrollY, setScrollY] = useState(0);
   const [activeDestination, setActiveDestination] = useState(
     initialDestinations[initialDestinations.length - 1],
   );
@@ -106,6 +107,23 @@ const GallerySection = () => {
   const [backgroundImg, setBackgroundImg] = useState(
     initialDestinations[initialDestinations.length - 1].img,
   );
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // 🔥 Cinematic zoom keyframes
+  const zoomAnimation = {
+    "@keyframes slowZoom": {
+      "0%": { transform: "scale(1)" },
+      "100%": { transform: "scale(1.08)" },
+    },
+  };
 
   const getGalleryData = () => {
     switch (activeDestination.title) {
@@ -256,6 +274,7 @@ const GallerySection = () => {
 
     const relativeTop = cardRect.top - sectionRect.top;
     const relativeLeft = cardRect.left - sectionRect.left;
+    
 
     /* =========================
      STEP 1 — Set initial card position
@@ -349,7 +368,13 @@ const GallerySection = () => {
         gridRow: `span ${rowSpan}`,
         gridColumn: `span ${colSpan}`,
         overflow: "hidden",
-        borderRadius: 3,
+        borderRadius: "20px",
+        position: "relative",
+        cursor: "pointer",
+        transition: "all 0.4s ease",
+        "&:hover img": {
+          transform: "scale(1.08)",
+        },
       }}
     >
       <Box
@@ -359,10 +384,6 @@ const GallerySection = () => {
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          transition: "transform 0.4s ease",
-          "&:hover": {
-            transform: "scale(1.05)",
-          },
         }}
       />
     </Box>
@@ -371,7 +392,7 @@ const GallerySection = () => {
   // 👇 Only show 3 non-active cards
   const visibleCards = destinations
     .filter((item) => item.img !== backgroundImg)
-    .slice(0, 4);
+    .slice(0, 5);
 
   return (
     <>
@@ -380,7 +401,7 @@ const GallerySection = () => {
         sx={{
           width: "100%",
           minHeight: "100vh",
-
+          ...zoomAnimation,
           position: "relative",
           overflow: "hidden",
           color: "#fff",
@@ -395,7 +416,9 @@ const GallerySection = () => {
             backgroundImage: `url(${backgroundImg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            transition: "opacity 0.5s ease",
+            animation: "slowZoom 12s ease-in-out infinite alternate",
+            transform: `translateY(${scrollY * 0.3}px)`,
+            transition: "transform 0.2s ease-out",
           }}
         />
 
@@ -410,7 +433,8 @@ const GallerySection = () => {
               backgroundImage: `url(${expandingCard.img})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
-              transition: "all 0.8s cubic-bezier(.22,1,.36,1)",
+              transition: "all 1s cubic-bezier(0.16, 1, 0.3, 1)",
+              willChange: "transform, width, height",
               ...cardStyle,
             }}
           />
@@ -436,23 +460,10 @@ const GallerySection = () => {
             pt: { xs: 14, md: 20 },
           }}
         >
-          <Typography
-            sx={{
-              fontFamily: "'Fraunces', serif",
-              fontWeight: 700,
-              fontSize: { xs: "40px", md: "90px" },
-              ml: { xs: 0, md: 10 },
-              mt: { xs: 8, md: 15 },
-              opacity: textVisible ? 1 : 0,
-              transform: textVisible ? "translateY(0px)" : "translateY(30px)",
-              transition: "all 0.6s cubic-bezier(.22,1,.36,1)",
-            }}
-          >
-            {activeDestination.title}
-          </Typography>
-
           {/* SLIDER */}
-          <Box sx={{ overflow: "hidden", ml: { xs: 0, md: 80 } }}>
+          <Box
+            sx={{ overflow: "hidden", ml: { xs: 0, md: 70 }, mt: { md: 20 } }}
+          >
             <Box
               sx={{
                 display: "flex",
@@ -460,8 +471,9 @@ const GallerySection = () => {
                 alignItems: "flex-end",
                 transform: `translateX(${sliderOffset}px)`,
                 transition: animateSlider
-                  ? "transform 0.8s cubic-bezier(.22,1,.36,1)"
+                  ? "transform 1s cubic-bezier(0.16, 1, 0.3, 1)"
                   : "none",
+                willChange: "transform",
               }}
             >
               {visibleCards.map((item, index) => (
@@ -482,9 +494,6 @@ const GallerySection = () => {
                     WebkitBackdropFilter: "blur(2px)",
                     boxShadow: "0 25px 60px rgba(0,0,0,0.35)",
                     transition: "all 0.4s cubic-bezier(.22,1,.36,1)",
-                    "&:hover": {
-                      transform: "translateY(-6px)",
-                    },
                   }}
                 >
                   {/* INNER IMAGE CONTAINER */}
@@ -537,7 +546,7 @@ const GallerySection = () => {
                 ml: { xs: 0, md: 0 },
               }}
             >
-              <IconButton onClick={handleNext}>
+              <IconButton onClick={handlePrev}>
                 <Box
                   component="img"
                   src={leftArrow}
@@ -547,7 +556,7 @@ const GallerySection = () => {
                   }}
                 />
               </IconButton>
-              <IconButton onClick={handlePrev}>
+              <IconButton onClick={handleNext}>
                 <Box
                   component="img"
                   src={rightArrow}
@@ -581,20 +590,35 @@ const GallerySection = () => {
         </Container>
       </Box>
       <Box sx={{ background: "#f5f5f5", py: 8 }}>
-        <Container maxWidth="xl">
+        <Typography
+          sx={{
+            fontFamily: "'Fraunces', serif",
+            fontWeight: 700,
+            fontSize: { xs: "40px", md: "60px" },
+            ml: { xs: 5, md: 25 },
+            mb: { xs: 0, md: 2 },
+            color: "#F6A61D",
+            textShadow: `
+              0px 4px 10px rgba(0,0,0,0.5)
+            `,
+            opacity: textVisible ? 1 : 0,
+            transform: textVisible ? "translateY(0px)" : "translateY(30px)",
+            transition: "all 0.9s cubic-bezier(0.16, 1, 0.3, 1)",
+          }}
+        >
+          {activeDestination.title}
+        </Typography>
+        <Container maxWidth="lg">
           <Box
             sx={{
               display: "grid",
               gridTemplateColumns: {
-                xs: "1fr", // 1 column mobile
-                sm: "repeat(2, 1fr)", // 2 columns tablet
-                md: "repeat(4, 1fr)", // 4 columns desktop
+                xs: "1fr",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)", // 🔥 4 columns like modern galleries
               },
               gap: 3,
-              gridAutoRows: {
-                xs: "auto", // 🔥 important
-                md: "220px",
-              },
+              gridAutoRows: "300px", // smaller row height = better control
             }}
           >
             {galleryData.map((item, index) => (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Typography, Container, Button } from "@mui/material";
 import MediaCard from "../components/MediaCard";
 import mediabg from "../assets/media/mediabg.jpg";
@@ -68,7 +68,7 @@ const allMediaData = [
     title: "#TimesSheUnLTD award article",
     author: "By: Times Entertainment",
     date: "Aug, 2020",
-    link: "https://timesofindia.indiatimes.com/life-style/spotlight/fearless-and-fantastic-meet-the-enterprising-timessheunltd-winners-from-mumbai/articleshow/77290268.cms"
+    link: "https://timesofindia.indiatimes.com/life-style/spotlight/fearless-and-fantastic-meet-the-enterprising-timessheunltd-winners-from-mumbai/articleshow/77290268.cms",
   },
   {
     image: img9,
@@ -90,6 +90,9 @@ const InTheMedia = () => {
     }
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Box sx={{ backgroundColor: "#dcd3c3" }}>
       {/* HERO SECTION */}
