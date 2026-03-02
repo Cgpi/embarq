@@ -1,15 +1,9 @@
-/* ================================= */
-/* FIGMA PERFECT RESPONSIVE HERO */
-/* ================================= */
-
 :root {
-  --glass-bg: rgba(255, 255, 255, 0.08);
   --glass-border: rgba(255, 255, 255, 0.25);
-  --glass-highlight: rgba(255, 255, 255, 0.15);
 }
 
 /* ============================= */
-/* HERO SECTION */
+/* HERO */
 /* ============================= */
 
 .exp-hero {
@@ -37,97 +31,75 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.28),
-    rgba(0, 0, 0, 0.12)
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.1)
   );
 }
 
 /* ============================= */
-/* LEFT PILL */
-/* ============================= */
-
-.exp-hero-pill {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(1rem);
-  border-radius: 0 2.5rem 2.5rem 0;
-  padding: 2.5rem 1rem;
-  z-index: 10;
-}
-
-.exp-hero-pill span {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  color: white;
-  font-weight: 500;
-  letter-spacing: 0.2rem;
-  font-size: 0.9rem;
-}
-
-/* ============================= */
-/* CONTENT LAYOUT */
+/* CONTENT */
 /* ============================= */
 
 .exp-hero-content {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: clamp(6rem, 12vw, 14rem);
+  align-items: flex-end;
+  padding-bottom: clamp(6rem, 8vh, 6rem); /* control spacing */
+  /* 👉 Right aligned like figma */
+  justify-content: flex-end;
+
+  padding-right: clamp(2rem, 8vw, 10rem);
 }
 
 /* ============================= */
-/* MAP */
+/* CARD WRAPPER */
 /* ============================= */
 
-.exp-hero-map {
-  position: absolute;
-  left: clamp(6rem, 12vw, 18rem);
-  top: 70%;
-  transform: translateY(-50%);
-  width: clamp(35rem, 60vw, 60rem);
-  opacity: 0.45;
-  filter: brightness(0) invert(1);
-  pointer-events: none;
+.exp-hero-card-wrapper {
+  position: relative;
+
+  /* 🔥 INCREASE WIDTH (important) */
+  width: clamp(28rem, 45vw, 60rem);
 }
 
 /* ============================= */
-/* GEORGIA HEADING */
+/* HEADING */
 /* ============================= */
 
 .exp-hero-heading {
   position: absolute;
+  top: 0;
+  left: 50%;
 
-  /* Move slightly upward */
-  top: clamp(6rem, 4vh, 3rem);
+  /* ✅ RESPONSIVE PERFECT ALIGNMENT */
+  transform: translate(-70%, -100%);
 
-  left: 60%;
-  transform: translateX(-50%);
+  /* 🔥 tiny visual adjustment */
+  margin-top: 0.24em;
 
-  /* Reduce font size */
-  font-size: clamp(3rem, 6vw, 6rem);
-
+  font-size: clamp(3rem, 5vw, 5.5rem);
   font-weight: 600;
   color: white;
-  z-index: 6;
+
+  z-index: 10;
+  text-align: center;
+  
+  /* prevent awkward breaks */
+  white-space: nowrap;
 }
 
-
 /* ============================= */
-/* GLASS CARD */
+/* CARD */
 /* ============================= */
 
 .exp-hero-card {
   position: relative;
-  margin-top: clamp(6rem, 12vh, 10rem);
-  margin-left: clamp(18rem, 30vw, 32rem);
-  width: clamp(20rem, 35vw, 38rem);
+  width: 100%;
 
-  padding: clamp(1.8rem, 3vw, 2.5rem);
+  /* ✅ COMPACT HEIGHT */
+  padding: clamp(2rem, 2.5vw, 2.5rem)
+           clamp(2rem, 3vw, 3rem);
 
   border-radius: 2rem;
 
@@ -137,8 +109,8 @@
       rgba(255, 255, 255, 0.05)
     );
 
-  backdrop-filter: blur(2.2rem);
-  -webkit-backdrop-filter: blur(2.2rem);
+  backdrop-filter: blur(2rem);
+  -webkit-backdrop-filter: blur(2rem);
 
   border: 1px solid var(--glass-border);
 
@@ -147,36 +119,50 @@
     inset 0 0 2rem rgba(255, 255, 255, 0.05);
 }
 
+/* ============================= */
+/* TEXT CONTENT */
+/* ============================= */
+
 /* Subheading */
 .exp-hero-subheading {
-  font-size: clamp(1.5rem, 2.2vw, 2.2rem);
+  font-size: clamp(1.6rem, 2vw, 2.2rem);
   font-weight: 600;
   color: white;
-  margin-bottom: 1rem;
+
+  margin-bottom: 0.6rem;
+
+  /* 🔥 force single line (if space allows) */
+  white-space: nowrap;
 }
 
 /* Badge */
 .exp-hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
   background: #f6b43f;
   color: white;
-  padding: 0.6rem 1.5rem;
+  padding: 0.5rem 1.4rem;
   border-radius: 50rem;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-/* Text */
+.badge-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Trip title */
 .exp-hero-text h3 {
   color: white;
   font-weight: 600;
-  margin-bottom: 0.6rem;
-  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
 }
 
+/* Description */
 .exp-hero-text p {
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
@@ -184,15 +170,9 @@
   font-family: "Roboto", sans-serif;
 }
 
-
-
 /* ============================= */
-/* TORN EFFECT (IMAGE VERSION)  */
+/* TORN */
 /* ============================= */
-
-.exp-hero {
-  position: relative; /* IMPORTANT */
-}
 
 .exp-hero-torn-wrapper {
   position: absolute;
@@ -200,31 +180,12 @@
   left: 0;
   width: 100%;
   overflow: hidden;
-  line-height: 0;
   pointer-events: none;
-  z-index: 5;
 }
 
 .exp-hero-torn-wrapper img {
   width: 100%;
-  height: auto;
-
-  /* same trick */
   transform: translateY(93%);
-}
-
-/* Tablet */
-@media (max-width: 1024px) {
-  .exp-hero-torn-wrapper img {
-    transform: translateY(88%);
-  }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .exp-hero-torn-wrapper img {
-    transform: translateY(85%);
-  }
 }
 
 /* ============================= */
@@ -235,36 +196,33 @@
 
   .exp-hero-content {
     justify-content: center;
-    padding-left: 0;
+    padding-right: 0;
   }
 
-  .exp-hero-heading {
-    left: 50%;
-    font-size: clamp(3rem, 8vw, 4rem);
-  }
-
-  .exp-hero-card {
-    margin: clamp(8rem, 18vh, 10rem) auto 0 auto;
+  .exp-hero-card-wrapper {
     width: 90%;
   }
 
-  .exp-hero-map {
-    display: none;
+  .exp-hero-heading {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+
+    /* slight adjustment for tablets */
+    margin-top: 0.24em;
   }
 
-  .exp-hero-pill {
-    display: none;
+  .exp-hero-subheading {
+    white-space: normal; /* allow wrap on smaller screens */
   }
 }
 
-/* woman icon svg */
-.exp-hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
+@media (max-width: 768px) {
 
-.badge-icon {
-  width: 15px;
-  height: 15px;
+  .exp-hero-heading {
+    font-size: clamp(2rem, 7vw, 3rem);
+    margin-top: 0.24em;
+  }
+
+  .exp-hero-card {
+    padding: 1.5rem;
+  }
 }

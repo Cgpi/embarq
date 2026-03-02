@@ -46,7 +46,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: clamp(3rem, 5vw, 5rem);
-  align-items: center;
+ align-items: stretch;
 }
 
 /* =====================================
@@ -56,8 +56,8 @@
   width: 100%;
   max-width: 33rem; /* ~528px like figma */
   margin: 0 auto;
-
-  padding: 2.75rem 3rem; /* tighter padding */
+ height: 100%;
+  padding: 0.5rem 3rem; /* tighter padding */
   border-radius: 1.5rem;
 
   background: rgba(255, 255, 255, 0.18);
@@ -91,7 +91,7 @@
 .exp-ie-card li {
   font-family: "Roboto Flex", sans-serif;
   font-size: 1rem;
-  line-height: 1.75;
+  line-height: 1.4;
   margin-bottom: 0.9rem;
 }
 

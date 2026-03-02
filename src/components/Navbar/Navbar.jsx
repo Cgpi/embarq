@@ -4,6 +4,7 @@ import "./Navbar.css";
 import logo from "../../assets/logo.png";
 import { Plane, Menu, X, PhoneCall } from "lucide-react";
 import EnquiryPopup from "../../pages/EnquiryPopup";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -14,6 +15,8 @@ function Navbar() {
   const location = useLocation();
 
   const closeMenu = () => setOpen(false);
+
+  
 
   const handleOpenEnquiry = () => {
     setEnquiryOpen(true);
@@ -68,6 +71,20 @@ function Navbar() {
     setOpen(false);
   }, [location]);
 
+  // Add this above return
+const expeditionList = [
+  { name: "Georgia", slug: "georgia" },
+  { name: "Romania", slug: "romania" },
+  { name: "Southkorea", slug: "southkorea" },
+  { name: "Finland", slug: "finland" },
+  { name: "K2k2026", slug: "k2k2026" },
+  { name: "Scotland", slug: "scotland" },
+];
+
+const [showDropdown, setShowDropdown] = useState(false);
+
+const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+
   return (
     <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
@@ -82,7 +99,35 @@ function Navbar() {
         <div className="nav-right">
           <nav className="nav-links">
             <Link to="/about">About</Link>
-            <Link to="/expedition">Expeditions</Link>
+           <div
+  className="dropdown-wrapper"
+  onMouseEnter={() => setShowDropdown(true)}
+  onMouseLeave={() => setShowDropdown(false)}
+>
+  <span className="dropdown-title">Expeditions</span>
+
+  <AnimatePresence>
+    {showDropdown && (
+      <motion.div
+        className="dropdown-menu"
+        initial={{ opacity: 0, y: 15, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 10, scale: 0.98 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+      >
+        {expeditionList.map((item) => (
+          <Link
+            key={item.slug}
+            to={`/expedition/${item.slug}`}
+            className="dropdown-item"
+          >
+            {item.name}
+          </Link>
+        ))}
+      </motion.div>
+    )}
+  </AnimatePresence>
+</div>
             <Link to="/stories">Travel Stories</Link>
             <Link to="/testimonials">Testimonials</Link>
             <Link to="/media">In the Media</Link>
@@ -113,9 +158,39 @@ function Navbar() {
         <Link to="/about" onClick={closeMenu}>
           About
         </Link>
-        <Link to="/expedition" onClick={closeMenu}>
-          Expeditions
-        </Link>
+    <div className="mobile-dropdown">
+  <div
+    className="mobile-dropdown-header"
+    onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+  >
+    Expeditions
+  </div>
+
+  <AnimatePresence>
+    {mobileDropdownOpen && (
+      <motion.div
+        className="mobile-dropdown-content"
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ height: "auto", opacity: 1 }}
+        exit={{ height: 0, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        {expeditionList.map((item) => (
+          <Link
+            key={item.slug}
+            to={`/expedition/${item.slug}`}
+            onClick={() => {
+              closeMenu();
+              setMobileDropdownOpen(false);
+            }}
+          >
+            {item.name}
+          </Link>
+        ))}
+      </motion.div>
+    )}
+  </AnimatePresence>
+</div>
         <Link to="/stories" onClick={closeMenu}>
           Travel Stories
         </Link>

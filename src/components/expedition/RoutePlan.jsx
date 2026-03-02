@@ -8,8 +8,8 @@ function RoutePlan({ data }) {
       <div className="route-container">
         <h2 className="route-title">Route Plan</h2>
 
-        <img src={data.desktop} className="desktop" />
-        <img src={data.mobile} className="mobile" />
+        <img src={data.desktop} className="route-image desktop" />
+        <img src={data.mobile} className="route-image mobile" />
       </div>
     </section>
   );

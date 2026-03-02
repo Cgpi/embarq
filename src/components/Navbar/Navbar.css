@@ -277,3 +277,155 @@
   background: rgba(255, 255, 255, 0.1);
   border-color: white;
 }
+/* ============================= */
+/* DROPDOWN WRAPPER (IMPORTANT FIX) */
+/* ============================= */
+
+.dropdown-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* ============================= */
+/* DROPDOWN TITLE */
+/* ============================= */
+
+.dropdown-title {
+  color: white;
+  font-family: "Roboto Flex", sans-serif;
+  font-size: 0.92rem;
+  letter-spacing: 0.5px;
+  opacity: 0.85;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.dropdown-title:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* ============================= */
+/* DROPDOWN MENU (FRAMER FRIENDLY) */
+/* ============================= */
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* ✅ FIXED (no hover gap) */
+  left: 0;
+
+  margin-top: 0.6rem;
+
+  min-width: 240px;
+  padding: 1rem;
+
+  background: rgba(15, 15, 15, 0.85);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  /* ❌ REMOVE opacity/pointer-events control (Framer handles it) */
+
+  z-index: 1000;
+
+  /* ✨ LUXURY DEPTH */
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ============================= */
+/* DROPDOWN ITEM */
+/* ============================= */
+
+.dropdown-item {
+  color: white;
+  text-decoration: none;
+  font-family: "Roboto Flex", sans-serif;
+  font-size: 0.9rem;
+
+  padding: 0.65rem 0.8rem;
+  border-radius: 0.6rem;
+
+  opacity: 0.85;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* ✨ PREMIUM HOVER */
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  opacity: 1;
+  transform: translateX(6px);
+}
+
+/* ============================= */
+/* MOBILE DROPDOWN */
+/* ============================= */
+
+.mobile-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+/* CLICKABLE HEADER */
+.mobile-dropdown-header {
+  color: white;
+  font-family: "Roboto Flex", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0.4rem 0;
+
+  transition: opacity 0.3s ease;
+}
+
+.mobile-dropdown-header:hover {
+  opacity: 0.8;
+}
+
+/* DROPDOWN CONTENT */
+.mobile-dropdown-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  padding-left: 0.6rem;
+  overflow: hidden;
+}
+
+/* LINKS */
+.mobile-dropdown-content a {
+  color: white;
+  text-decoration: none;
+  font-family: "Roboto Flex", sans-serif;
+  font-size: 0.95rem;
+
+  opacity: 0.85;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.mobile-dropdown-content a:hover {
+  opacity: 1;
+  transform: translateX(4px);
+}
