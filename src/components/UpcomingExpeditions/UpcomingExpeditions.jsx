@@ -3,7 +3,7 @@ import "./UpcomingExpeditions.css";
 import ExpeditionSlide from "../ExpeditionSlide";
 import GlobalScrollDownNRJ from "../scroll label/GlobalScrollDownNRJ";
 
-import slide1 from "../../assets/images/slide1.png";
+import k2k from "../../assets/images/k2k.webp";
 import slide2 from "../../assets/images/scotland.webp";
 import slide3 from "../../assets/images/romania.webp";
 import slide4 from "../../assets/images/georgia.webp";
@@ -21,7 +21,7 @@ const expeditions = [
     title: "KUTCH TO KIBITHOO",
     subtitle: "Salt flats to North eastern mountains. India at its widest.",
     date: "8th to 28th March 2026",
-    image: slide1,
+    image: k2k,
   },
    {
     title: "Scotland",
@@ -41,12 +41,12 @@ const expeditions = [
     date: "8th to 16th August, 2026",
     image: slide4,
   },
-  {
-    title: "Japan Ultra Luxury",
-    subtitle: "Scenic routes. Cultural depth. Oriental flavours.",
-    date: "25th September to 9th October, 2026",
-    image: slide5,
-  },
+  // {
+  //   title: "Japan Ultra Luxury",
+  //   subtitle: "Scenic routes. Cultural depth. Oriental flavours.",
+  //   date: "25th September to 9th October, 2026",
+  //   image: slide5,
+  // },
  
   {
     title: "South Korea",
