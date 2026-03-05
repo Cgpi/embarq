@@ -12,6 +12,7 @@ import Blog from "../pages/blog";
 import InTheMedia from "../pages/InTheMedia";
 
 import Expedition from "../pages/Expeditions/expedition";
+import PartnershipPage from "../pages/PartnershipPage";
 
 function AppRoutes() {
   return (
@@ -29,6 +30,7 @@ function AppRoutes() {
       <Route path="/media" element={<InTheMedia />} />
 
       <Route path="/expedition/:slug" element={<Expedition />} />
+      <Route path="/partnership" element={<PartnershipPage />} />
     </Routes>
   );
 }
