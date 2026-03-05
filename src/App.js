@@ -9,6 +9,7 @@ import Footer from "./components/Footer/Footer";
 import AppRoutes from "./routes/AppRoutes";
 import "./App.css";
 import "@fontsource-variable/fraunces";
+import ScrollToTopHashNRJ from "./components/ScrollToTopNRJ";
 
 function App() {
   useEffect(() => {
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <HashRouter>
+      <ScrollToTopHashNRJ />
       <Navbar />
       <AppRoutes />
       <Footer />

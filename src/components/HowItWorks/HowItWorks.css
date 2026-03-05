@@ -1,135 +1,207 @@
-/* WRAPPER controls scroll length */
-.how-wrapper {
-  height: 300vh; /* IMPORTANT: gives scroll space */
+/* ========================= */
+/* SECTION */
+/* ========================= */
+
+.howworks-section-nrj{
+  position:relative;
+  width:100%;
+  height:100vh;
+
+  background-image:url("../../assets/images/howitworks.webp");
+  background-size:cover;
+  background-position:center;
+
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+
+  overflow:hidden;
 }
 
-/* STICKY SECTION */
-.how-section {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  width: 100%;
-
-  background-size: cover;
-  background-position: center;
-
-  display: flex;
-  align-items: center;
-  overflow: hidden;
+.howworks-overlay-nrj{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to right,
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.65)
+  );
 }
 
-/* OVERLAY */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-}
-
+/* ========================= */
 /* CONTENT */
-.content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
+/* ========================= */
 
-  display: flex;
-  justify-content: flex-end;
-  padding: 40px;
+.howworks-container-nrj{
+  position:relative;
+  width:50%;
+  padding-right:8%;
+  z-index:2;
 }
 
-/* TEXT BLOCK */
-.how-content,
-.experience {
-  width: 40%;
-  color: white;
-  transition: all 0.5s ease;
+.howworks-content-nrj h2{
+  font-family:"Fraunces", serif;
+  font-size:52px;
+  color:white;
+  margin-bottom:10px;
 }
 
-/* TYPOGRAPHY */
-h1 {
-  font-family: "Fraunces", serif;
-  font-size: 48px;
-  margin-bottom: 10px;
+.howworks-content-nrj p{
+  font-family:"Roboto Flex", sans-serif;
+  color:white;
+  margin-bottom:50px;
 }
 
-p {
-  font-family: "Roboto Flex", sans-serif;
-  opacity: 0.85;
-  margin-bottom: 30px;
+/* ========================= */
+/* TIMELINE */
+/* ========================= */
+
+.howworks-timeline-nrj{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:55px;
 }
 
-/* STEPS */
-.steps {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+/* vertical line */
+
+
+/* ========================= */
+/* STEP */
+/* ========================= */
+
+.howworks-step-nrj{
+  display:flex;
+  align-items:center;
+  gap:30px;
+
+  
+  transition:all 0.35s ease;
+
+  position:relative;
+  z-index:2; /* icons appear above the line */
 }
 
-.step {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  opacity: 0.4;
-  transform: translateY(20px);
-  transition: all 0.4s ease;
+.howworks-step-nrj.active{
+  opacity:1;
 }
 
-/* ACTIVE STEP */
-.step.active {
-  opacity: 1;
-  transform: translateY(0);
+/* ========================= */
+/* ICON */
+/* ========================= */
+
+.howworks-icon-nrj{
+
+  position:relative;
+
+  width:60px;
+  height:60px;
+
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  z-index:3;
+
+  /* frosted glass background */
+
+  background:radial-gradient(
+    circle at 30% 30%,
+    rgba(255,255,255,0.45),
+    rgba(255,255,255,0.15)
+  );
+
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+
+  border:1px solid rgba(255,255,255,0.3);
+
+  box-shadow:
+    inset 0 2px 6px rgba(255,255,255,0.35),
+    0 15px 40px rgba(0,0,0,0.35);
+
+  transition:all 0.35s ease;
 }
 
-/* EXPERIENCE */
-.experience {
-  position: absolute;
-  right: 40px;
-  top: 50%;
-  transform: translateY(-50%);
+/* icon svg */
 
-  opacity: 0;
-  pointer-events: none;
+.howworks-icon-nrj img{
+  width:32px;
+  opacity:0.95;
 }
 
-.experience.show {
-  opacity: 1;
-  pointer-events: auto;
+/* ========================= */
+/* ACTIVE ICON */
+/* ========================= */
+
+.howworks-step-nrj.active .howworks-icon-nrj{
+
+  background:linear-gradient(
+    145deg,
+    #ffbe4f,
+    #f59b1c
+  );
+
+  border:none;
+
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,0.35);
 }
 
-/* HIDE HOW */
-.how-content.hide {
-  opacity: 0;
+/* ========================= */
+/* TEXT */
+/* ========================= */
+
+.howworks-text-nrj{
+  font-family:"Roboto Flex", sans-serif;
+  color:white;
+  font-size:20px;
+  line-height:1.4;
 }
 
-/* LIST */
-.exp-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
 
-.exp-list div {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
+@media (max-width:1024px){
 
-/* 📱 RESPONSIVE */
-@media (max-width: 768px) {
-  .content {
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
+  .howworks-container-nrj{
+    width:70%;
   }
 
-  .how-content,
-  .experience {
-    width: 100%;
+  .howworks-content-nrj h2{
+    font-size:42px;
   }
 
-  h1 {
-    font-size: 30px;
+}
+
+@media (max-width:768px){
+
+  .howworks-section-nrj{
+
+    background-image:url("../../assets/images/howitworksmobile.webp");
+
+    justify-content:center;
+    padding:40px 25px;
+
   }
+
+  .howworks-container-nrj{
+    width:100%;
+    padding:0;
+  }
+
+  .howworks-content-nrj h2{
+    font-size:34px;
+  }
+
+  .howworks-text-nrj{
+    font-size:16px;
+  }
+
 }

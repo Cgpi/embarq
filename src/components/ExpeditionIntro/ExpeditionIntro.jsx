@@ -5,6 +5,8 @@ import bgImage from "../../assets/images/expbg.webp";
 import expcar1 from "../../assets/images/excar1.webp";
 import expcar2 from "../../assets/images/excar2.webp";
 
+import GlobalScrollDownNRJ from "../scroll label/GlobalScrollDownNRJ";
+
 // TEXT STAGGER CONTAINER
 const container = {
   hidden: {},
@@ -162,6 +164,7 @@ export default function ExpeditionIntro() {
 
         </div>
       </div>
+      <GlobalScrollDownNRJ />
     </section>
   );
 }

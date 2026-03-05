@@ -1,11 +1,12 @@
 /* ============================= */
 /* WHY SECTION */
+/* Full screen background section */
 /* ============================= */
 
 .why {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100vh; /* full screen height */
   background-size: cover;
   background-position: center;
   display: flex;
@@ -13,36 +14,52 @@
   overflow: hidden;
 }
 
-/* ✅ DARK OVERLAY (Figma style — no blur) */
+/* ============================= */
+/* DARK OVERLAY */
+/* improves text readability */
+/* ============================= */
+
 .why::before {
   content: "";
   position: absolute;
   inset: 0;
+
+  /* subtle gradient overlay */
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.25) 0%,
-    rgba(0, 0, 0, 0.15) 30%,
-    rgba(0, 0, 0, 0.50) 100%
+    rgba(0,0,0,0.25) 0%,
+    rgba(0,0,0,0.15) 30%,
+    rgba(0,0,0,0.50) 100%
   );
+
   z-index: 1;
 }
 
 /* ============================= */
-/* CONTAINER */
+/* MAIN CONTENT CONTAINER */
+/* holds left text + right points */
 /* ============================= */
 
 .why-container {
   position: relative;
   z-index: 2;
+
   width: 100%;
+  max-width: 1400px;
+  margin: auto;
+
   padding: 80px;
+
   display: flex;
   justify-content: space-between;
-  gap: 60px;
+  align-items: center;
+
+  gap: 80px;
 }
 
 /* ============================= */
-/* LEFT */
+/* LEFT SIDE */
+/* Heading + subtitle */
 /* ============================= */
 
 .why-left {
@@ -55,6 +72,7 @@
   font-size: clamp(2.2rem, 5vw, 4.5rem);
   color: #fff;
   line-height: 1.1;
+
   text-shadow: 0 4px 20px rgba(0,0,0,0.6);
 }
 
@@ -62,109 +80,148 @@
   margin-top: 20px;
   color: #ddd;
   font-size: 1.1rem;
+
   text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 /* ============================= */
-/* RIGHT */
+/* RIGHT SIDE */
+/* list of features */
 /* ============================= */
 
 .why-right {
   flex: 1;
   max-width: 620px;
   position: relative;
+
   display: flex;
+  align-items: center;
 }
 
-/* LEFT vertical line */
+/* ============================= */
+/* VERTICAL LINE */
+/* decorative line beside points */
+/* ============================= */
+
 .scroll-track {
   position: absolute;
   left: 0;
   top: 0;
+
   width: 2px;
   height: 100%;
+
   background: rgba(255,255,255,0.2);
 }
 
-/* Yellow indicator (static like design) */
+/* Yellow indicator near first point */
+
 .scroll-indicator {
   position: absolute;
   left: 0;
-  top: 20px;
+  top: 25px;
+
   width: 2px;
-  height: 90px;
+  height: 80px;
+
   background: #f6b43f;
 }
 
 /* ============================= */
-/* POINTS */
+/* POINTS CONTAINER */
+/* removed scrollbar */
+/* distribute items vertically */
 /* ============================= */
 
 .points {
   margin-left: 30px;
+
   display: flex;
   flex-direction: column;
-  gap: 35px;
 
-  max-height: 70vh;
-  overflow-y: auto; /* ONLY scrollbar */
-  padding-right: 10px;
+  /* evenly space items so everything fits */
+  justify-content: space-between;
+
+  height: 520px; /* fixed height so items fit nicely */
 }
 
-/* REMOVE custom scrollbar completely */
+/* ============================= */
+/* EACH FEATURE ITEM */
+/* ============================= */
 
-
-/* Each point */
 .point {
   display: flex;
   gap: 18px;
   align-items: flex-start;
+
   color: #d0d0d0;
+
   transition: all 0.3s ease;
 }
 
-/* Active card */
+/* ============================= */
+/* ACTIVE FEATURE */
+/* highlighted card */
+/* ============================= */
+
 .point.active {
   background: #f6b43f;
-  padding: 24px 26px;
-  border-radius: 30px;
+
+  padding: 12px 26px;
+  border-radius: 28px;
+
   color: #000;
 }
 
-/* Title */
+/* ============================= */
+/* TITLE */
+/* ============================= */
+
 .point h4 {
   font-size: 1.1rem;
   font-weight: 600;
 }
 
-/* Description */
+/* ============================= */
+/* DESCRIPTION */
+/* ============================= */
+
 .point p {
   font-size: 0.95rem;
   margin-top: 6px;
-  line-height: 1.5;
+  line-height: 1;
 }
 
-/* ICON (important fix) */
+/* ============================= */
+/* ICON */
+/* ============================= */
+
 .icon img {
   width: 48px;
   height: 48px;
   object-fit: contain;
-  filter: brightness(0) invert(1); /* white icons */
+  margin-top: 22px;
+
+  /* white icon for dark background */
+  filter: brightness(0) invert(1);
 }
 
-/* Active icon becomes dark */
+/* active icon becomes dark */
+
 .point.active .icon img {
-  filter: brightness(0); /* black */
+  filter: brightness(0);
 }
 
 /* ============================= */
-/* RESPONSIVE */
+/* TABLET RESPONSIVE */
 /* ============================= */
 
 @media (max-width: 1024px) {
+
   .why-container {
     flex-direction: column;
     padding: 60px 30px;
+    gap: 50px;
   }
 
   .why-left {
@@ -176,19 +233,29 @@
     max-width: 100%;
   }
 
-  .points {
-    max-height: none;
-    overflow: visible;
-    margin-left: 0;
-  }
+  /* remove decorative line on tablet */
 
   .scroll-track,
   .scroll-indicator {
     display: none;
   }
+
+  /* points become normal vertical list */
+
+  .points {
+    height: auto;
+    gap: 28px;
+    margin-left: 0;
+  }
+
 }
 
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
 @media (max-width: 600px) {
+
   .why {
     align-items: flex-start;
     padding-top: 100px;
@@ -218,4 +285,5 @@
   .point p {
     font-size: 0.9rem;
   }
+
 }

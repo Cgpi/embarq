@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import "./WhyRoads.css";
 import whyRoadsImg from "../../assets/images/whyroads.webp";
+import GlobalScrollDownNRJ from "../scroll label/GlobalScrollDownNRJ";
 
 export default function ExpWhyRoads() {
   return (
@@ -70,6 +71,7 @@ export default function ExpWhyRoads() {
           </motion.p>
         </motion.div>
       </div>
+      <GlobalScrollDownNRJ targetId="upcoming-expeditions"/>
     </section>
   );
 }

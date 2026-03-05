@@ -1,6 +1,7 @@
 import "./UpcomingExpeditions/UpcomingExpeditions.css";
 import womanIcon from "../assets/svg/womanicon.svg";
 import download from "../assets/svg/download.svg";
+
 export default function ExpeditionSlide({ image, title, subtitle, date }) {
   return (
     <div
@@ -17,7 +18,7 @@ export default function ExpeditionSlide({ image, title, subtitle, date }) {
 
   {/* SUBTITLE */}
   <p className="slide-subtitle">
-    {subtitle}. India at its widest.
+    {subtitle}
   </p>
 
   {/* CTA BUTTON (NEW) */}
