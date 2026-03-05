@@ -8,6 +8,7 @@ import GiftTrip from "../pages/GiftTrip";
 
 import FAQ from "../pages/FAQ";
 import Blog from "../pages/blog";
+import Blog2 from "../pages/b2";
 
 import InTheMedia from "../pages/InTheMedia";
 
@@ -23,7 +24,7 @@ function AppRoutes() {
       <Route path="/gift-trip" element={<GiftTrip />} />
       <Route path="/faq" element={<FAQ />} />
       <Route path="/blog" element={<Blog />} />
-
+      <Route path="/b2" element={<Blog2 />} />
       <Route path="/testimonials" element={<Testimonials />} />
 
       <Route path="/media" element={<InTheMedia />} />
