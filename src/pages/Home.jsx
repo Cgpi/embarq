@@ -16,8 +16,8 @@ function Home() {
       <UpcomingExpeditions />
       <WhyRoads />
       <ExpeditionIntro />
-      {/* <WhyDifferent /> */}
-      {/* <HowItWorks /> */}
+      <WhyDifferent />
+      <HowItWorks />
       <TestimonialsSection />
       <HomeFAQ />
       <Wmembers />

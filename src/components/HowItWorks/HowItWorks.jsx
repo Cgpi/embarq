@@ -1,80 +1,126 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./HowItWorks.css";
-import bgImage from "../../assets/images/whydifferent.jpg";
 
-import { Globe, Phone, Compass, Car, Users, Map } from "lucide-react";
+import bgImage from "../../assets/images/howitworks.webp";
+import bgMobile from "../../assets/images/howitworksmobile.webp";
 
-export default function HowItWorks() {
+import wm1 from "../../assets/svg/hiw1.svg";
+import wm2 from "../../assets/svg/hiw2.svg";
+import wm3 from "../../assets/svg/hiw3.svg";
+
+import GlobalScrollDownNRJ from "../scroll label/GlobalScrollDownNRJ";
+
+function HowItWorks() {
+
+  const sectionRef = useRef(null);
   const [activeStep, setActiveStep] = useState(0);
+  const [lockScroll, setLockScroll] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const section = document.querySelector(".how-wrapper");
-      const rect = section.getBoundingClientRect();
 
-      const totalHeight = section.offsetHeight - window.innerHeight;
-      const scrollProgress = Math.min(
-        Math.max(-rect.top / totalHeight, 0),
-        1
-      );
+    const section = sectionRef.current;
 
-      // 4 stages (3 steps + experience)
-      const step = Math.floor(scrollProgress * 4);
-      setActiveStep(step);
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.intersectionRatio > 0.7) {
+          setLockScroll(true);
+        } else {
+          setLockScroll(false);
+        }
+      },
+      { threshold: [0.7] }
+    );
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    observer.observe(section);
+
+    return () => observer.disconnect();
+
   }, []);
 
+  useEffect(() => {
+
+    const handleWheel = (e) => {
+
+      if (!lockScroll) return;
+
+      if (e.deltaY > 0) {
+
+        e.preventDefault();
+
+        setActiveStep((prev) => {
+
+          if (prev < 2) return prev + 1;
+
+          setLockScroll(false);
+          return prev;
+
+        });
+
+      }
+
+      if (e.deltaY < 0) {
+
+        e.preventDefault();
+
+        setActiveStep((prev) => (prev > 0 ? prev - 1 : prev));
+
+      }
+
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+
+    return () => window.removeEventListener("wheel", handleWheel);
+
+  }, [lockScroll]);
+
+  const steps = [
+    { icon: wm1, text: "Choose a departure (or a destination)" },
+    { icon: wm2, text: "Get the brochure + quick call to align preferences" },
+    { icon: wm3, text: "Arrive. Drive. Discover." },
+  ];
+
   return (
-    <div className="how-wrapper">
-      <section
-        className="how-section"
-        style={{ backgroundImage: `url(${bgImage})` }}
-      >
-        <div className="overlay" />
 
-        <div className="content">
-          {/* HOW IT WORKS */}
-          <div className={`how-content ${activeStep === 3 ? "hide" : ""}`}>
-            <h1>How it works</h1>
-            <p>Your expedition, in 3 simple steps.</p>
+    <section ref={sectionRef} className="howworks-section-nrj">
 
-            <div className="steps">
-              <div className={`step ${activeStep === 0 ? "active" : ""}`}>
-                <Globe size={20} />
-                <span>Choose a departure (or a destination)</span>
+      <div className="howworks-overlay-nrj" />
+
+      <div className="howworks-container-nrj">
+
+        <div className="howworks-content-nrj">
+
+          <h2>How it works</h2>
+          <p>Your expedition, in 3 simple steps.</p>
+
+          <div className="howworks-timeline-nrj">
+
+            {steps.map((step, index) => (
+
+              <div
+                key={index}
+                className={`howworks-step-nrj ${activeStep === index ? "active" : ""}`}
+              >
+
+                <div className="howworks-icon-nrj">
+                  <img src={step.icon} alt="" />
+                </div>
+
+                <div className="howworks-text-nrj">{step.text}</div>
+
               </div>
 
-              <div className={`step ${activeStep === 1 ? "active" : ""}`}>
-                <Phone size={20} />
-                <span>Get the brochure + quick call</span>
-              </div>
+            ))}
 
-              <div className={`step ${activeStep === 2 ? "active" : ""}`}>
-                <Compass size={20} />
-                <span>Arrive. Drive. Discover.</span>
-              </div>
-            </div>
           </div>
 
-          {/* EXPERIENCE */}
-          <div className={`experience ${activeStep === 3 ? "show" : ""}`}>
-            <h1>The Embarq Experience</h1>
-            <p>
-              Handpicked stays. Thoughtful food stops. Picture-perfect pit stops.
-              A route that keeps getting better.
-            </p>
-
-            <div className="exp-list">
-              <div><Car size={18}/> Premium self-drive vehicles</div>
-              <div><Users size={18}/> Lead + support convoy</div>
-              <div><Map size={18}/> Curated route plan</div>
-            </div>
-          </div>
         </div>
-      </section>
-    </div>
+
+      </div>
+            <GlobalScrollDownNRJ />
+    </section>
+
   );
 }
+
+export default HowItWorks;
