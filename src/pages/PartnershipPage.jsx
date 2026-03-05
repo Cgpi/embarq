@@ -32,20 +32,22 @@ import image2 from "../assets/partnership/image 14.png";
 const expeditionData = [
   {
     title: "K2K 2025: Kashmir To Kanyakumari",
-    desc: "To mark Embarq’s 10th year, we launched The Bold Route Series with an all-women drive from Kashmir to Kanyakumari. The expedition covered 4,000 KM, involved 50 women, 25 cars, and travelled across NH 44 in just 10 days, in partnership with Škoda India.Škoda India came on board as the presenting partner, reflecting shared values of mobility, inclusivity, and community engagement",
+    desc: `To mark Embarq’s 10th year, we launched The Bold Route Series with an all-women drive from Kashmir to Kanyakumari. The expedition covered 4,000 KM, involved 50 women, 25 cars, and travelled across NH 44 in just 10 days, in partnership with Škoda India.
+Škoda India came on board as the presenting partner, reflecting shared values of mobility, inclusivity, and community engagement`,
   },
   {
-    title: "Desert Storm 2024",
-    desc: "A high-impact desert expedition across Rajasthan spanning 1,800 KM featuring mobility leaders and experiential brand activations.",
+    title: "Aamby Valley",
+    desc: "The recently concluded SOUL Weekend Drive, an initiative by Tata Motors’ SUV Owners United League (SOUL), unfolded on April 5th and 6th, 2025, against the stunning backdrop of Aamby Valley City near Lonavala. Designed to celebrate the spirit of exploration and community, the event brought together passionate Tata SUV owners for an unforgettable weekend of adventure and connection.",
   },
   {
-    title: "Coastal Odyssey 2023",
-    desc: "From Mumbai to Kanyakumari, this 3,200 KM coastal drive celebrated community, inclusion and immersive storytelling partnerships.",
-  },
-  {
-    title: "Himalayan Heights 2022",
-    desc: "An extreme-altitude endurance drive across Ladakh showcasing performance engineering and strategic brand collaborations.",
-  },
+  title: "India to Thailand",
+  desc: `A journey to cross a few Boundaries and to Break a Few
+3000 kms – 12 days – 3 countries – India > Myanmar > Thailand
+6 compact SUV’s – 14 women
+The trip started in Imphal, Manipur (India) and ended in Bangkok (Thailand)
+A grand flag off in Imphal by the tourism ministry of Manipur.`,
+}
+  
 ];
 
 const data = [
@@ -264,7 +266,7 @@ transform: { xs: "translateY(0)", sm: "translateY(-50%)" },
         sx={{
           fontWeight: 700,
           fontSize: "1.2rem",
-          mt: { xs: 1, md: 6 },
+          mt: { xs: 1, md: 5 },
           color: "#000",
         }}
       >
@@ -278,6 +280,7 @@ transform: { xs: "translateY(0)", sm: "translateY(-50%)" },
           color: "#333",
           maxWidth: "520px",
           mt: 2,
+          whiteSpace: "pre-line",
         }}
       >
         {item.desc}
@@ -420,16 +423,16 @@ function MilestoneReach() {
           ))}
         </Grid>
 
-        {/* Influencer Title */}
+        {/* Influencer Title
         <Typography
           align="center"
           sx={{ mt: 7, mb: 4, fontSize: "18px", fontWeight: 500 }}
         >
           Covered by influencers like
-        </Typography>
+        </Typography> */}
 
         {/* Influencers */}
-       <Grid
+       {/* <Grid
   container
   spacing={{ xs: 2, sm: 3, md: 5, lg: 8 }}
   justifyContent="center"
@@ -477,15 +480,15 @@ function MilestoneReach() {
               </Typography>
             </Box>
           </Grid>
-        </Grid>
+        </Grid> */}
 
         {/* Bottom Text */}
-        <Typography
+        {/* <Typography
           align="center"
           sx={{ mt: 6, fontSize: "18px", fontWeight: 600 }}
         >
           Endorsed By NHAI & Sri Nitin Gadkari
-        </Typography>
+        </Typography> */}
 
       </Container>
     </Box>
