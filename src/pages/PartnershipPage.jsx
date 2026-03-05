@@ -322,27 +322,29 @@ transform: { xs: "translateY(0)", sm: "translateY(-50%)" },
   );
 }
 
-function Counter({ end, suffix = "", decimals = 0 }) {
+function Counter({ end, suffix = "", decimals = 0, start }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    let start = 0;
+    if (!start) return;
+
+    let value = 0;
     const duration = 2000;
     const increment = end / (duration / 16);
 
     const timer = setInterval(() => {
-      start += increment;
+      value += increment;
 
-      if (start >= end) {
-        start = end;
+      if (value >= end) {
+        value = end;
         clearInterval(timer);
       }
 
-      setCount(start);
+      setCount(value);
     }, 16);
 
     return () => clearInterval(timer);
-  }, [end]);
+  }, [start, end]);
 
   return (
     <Typography
@@ -363,8 +365,29 @@ function MilestoneReach() {
     { end: 10, label: "National features", suffix: "+", decimals: 0 },
   ];
 
+  const sectionRef = useRef(null);
+  const [startCount, setStartCount] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStartCount(true);
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <Box sx={{ background: "#FCF7E3", py: { xs: 6, md: 10 } }}>
+    <Box
+  ref={sectionRef}
+  sx={{ background: "#FCF7E3", py: { xs: 6, md: 10 } }}
+>
       <Container maxWidth="lg">
 
         {/* Title */}
@@ -405,11 +428,12 @@ function MilestoneReach() {
                 },
               }}
             >
-              <Counter
-                end={item.end}
-                suffix={item.suffix}
-                decimals={item.decimals}
-              />
+             <Counter
+  start={startCount}
+  end={item.end}
+  suffix={item.suffix}
+  decimals={item.decimals}
+/>
 
               <Typography
                 sx={{
@@ -862,17 +886,18 @@ function MembersSection() {
 
         {/* Heading */}
 
-        <Typography
-          align="center"
-          sx={{
-            fontFamily: "Roboto Flex, sans-serif",
-            fontSize: { xs: 28, md: 42 },
-            fontWeight: 600,
-            mb: 6
-          }}
-        >
-          We Are Members Of
-        </Typography>
+       <Typography
+  align="center"
+  sx={{
+    fontFamily: "'Roboto Flex', sans-serif",
+    fontSize: { xs: 28, md: 42 },
+    fontWeight: 600,
+    mb: 6,
+    color: "black",
+  }}
+>
+  We Are Members Of
+</Typography>
 
         {/* Images */}
 
