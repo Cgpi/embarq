@@ -261,3 +261,10 @@ body {
   height: 18px;
 }
 }
+
+/* for optimisation */
+.hero-video,
+.car-deck,
+.hero-overlay {
+  will-change: transform, opacity;
+}

@@ -3,12 +3,14 @@ import "./Hero.css";
 
 import carDesktop from "../../assets/images/car1.webp";
 // import carMobile from "../../assets/images/car4.png";
-import carMobile from "../../assets/images/hero_optimized.png";
+import carMobile from "../../assets/images/newcarhero.webp";
 import roadVideo from "../../assets/video/hero2mb.mp4";
 import hero1 from "../../assets/svg/hero1.svg";
 import hero2 from "../../assets/svg/hero2.svg";
 import hero3 from "../../assets/svg/hero3.svg";
 import hero4 from "../../assets/svg/hero4.svg";
+
+import heroposter from "../../assets/images/heroposter.webp";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -111,6 +113,8 @@ useLayoutEffect(() => {
         muted
         loop
         playsInline
+        preload="metadata"
+         poster={heroposter}
       >
         <source src={roadVideo} type="video/mp4" />
       </video>
@@ -119,7 +123,12 @@ useLayoutEffect(() => {
 
       <picture ref={carRef} className="car-deck">
         <source media="(max-width: 768px)" srcSet={carMobile} />
-        <img src={carDesktop} alt="car interior" />
+        <img
+  src={carDesktop}
+  alt="car interior"
+  loading="eager"
+  fetchpriority="high"
+/>
       </picture>
 
       <div className="hero-inner">
@@ -143,22 +152,22 @@ a lead-and-support convoy, and a like-minded crew. You drive. We choreograph the
 
      <div ref={rightRef} className="hero-right desktop-features">
   <div className="feature">
-    <img src={hero1} alt="Limited departures" />
+    <img src={hero1} alt="Limited departures" loading="lazy"/>
     Limited departures
   </div>
 
   <div className="feature">
-    <img src={hero2} alt="Premium convoy support" />
+    <img src={hero2} alt="Premium convoy support"  loading="lazy" />
     Premium convoy support
   </div>
 
   <div className="feature">
-    <img src={hero3} alt="Curated routes" />
+    <img src={hero3} alt="Curated routes" loading="lazy" />
     Curated routes
   </div>
 
   <div className="feature">
-    <img src={hero4} alt="Small groups" />
+    <img src={hero4} alt="Small groups" loading="lazy"   />
     Small groups
   </div>
 </div>

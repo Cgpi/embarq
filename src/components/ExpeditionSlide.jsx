@@ -2,7 +2,7 @@ import "./UpcomingExpeditions/UpcomingExpeditions.css";
 import womanIcon from "../assets/svg/womanicon.svg";
 import download from "../assets/svg/download.svg";
 
-export default function ExpeditionSlide({ image, title, subtitle, date }) {
+export default function ExpeditionSlide({ image, title, subtitle, date , brochure}) {
   return (
     <div
       className="expedition-slide"
@@ -22,10 +22,10 @@ export default function ExpeditionSlide({ image, title, subtitle, date }) {
   </p>
 
   {/* CTA BUTTON (NEW) */}
- <button className="brochure-btn">
+<a href={brochure} download className="brochure-btn">
   <img src={download} alt="download" />
   Download Brochure
-</button>
+</a>
 
 </div>
     </div>
