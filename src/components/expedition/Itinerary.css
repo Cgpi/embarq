@@ -101,6 +101,7 @@
 .exp-itinerary-description {
   color: #1f2937;
   margin-bottom: 6px;
+  white-space: pre-line;
 }
 
 .exp-itinerary-details {
