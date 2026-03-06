@@ -11,6 +11,15 @@ import slide5 from "../../assets/images/japan.webp";
 import slide6 from "../../assets/images/skorea.webp";
 import slide7 from "../../assets/images/finland.webp";
 
+// pdf
+
+import k2kPdf from "../../assets/pdf/k2k.pdf";
+import scotlandPdf from "../../assets/pdf/scotland.pdf";
+import romaniaPdf from "../../assets/pdf/romania.pdf";
+import georgiaPdf from "../../assets/pdf/georgia.pdf";
+import koreaPdf from "../../assets/pdf/skorea.pdf";
+import finlandPdf from "../../assets/pdf/finland.pdf";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -22,24 +31,28 @@ const expeditions = [
     subtitle: "Salt flats to North eastern mountains. India at its widest.",
     date: "8th to 28th March 2026",
     image: k2k,
+    brochure: k2kPdf
   },
    {
     title: "Scotland",
     subtitle: "NC500. Coastlines. Castle country",
     date: "8th to 17th May, 2026",
     image: slide2,
+    brochure: scotlandPdf
   },
   {
     title: "Romania",
     subtitle: "Carpathian passes. Quiet European charm.",
     date: "20th to 28th June, 2026",
     image: slide3,
+    brochure: romaniaPdf
   },
   {
     title: "Georgia",
     subtitle: "Mountain passes. Offbeat routes. Oldest wine making.",
     date: "8th to 16th August, 2026",
     image: slide4,
+    brochure: georgiaPdf
   },
   // {
   //   title: "Japan Ultra Luxury",
@@ -53,12 +66,14 @@ const expeditions = [
     subtitle: "Perfect roads. Mountain curves. Coastal light.",
     date: "21st to 29th November, 2026",
     image: slide6,
+    brochure: koreaPdf  
   },
    {
     title: "Finland",
     subtitle: "Winter wonderland. Dark skies. Northern lights.",
     date: "5th to 13th December, 2026",
     image: slide7,
+    brochure: finlandPdf
   },
 ];
 

@@ -16,8 +16,8 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 import BannerImg from "../assets/partnership/banner.png";
 import ExpeditionImg from "../assets/partnership/Partnership.png";
-import InfluncersImg1 from "../assets/partnership/Shirodhara-kerala 1.png"
-import InfluncersImg2 from "../assets/partnership/Shirodhara-kerala 2.png"
+// import InfluncersImg1 from "../assets/partnership/Shirodhara-kerala 1.png"
+// import InfluncersImg2 from "../assets/partnership/Shirodhara-kerala 2.png"
 import PurposeImg from "../assets/partnership/image 10.png";
 import K2KImg from "../assets/partnership/image 12.png";
 import Partners1 from "../assets/partnership/OurSpiritualHome.png"
@@ -29,15 +29,19 @@ import iceland from "../assets/images/skorea.jpg";
 import ladakh from "../assets/images/slide1.png";
 import image1 from "../assets/partnership/image 13.png";
 import image2 from "../assets/partnership/image 14.png";
+import Expedition2 from "../assets/partnership/Amby-Valley-2.webp";
+import Expedition3 from "../assets/partnership/India-to-Thailand.webp";
 const expeditionData = [
   {
     title: "K2K 2025: Kashmir To Kanyakumari",
     desc: `To mark Embarq’s 10th year, we launched The Bold Route Series with an all-women drive from Kashmir to Kanyakumari. The expedition covered 4,000 KM, involved 50 women, 25 cars, and travelled across NH 44 in just 10 days, in partnership with Škoda India.
 Škoda India came on board as the presenting partner, reflecting shared values of mobility, inclusivity, and community engagement`,
+ img: ExpeditionImg,
   },
   {
     title: "Aamby Valley",
     desc: "The recently concluded SOUL Weekend Drive, an initiative by Tata Motors’ SUV Owners United League (SOUL), unfolded on April 5th and 6th, 2025, against the stunning backdrop of Aamby Valley City near Lonavala. Designed to celebrate the spirit of exploration and community, the event brought together passionate Tata SUV owners for an unforgettable weekend of adventure and connection.",
+    img: Expedition2,
   },
   {
   title: "India to Thailand",
@@ -46,8 +50,9 @@ const expeditionData = [
 6 compact SUV’s – 14 women
 The trip started in Imphal, Manipur (India) and ended in Bangkok (Thailand)
 A grand flag off in Imphal by the tourism ministry of Manipur.`,
-}
-  
+    img: Expedition3,
+  }
+
 ];
 
 const data = [
@@ -237,7 +242,7 @@ function PinnedExpedition() {
 
    <Box
   component="img"
-  src={ExpeditionImg}
+  src={item.img}
   sx={{
     position: { xs: "relative", sm: "absolute" }, // 'sm' will be 700px breakpoint
     left: { xs: 0, sm: "-100px",md: "-140px" }, // pull left on larger screens
@@ -762,14 +767,14 @@ function PartnerForm() {
         bgcolor: "white",
       }}
     >
-      <Typography variant="h5" fontWeight="bold" fontFamily="Fraunces, serif" gutterBottom>
+      <Typography variant="h5" fontWeight="bold" fontFamily="Fraunces, serif" fontSize={35} gutterBottom>
         Interested in partnering?
       </Typography>
 
       <Typography
   variant="body2"
   color="text.secondary"
-  sx={{ fontFamily: "Roboto Flex, sans-serif", mb: 4 }}
+  sx={{ fontFamily: "Roboto Flex, sans-serif", mb: 4 ,fontSize: { xs: "16px", md: "20px" }}}
 >
         Fill out the form below to collaborate with us!
       </Typography>

@@ -26,7 +26,6 @@ function Expedition() {
       <Itinerary data={expedition.itinerary} />
       <InclusionExclusion data={expedition.inclusionExclusion} />
       <ExpeditionsCardScroll />
-      
     </div>
   );
 }

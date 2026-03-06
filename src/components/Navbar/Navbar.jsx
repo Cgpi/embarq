@@ -5,6 +5,7 @@ import logo from "../../assets/logo.png";
 import { Plane, Menu, X, PhoneCall } from "lucide-react";
 import EnquiryPopup from "../../pages/EnquiryPopup";
 import { motion, AnimatePresence } from "framer-motion";
+import navcar from "../../assets/svg/navcar.svg";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -133,15 +134,15 @@ const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
             <Link to="/media">In the Media</Link>
           </nav>
 
-          <button className="call-btn">
-            <PhoneCall size={16} />
-            Call
-          </button>
+         <a href="tel:8867809433" className="call-btn">
+  <PhoneCall size={16} />
+  Call
+</a>
 
-          <button className="book-btn" onClick={handleOpenEnquiry}>
-            <Plane size={16} />
-            Book a Trip
-          </button>
+        <button className="book-btn" onClick={handleOpenEnquiry}>
+  <img src={navcar} alt="car icon" className="navcar-icon" />
+  Book a Trip
+</button>
         </div>
 
         {/* HAMBURGER */}
@@ -207,15 +208,15 @@ const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
           Blog
         </Link>
 
-        <button className="call-btn">
-          <PhoneCall size={16} />
-          Call
-        </button>
+      <a href="tel:8867809433" className="call-btn">
+  <PhoneCall size={16} />
+  Call
+</a>
 
-        <button className="book-btn" onClick={handleOpenEnquiry}>
-          <Plane size={16} />
-          Book a Trip
-        </button>
+       <button className="book-btn" onClick={handleOpenEnquiry}>
+  <img src={navcar} alt="car icon" className="navcar-icon" />
+  Book a Trip
+</button>
       </div>
 
       <EnquiryPopup open={enquiryOpen} handleClose={handleCloseEnquiry} />
