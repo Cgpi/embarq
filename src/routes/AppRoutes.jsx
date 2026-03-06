@@ -12,6 +12,7 @@ import Blog from "../pages/blog";
 import InTheMedia from "../pages/InTheMedia";
 
 import Expedition from "../pages/Expeditions/expedition";
+import BlogPage from "../pages/BlogPage";
 
 function AppRoutes() {
   return (
@@ -22,7 +23,7 @@ function AppRoutes() {
       <Route path="/gallery" element={<GallerySection />} />
       <Route path="/gift-trip" element={<GiftTrip />} />
       <Route path="/faq" element={<FAQ />} />
-      <Route path="/blog" element={<Blog />} />
+      <Route path="/blog" element={<BlogPage />} />
 
       <Route path="/testimonials" element={<Testimonials />} />
 
