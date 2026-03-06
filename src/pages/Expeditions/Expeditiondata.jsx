@@ -1,22 +1,36 @@
 // data/expeditions.js
+//georgia
+import heroImage from "../../assets/expedition/Georgia.webp";
+import mapImage from "../../assets/expedition/Vector.webp"; 
+import routeMap from "../../assets/expedition/GeorgiaMap.webp";
+import routeMapMobile from "../../assets/expedition/GeorgiaMapMob.webp";
+import expeditionBg from "../../assets/expedition/georgiabg.webp";
 
-import heroImage from "../../assets/expedition/expbg.jpg";
-import mapImage from "../../assets/expedition/Vector.png"; //??
-import routeMap from "../../assets/expedition/GeorgiaMap.png";
-import routeMapMobile from "../../assets/expedition/GeorgiaMap.png";
-import expeditionBg from "../../assets/expedition/georgiabg.jpg";
-
-//romania
-import heroImage1 from "../../assets/expedition/romanihero.png";
-import routeMap1 from "../../assets/expedition/RomaniaMap.png";
-import routeMapMobile1 from "../../assets/expedition/RomaniaMap.png";
-import expeditionBg1 from "../../assets/expedition/romaniabg.jpg";
-
-//south korea,finlad,k2k2026,scotland
-import heroImage2 from "../../assets/expedition/southkorea.png";
-import routeMap2 from "../../assets/expedition/SouthKoreaMap.png";
-import routeMapMobile2 from "../../assets/expedition/SouthKoreaMap.png";
-import expeditionBg2 from "../../assets/expedition/SouthKoreabg.jpg";
+//romania-1
+import heroImage1 from "../../assets/expedition/Romania.webp";
+import routeMap1 from "../../assets/expedition/RomaniaMap.webp";
+import routeMapMobile1 from "../../assets/expedition/RomaniaMapMob.webp";
+import expeditionBg1 from "../../assets/expedition/romaniabg.webp";
+//south korea-2
+import heroImage2 from "../../assets/expedition/South Korea.webp";
+import routeMap2 from "../../assets/expedition/SouthKoreaMap.webp";
+import routeMapMobile2 from "../../assets/expedition/SouthKoreaMapMob.webp";
+import expeditionBg2 from "../../assets/expedition/SouthKoreabg.webp";
+//finland-3
+import heroImage3 from "../../assets/expedition/Finland.webp";
+import routeMap3 from "../../assets/expedition/FinlandMap.webp";
+import routeMapMobile3 from "../../assets/expedition/FinlandMapMob.webp";
+import expeditionBg3 from "../../assets/expedition/SouthKoreabg.webp";//same
+//k2k2026-4
+import heroImage4 from "../../assets/expedition/K2K.webp";
+import routeMap4 from "../../assets/expedition/K2KMap.webp";
+import routeMapMobile4 from "../../assets/expedition/K2KMapMob.webp";
+import expeditionBg4 from "../../assets/expedition/SouthKoreabg.webp";//same
+//scotland
+import heroImage5 from "../../assets/expedition/Scotland.webp";
+import routeMap5 from "../../assets/expedition/ScotlandMap.webp";
+import routeMapMobile5 from "../../assets/expedition/ScotlandMapMob.webp";
+import expeditionBg5 from "../../assets/expedition/SouthKoreabg.webp";//same
 
 export const expeditions = {
   //georgia
@@ -159,7 +173,7 @@ export const expeditions = {
     },
   },
 
-  //Romania
+  //Romania -1
 
   romania: {
     hero: {
@@ -280,7 +294,7 @@ export const expeditions = {
     },
   },
 
-  //South Korea
+  //South Korea - 2
 
   southkorea: {
     hero: {
@@ -403,7 +417,7 @@ export const expeditions = {
     },
   },
 
-  //Finland
+  //Finland - 3
 
   finland: {
     hero: {
@@ -412,7 +426,7 @@ export const expeditions = {
       badge: "All Women",
       description:
         "A premium winter self-drive expedition through Finland, journeying from the design-forward capital of Helsinki into the deep Arctic landscapes of Lapland. This expedition blends frozen forests, snowbound highways, ice-covered seas, and immersive Arctic experiences — from driving through Nordic postcard-perfect scenery to floating on the frozen Gulf of Bothnia and chasing the Northern Lights in Rovaniemi.",
-      bgImage: heroImage2,
+      bgImage: heroImage3,
       mapImage: mapImage,
     },
 
@@ -426,8 +440,8 @@ export const expeditions = {
     },
 
     route: {
-      desktop: routeMap2,
-      mobile: routeMapMobile,
+      desktop: routeMap3,
+      mobile: routeMapMobile3,
     },
 
     itinerary: [
@@ -498,7 +512,7 @@ export const expeditions = {
     ],
 
     inclusionExclusion: {
-      bgImage: expeditionBg2,
+      bgImage: expeditionBg3,
 
       inclusions: [
         "Recced, hand-picked driving routes",
@@ -523,7 +537,7 @@ export const expeditions = {
     },
   },
 
-  // K2K 2026
+  // K2K 2026 - 4
 
   k2k2026: {
     hero: {
@@ -532,7 +546,7 @@ export const expeditions = {
       badge: "All Women",
       description:
         "Covering India’s westernmost to easternmost drivable points, it is set to become one of the largest all-women self-drive expeditions ever undertaken in India, symbolising unity, courage, and the limitless potential of women on the move",
-      bgImage: heroImage2,
+      bgImage: heroImage4,
       mapImage: mapImage,
     },
     about: {
@@ -545,8 +559,8 @@ export const expeditions = {
     },
 
     route: {
-      desktop: routeMap2,
-      mobile: routeMapMobile,
+      desktop: routeMap4,
+      mobile: routeMapMobile4,
     },
 
     itinerary: [
@@ -621,7 +635,7 @@ export const expeditions = {
     ],
 
     inclusionExclusion: {
-      bgImage: expeditionBg2,
+      bgImage: expeditionBg4,
 
       inclusions: [
         "Recede Route",
@@ -654,7 +668,7 @@ export const expeditions = {
       badge: "All Women",
       description:
         "Covering India’s westernmost to easternmost drivable points, it is set to become one of the largest all-women self-drive expeditions ever undertaken in India, symbolising unity, courage, and the limitless potential of women on the move",
-      bgImage: heroImage2,
+      bgImage: heroImage5,
       mapImage: mapImage,
     },
     about: {
@@ -667,8 +681,8 @@ export const expeditions = {
     },
 
     route: {
-      desktop: routeMap2,
-      mobile: routeMapMobile,
+      desktop: routeMap5,
+      mobile: routeMapMobile5,
     },
 
     itinerary: [
@@ -742,7 +756,7 @@ export const expeditions = {
     ],
 
     inclusionExclusion: {
-      bgImage: expeditionBg2,
+      bgImage: expeditionBg5,
 
       inclusions: [
         "Recede Route",
