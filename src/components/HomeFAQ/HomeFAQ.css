@@ -10,7 +10,8 @@
   font-family: "Fraunces", serif;
   font-size: 2.8rem;
   color: #f6a61d;
-  margin-bottom: 2.2rem; /* 🔧 reduce space below title */
+  margin-bottom: 2.2rem;
+  /* 🔧 reduce space below title */
   text-transform: lowercase;
   text-align: center;
 }
@@ -21,7 +22,8 @@
   margin: auto;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem; /* 🔧 GAP BETWEEN CARDS (adjust here) */
+  gap: 0.8rem;
+  /* 🔧 GAP BETWEEN CARDS (adjust here) */
 }
 
 /* ITEM */
@@ -38,12 +40,59 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: 0.9rem 1.5rem 0.3rem; /* 🔧 GAP CONTROL (top & bottom) */
+  padding: 0.9rem 1.5rem 0.3rem;
+  /* 🔧 GAP CONTROL (top & bottom) */
   cursor: pointer;
 
   font-family: "Roboto Flex", sans-serif;
   font-size: 0.95rem;
   font-weight: 500;
+}
+
+.faq-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 15px;
+}
+
+.faq-table {
+  width: 100%;
+  min-width: 600px;
+  /* prevents table from squishing */
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.faq-table th,
+.faq-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.faq-table th {
+  background: #f5f5f5;
+  font-weight: 600;
+}
+
+.faq-table tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.faq-table th,
+.faq-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.faq-table th {
+  background: #f5f5f5;
+  font-weight: 600;
+}
+
+.faq-table tr:nth-child(even) {
+  background: #fafafa;
 }
 
 /* ICON */
@@ -61,8 +110,10 @@
 
 /* 🔥 MAIN GAP CONTROL BETWEEN QUESTION & ANSWER */
 .homefaq-answer p {
-  margin-top: 0.2rem; /* 🔧 reduce space above answer */
-  padding: 0 1.5rem 0.9rem; /* 🔧 bottom spacing */
+  margin-top: 0.2rem;
+  /* 🔧 reduce space above answer */
+  padding: 0 1.5rem 0.9rem;
+  /* 🔧 bottom spacing */
 
   font-family: "Roboto Flex", sans-serif;
   font-size: 0.9rem;
@@ -70,15 +121,16 @@
   color: #333;
 }
 
-/* ACTIVE STATE */
 .homefaq-item.active .homefaq-answer {
-  max-height: 300px; /* 🔧 increase if content cuts */
+  max-height: 1200px;
 }
 
 /* BUTTON (CENTERED) */
 .homefaq-btn {
-  display: block;              /* 🔥 required */
-  margin: 2rem auto 0;         /* 🔥 centers horizontally */
+  display: block;
+  /* 🔥 required */
+  margin: 2rem auto 0;
+  /* 🔥 centers horizontally */
 
   background: #f6a61d;
   color: white;
@@ -110,17 +162,29 @@
   }
 
   .homefaq-container {
-    gap: 0.7rem; /* 🔧 spacing between cards */
+    gap: 0.7rem;
+    /* 🔧 spacing between cards */
   }
 
   .homefaq-question {
     font-size: 0.9rem;
-    padding: 0.8rem 1rem 0.2rem; /* 🔧 tighter spacing */
+    padding: 0.8rem 1rem 0.2rem;
+    /* 🔧 tighter spacing */
   }
 
   .homefaq-answer p {
-    margin-top: 0.15rem; /* 🔧 reduce gap */
+    margin-top: 0.15rem;
+    /* 🔧 reduce gap */
     padding: 0 1rem 0.8rem;
     font-size: 0.85rem;
+  }
+
+  .faq-table {
+    font-size: 12px;
+  }
+
+  .faq-table th,
+  .faq-table td {
+    padding: 8px;
   }
 }
