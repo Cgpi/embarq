@@ -94,6 +94,7 @@ const InTheMedia = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
   return (
     <Box sx={{ backgroundColor: "#dcd3c3" }}>
       {/* HERO SECTION */}

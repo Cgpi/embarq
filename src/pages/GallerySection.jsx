@@ -103,6 +103,7 @@ const GallerySection = () => {
   );
 
   const [textVisible, setTextVisible] = useState(true);
+  const [isHeroVisible, setIsHeroVisible] = useState(true);
 
   const [backgroundImg, setBackgroundImg] = useState(
     initialDestinations[initialDestinations.length - 1].img,
@@ -175,6 +176,8 @@ const GallerySection = () => {
   }, []);
 
   useEffect(() => {
+    if (!isHeroVisible) return; // pause when hero not visible
+
     const interval = setInterval(() => {
       const visible = destinations
         .filter((item) => item.img !== backgroundImg)
@@ -192,9 +195,6 @@ const GallerySection = () => {
       const relativeTop = cardRect.top - sectionRect.top;
       const relativeLeft = cardRect.left - sectionRect.left;
 
-      /* =========================
-       STEP 1 — Set initial card position
-    ========================== */
       setCardStyle({
         top: relativeTop,
         left: relativeLeft,
@@ -205,9 +205,6 @@ const GallerySection = () => {
 
       setExpandingCard(selected);
 
-      /* =========================
-       STEP 2 — Start expand animation
-    ========================== */
       setTimeout(() => {
         setCardStyle({
           top: 0,
@@ -218,29 +215,17 @@ const GallerySection = () => {
         });
       }, 20);
 
-      /* =========================
-       STEP 3 — Slide animation
-    ========================== */
       setAnimateSlider(true);
       setSliderOffset(-(CARD_WIDTH + GAP));
 
-      /* =========================
-       STEP 4 — Fade text immediately
-    ========================== */
       setTextVisible(false);
 
-      /* =========================
-       STEP 5 — Change content in middle of animation
-    ========================== */
       setTimeout(() => {
         setBackgroundImg(selected.img);
         setActiveDestination(selected);
         setTextVisible(true);
-      }, 400); // Half of 800ms animation
+      }, 400);
 
-      /* =========================
-       STEP 6 — Finish animation & reset
-    ========================== */
       setTimeout(() => {
         const updated = [
           ...destinations.filter((item) => item.img !== selected.img),
@@ -260,8 +245,7 @@ const GallerySection = () => {
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [destinations, backgroundImg]);
-
+  }, [destinations, backgroundImg, isHeroVisible]);
   const cardRefs = useRef([]);
 
   const handleCardClick = (index, visibleCards) => {
@@ -274,7 +258,6 @@ const GallerySection = () => {
 
     const relativeTop = cardRect.top - sectionRect.top;
     const relativeLeft = cardRect.left - sectionRect.left;
-    
 
     /* =========================
      STEP 1 — Set initial card position
@@ -344,6 +327,25 @@ const GallerySection = () => {
       );
     }, 800);
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeroVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.4, // hero must be 40% visible
+      },
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
 
   const handlePrev = () => {
     const rotated = [

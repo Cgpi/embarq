@@ -230,7 +230,7 @@ const Testimonials = () => {
                     p: { xs: 2, md: 3 }, // 🔥 more padding
                     borderRadius: "30px", // 🔥 large rounded corners
                     background: "rgba(255, 255, 255, 0.14)",
-                    backdropFilter: "blur(2px)", // 🔥 stronger blur
+                    backdropFilter: "blur(24px)", // 🔥 stronger blur
                     WebkitBackdropFilter: "blur(2px)",
                     border: "1px solid rgba(255,255,255,0.35)",
                     boxShadow: `
