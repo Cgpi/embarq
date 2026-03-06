@@ -19,7 +19,7 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/testimonials" element={<Testimonials />} />
+      {/* <Route path="/testimonials" element={<Testimonials />} /> */}
       <Route path="/gallery" element={<GallerySection />} />
       <Route path="/gift-trip" element={<GiftTrip />} />
 
