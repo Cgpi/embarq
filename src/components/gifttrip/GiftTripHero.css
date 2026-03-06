@@ -1,0 +1,63 @@
+.gifttrip-hero{
+  position:relative;
+  width:100%;
+  height:90vh;
+  overflow:hidden;
+}
+
+/* IMAGE */
+
+.gifttrip-hero-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transform:translateZ(0);
+  will-change:transform;
+}
+
+/* CONTENT */
+
+.gifttrip-hero-content{
+  position:relative;
+  z-index:2;
+  height:100%;
+  display:flex;
+  align-items:center;
+  padding-left:8vw;
+}
+
+/* TITLE */
+
+.gifttrip-hero h1{
+  font-family:"Fraunces", serif;
+  color:white;
+  font-weight:600;
+
+  font-size:clamp(2.5rem,5vw,4.5rem);
+  line-height:1.1;
+}
+
+/* RESPONSIVE */
+
+@media (max-width:768px){
+
+  .gifttrip-hero-content{
+    padding-left:6vw;
+  }
+
+}
+
+@media (max-width:480px){
+
+  .gifttrip-hero-content{
+    padding-left:5vw;
+  }
+
+  .gifttrip-hero h1{
+    font-size:clamp(2rem,7vw,3rem);
+  }
+
+}

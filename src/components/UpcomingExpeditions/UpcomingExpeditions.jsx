@@ -1,13 +1,15 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import "./UpcomingExpeditions.css";
 import ExpeditionSlide from "../ExpeditionSlide";
+import GlobalScrollDownNRJ from "../scroll label/GlobalScrollDownNRJ";
 
-import slide1 from "../../assets/images/slide1.png";
-import slide2 from "../../assets/images/georgia.png";
-import slide3 from "../../assets/images/skorea.jpg";
-import slide4 from "../../assets/images/japan.jpg";
-import slide5 from "../../assets/images/scotland.jpg";
-import slide6 from "../../assets/images/finland.jpg";
+import k2k from "../../assets/images/k2k.webp";
+import slide2 from "../../assets/images/scotland.webp";
+import slide3 from "../../assets/images/romania.webp";
+import slide4 from "../../assets/images/georgia.webp";
+import slide5 from "../../assets/images/japan.webp";
+import slide6 from "../../assets/images/skorea.webp";
+import slide7 from "../../assets/images/finland.webp";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -17,39 +19,46 @@ gsap.registerPlugin(ScrollTrigger);
 const expeditions = [
   {
     title: "KUTCH TO KIBITHOO",
-    subtitle: "Salt flats to North eastern mountains",
-    date: "18–28 December, 2026",
-    image: slide1,
+    subtitle: "Salt flats to North eastern mountains. India at its widest.",
+    date: "8th to 28th March 2026",
+    image: k2k,
   },
-  {
-    title: "Georgia",
-    subtitle: "Mountain passes. Offbeat routes",
-    date: "8–16 August, 2026",
+   {
+    title: "Scotland",
+    subtitle: "NC500. Coastlines. Castle country",
+    date: "8th to 17th May, 2026",
     image: slide2,
   },
   {
-    title: "South Korea",
-    subtitle: "Perfect roads. Mountain curves",
-    date: "21–29 November, 2026",
+    title: "Romania",
+    subtitle: "Carpathian passes. Quiet European charm.",
+    date: "20th to 28th June, 2026",
     image: slide3,
   },
   {
-    title: "Japan Ultra Luxury",
-    subtitle: "Scenic routes. Cultural depth",
-    date: "25 Nov – 9 Dec, 2026",
+    title: "Georgia",
+    subtitle: "Mountain passes. Offbeat routes. Oldest wine making.",
+    date: "8th to 16th August, 2026",
     image: slide4,
   },
+  // {
+  //   title: "Japan Ultra Luxury",
+  //   subtitle: "Scenic routes. Cultural depth. Oriental flavours.",
+  //   date: "25th September to 9th October, 2026",
+  //   image: slide5,
+  // },
+ 
   {
-    title: "Scotland",
-    subtitle: "NC500. Coastlines. Castle country",
-    date: "8–17 May, 2026",
-    image: slide5,
-  },
-  {
-    title: "Finland",
-    subtitle: "Winter wonderland. Northern lights",
-    date: "5–13 December, 2026",
+    title: "South Korea",
+    subtitle: "Perfect roads. Mountain curves. Coastal light.",
+    date: "21st to 29th November, 2026",
     image: slide6,
+  },
+   {
+    title: "Finland",
+    subtitle: "Winter wonderland. Dark skies. Northern lights.",
+    date: "5th to 13th December, 2026",
+    image: slide7,
   },
 ];
 
@@ -117,6 +126,7 @@ export default function UpcomingExpeditions() {
   }, []);
 
   return (
+    <>
     <section className="upcoming-wrapper" ref={sectionRef}>
       <div className="side-label" ref={labelRef}>
         <span>Upcoming Road Expeditions</span>
@@ -137,6 +147,9 @@ export default function UpcomingExpeditions() {
           />
         ))}
       </div>
+       <GlobalScrollDownNRJ targetId="upcoming-expeditions"/>
     </section>
+    
+   </> 
   );
 }

@@ -1,0 +1,142 @@
+.gifttrip-form{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+
+  background-size:cover;
+  background-position:center;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:80px 8vw;
+
+  overflow:hidden;
+}
+
+/* DARK OVERLAY */
+
+.gifttrip-form::before{
+  content:"";
+  position:absolute;
+  inset:0;
+background:linear-gradient(
+  rgba(0,0,0,0.45),
+  rgba(0,0,0,0.25)
+);
+  z-index:1;
+}
+
+.gifttrip-form-overlay{
+  position:relative;
+  z-index:2;
+
+  width:100%;
+  max-width:1200px;
+  text-align:center;
+}
+
+/* TITLE */
+
+.gifttrip-form-title{
+  font-family:"Fraunces", serif;
+  color:white;
+  font-size:clamp(2rem,3.5vw,3rem);
+  margin-bottom:50px;
+}
+
+/* FORM */
+
+.gifttrip-form-container{
+  width:100%;
+}
+
+.gifttrip-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  margin-bottom:30px;
+}
+
+/* INPUTS */
+
+.gifttrip-form input,
+.gifttrip-form textarea{
+  width:100%;
+  border:none;
+  outline:none;
+
+  padding:20px 26px;
+  border-radius:40px;
+
+  font-family:"Roboto Flex", sans-serif;
+  font-size:0.95rem;
+
+  background:rgba(255,255,255,0.9);
+  color:#333;
+
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+.gifttrip-form textarea{
+  border-radius:30px;
+  min-height:160px;
+  resize:none;
+  margin-bottom:30px;
+}
+
+/* BUTTON */
+
+.gifttrip-form button{
+  width:100%;
+  padding:20px;
+  border:none;
+
+  border-radius:40px;
+  font-family:"Roboto Flex", sans-serif;
+  font-weight:600;
+
+  letter-spacing:1px;
+
+  background:#f2ad3d;
+  color:white;
+
+  cursor:pointer;
+
+  transition:all .25s ease;
+}
+
+.gifttrip-form button:hover{
+  transform:translateY(-2px);
+  background:#e49a25;
+}
+
+/* TABLET */
+
+@media (max-width:900px){
+
+  .gifttrip-row{
+    grid-template-columns:1fr;
+  }
+
+}
+
+/* MOBILE */
+
+@media (max-width:600px){
+
+  .gifttrip-form{
+    padding:70px 6vw;
+  }
+
+  .gifttrip-form-title{
+    margin-bottom:35px;
+  }
+
+  .gifttrip-form input,
+  .gifttrip-form textarea{
+    padding:18px 22px;
+  }
+
+}

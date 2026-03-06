@@ -6,12 +6,12 @@ import GallerySection from "../pages/GallerySection";
 
 import GiftTrip from "../pages/GiftTrip";
 
-import FAQ from "../pages/FAQ";
-import Blog from "../pages/blog";
+import Blog2 from "../pages/b2";
 
 import InTheMedia from "../pages/InTheMedia";
 
 import Expedition from "../pages/Expeditions/expedition";
+import PartnershipPage from "../pages/PartnershipPage";
 import BlogPage from "../pages/BlogPage";
 
 function AppRoutes() {
@@ -22,14 +22,16 @@ function AppRoutes() {
       <Route path="/testimonials" element={<Testimonials />} />
       <Route path="/gallery" element={<GallerySection />} />
       <Route path="/gift-trip" element={<GiftTrip />} />
-      <Route path="/faq" element={<FAQ />} />
+
       <Route path="/blog" element={<BlogPage />} />
+      <Route path="/b2" element={<Blog2 />} />
 
       <Route path="/testimonials" element={<Testimonials />} />
 
       <Route path="/media" element={<InTheMedia />} />
 
       <Route path="/expedition/:slug" element={<Expedition />} />
+      <Route path="/partnership" element={<PartnershipPage />} />
     </Routes>
   );
 }

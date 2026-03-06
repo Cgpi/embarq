@@ -1,0 +1,177 @@
+.whytrip{
+  background:#FCF5E4;
+  padding:80px 8vw 120px;
+}
+
+.whytrip-container{
+  max-width:1400px;
+  margin:auto;
+
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+
+  gap:80px;
+  align-items:center;
+}
+
+/* ---------------- */
+/* TEXT */
+/* ---------------- */
+
+.whytrip-content h2{
+  font-family:"Fraunces", serif;
+  font-size:clamp(2.4rem,3.5vw,3.4rem);
+  color:#F6A61D;
+  margin-bottom:20px;
+}
+
+.whytrip-intro{
+  font-family:"Roboto Flex", sans-serif;
+  color:#555;
+  line-height:1.7;
+  margin-bottom:40px;
+  font-size:0.95rem;
+  max-width:520px;
+}
+
+/* ---------------- */
+/* POINTS */
+/* ---------------- */
+
+.whytrip-point{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  margin-bottom:6px;
+}
+
+.whytrip-icon{
+  width:24px;
+  height:24px;
+  flex-shrink:0;
+  margin-top:24px;
+}
+
+.whytrip-point-text h4{
+  font-family:"Roboto Flex", sans-serif;
+  font-weight:600;
+  font-size:1.05rem;
+  margin-bottom:6px;
+}
+
+.whytrip-point-text p{
+  font-family:"Roboto Flex", sans-serif;
+  font-size:0.98rem;
+  color:#555;
+  line-height:1.6;
+  max-width:520px;
+}
+
+/* ---------------- */
+/* EXTRA TEXT */
+/* ---------------- */
+
+.whytrip-extra{
+  font-family:"Roboto Flex", sans-serif;
+  margin-top:30px;
+  color:#555;
+  line-height:1.7;
+  max-width:520px;
+}
+
+.whytrip-how-title{
+  font-family:"Fraunces", serif;
+  font-size:clamp(1.8rem,2.5vw,2.3rem);
+  margin-top:28px;
+  color:#2b1c12;
+}
+
+.whytrip-how-text{
+  font-family:"Roboto Flex", sans-serif;
+  margin-top:2px;
+  color:#555;
+  max-width:520px;
+}
+
+/* ---------------- */
+/* IMAGES */
+/* ---------------- */
+
+.whytrip-images{
+  position:relative;
+  height:620px;
+}
+
+/* common style */
+
+.whytrip-img{
+  position:absolute;
+  border-radius:28px;
+  object-fit:cover;
+  box-shadow:0 10px 40px rgba(0,0,0,0.15);
+}
+
+/* BIG IMAGE */
+
+.img-top{
+  top:0;
+  left:0;
+  width:420px;
+  height:520px;
+  z-index:1;
+}
+
+/* SMALL IMAGE */
+
+.img-bottom{
+  bottom:0;
+  left:300px;   /* creates ~20% overlap */
+  width:320px;
+  height:360px;
+  z-index:2;
+}
+
+/* ---------------- */
+/* RESPONSIVE */
+/* ---------------- */
+
+@media (max-width:1000px){
+
+  .whytrip-container{
+    grid-template-columns:1fr;
+  }
+
+  .whytrip-images{
+    order:2;
+    height:480px;
+    margin-top:40px;
+  }
+
+  .whytrip-content{
+    order:1;
+  }
+
+  .img-top{
+    width:70%;
+    height:420px;
+  }
+
+  .img-bottom{
+    left:40%;
+    width:60%;
+    height:300px;
+  }
+
+}
+
+@media (max-width:600px){
+
+  .whytrip{
+    padding:80px 6vw;
+  }
+
+  .whytrip-images{
+    height:350px;
+  }
+
+}

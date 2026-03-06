@@ -5,7 +5,6 @@ import {
   Typography,
   Grid,
   Card,
-  CardMedia,
   CardContent,
 } from "@mui/material";
 
@@ -93,7 +92,7 @@ const BlogPage = () => {
       </Box>
 
       {/* CONTENT */}
-      <Container maxWidth="lg" sx={{ mt: 8, mb: 12 }}>
+      <Container maxWidth="lg" sx={{ mt: 8 }}>
         <Box
           sx={{
             display: "flex",

@@ -1,0 +1,80 @@
+/* SECTION */
+#homewmembers-section {
+  background: #FCF7E3;
+
+  padding: 1rem 8% 6rem; 
+  /* 🔥 CONTROL SPACE ABOVE HEADING HERE
+     first value = top spacing
+     reduce 4rem → 3rem or 2.5rem if needed */
+  
+  text-align: center;
+}
+
+/* CONTAINER */
+.homewmembers-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* TITLE */
+.homewmembers-title {
+  font-family: "Fraunces", serif;
+  font-size: 3.2rem;
+  font-weight: 600;
+  color: #f4a21e;
+
+  margin-bottom: 2.5rem; 
+  /* 🔥 CONTROL SPACE BELOW HEADING HERE */
+}
+
+/* LOGOS WRAPPER */
+.homewmembers-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+/* LOGOS */
+.homewmembers-logos img {
+  max-height: 75px;
+  object-fit: contain;
+}
+
+/* ========================= */
+/* TABLET */
+/* ========================= */
+@media (max-width: 1024px) {
+  .homewmembers-title {
+    font-size: 2.4rem;
+  }
+
+  .homewmembers-logos img {
+    max-height: 55px;
+  }
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+@media (max-width: 768px) {
+  #homewmembers-section {
+    padding: 3rem 1.5rem 4rem;
+    /* 🔥 reduce top spacing for mobile here */
+  }
+
+  .homewmembers-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .homewmembers-logos {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .homewmembers-logos img {
+    max-height: 50px;
+  }
+}

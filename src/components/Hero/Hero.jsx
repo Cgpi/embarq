@@ -4,7 +4,7 @@ import "./Hero.css";
 import carDesktop from "../../assets/images/car1.webp";
 // import carMobile from "../../assets/images/car4.png";
 import carMobile from "../../assets/images/hero_optimized.png";
-import roadVideo from "../../assets/video/heronew.mp4";
+import roadVideo from "../../assets/video/hero2mb.mp4";
 import hero1 from "../../assets/svg/hero1.svg";
 import hero2 from "../../assets/svg/hero2.svg";
 import hero3 from "../../assets/svg/hero3.svg";

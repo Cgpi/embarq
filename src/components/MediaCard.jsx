@@ -13,7 +13,7 @@ const MediaCard = ({ image, title, author, date, link }) => {
         backgroundColor: "#f3f1ec",
         borderRadius: "28px",
         p: 3,
-        height: 300, // taller like screenshot
+        minHeight: 360,
         width: "100%",
         maxWidth: 340,
         display: "flex",
@@ -37,21 +37,21 @@ const MediaCard = ({ image, title, author, date, link }) => {
         alt={title}
         sx={{
           width: "100%",
-          height: 300,
+          height: 230,
           objectFit: "cover",
           borderRadius: "22px",
-          mb: 0.5,
+          mb: 1.5,
         }}
       />
 
       {/* Title */}
       <Typography
         sx={{
-          fontSize: "16px", // 🔥 bigger like image
+          fontSize: "16px",
           fontWeight: 700,
           lineHeight: 1.3,
           color: "#111",
-          mb: 2
+          mb: 2,
         }}
       >
         {title}
@@ -62,13 +62,12 @@ const MediaCard = ({ image, title, author, date, link }) => {
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          alignItems: "center",
         }}
       >
         <Typography
           sx={{
-            fontSize: "16px", // 🔥 bigger
-            color: "#000000",
+            fontSize: "14px",
+            color: "#000",
             fontWeight: 500,
           }}
         >
@@ -77,8 +76,8 @@ const MediaCard = ({ image, title, author, date, link }) => {
 
         <Typography
           sx={{
-            fontSize: "16px", // 🔥 bigger
-            color: "#000000",
+            fontSize: "14px",
+            color: "#000",
             fontWeight: 500,
           }}
         >

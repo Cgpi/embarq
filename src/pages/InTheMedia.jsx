@@ -72,7 +72,8 @@ const allMediaData = [
   },
   {
     image: img9,
-    title: "Skoda Auto India celebrates Women’s Day with a pan-India drive",
+    title:
+      "Skoda Auto India celebrates Women’s Day with a pan-India drive from Kashmir to Kanyakumari",
     author: "By: Deccan Chronicle",
     date: "08 March, 2025",
     link: "https://www.knskashmir.com/skoda-auto-india-celebrates-women-s-day-with-a-pan-india-drive-from-kashmir-to-kanyakumari-193228",
@@ -126,6 +127,7 @@ const InTheMedia = () => {
           <Typography
             sx={{
               color: "#fff",
+              fontFamily: "Fraunces, serif",
               fontWeight: 700,
               fontSize: { xs: "28px", md: "42px" },
             }}
@@ -136,7 +138,7 @@ const InTheMedia = () => {
       </Box>
 
       {/* CARDS SECTION */}
-      <Box sx={{ py: { xs: 6, md: 10 } }}>
+      <Box sx={{ py: { xs: 6, md: 8 } }}>
         <Container maxWidth="lg">
           <Box
             sx={{
@@ -146,7 +148,8 @@ const InTheMedia = () => {
                 sm: "repeat(2, 1fr)",
                 md: "repeat(3, 1fr)",
               },
-              gap: 15,
+              columnGap: "40px",
+              rowGap: "50px",
               justifyItems: "center",
             }}
           >

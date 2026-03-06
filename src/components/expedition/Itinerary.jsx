@@ -143,6 +143,7 @@ function Itinerary({ data }) {
             ref={contentRef}
             onScroll={handleScroll}
             className="exp-itinerary-scroll"
+            data-lenis-prevent
           >
             {data.map((day) => (
               <div key={day.day} className="exp-itinerary-item">

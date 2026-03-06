@@ -5,7 +5,7 @@ import {
   Mail,
   Facebook,
   Instagram,
-  Twitter,
+  X,
   Linkedin,
   Youtube,
 } from "lucide-react";
@@ -14,12 +14,10 @@ import logo from "../../assets/logo.png";
 import visa from "../../assets/footer/fcards.png";
 import tripa from "../../assets/footer/tripa.png";
 
-
 export default function Footer() {
   return (
     <footer id="footer-section">
       <div className="footer-container">
-        
         {/* LEFT */}
         <div className="footer-col footer-brand">
           <img src={logo} alt="Embarq logo" className="footer-logo" />
@@ -45,7 +43,6 @@ export default function Footer() {
           <Link to="/testimonials">Testimonials</Link>
           <Link to="/gift-trip">Gift a Trip</Link>
           <Link to="/partnership">Partnership</Link>
-          <Link to="/faq">FAQ’s</Link>
           <Link to="/cancellation-policy">Cancellation Policy</Link>
           <Link to="/privacy-policy">Privacy Policy</Link>
         </div>
@@ -65,35 +62,76 @@ export default function Footer() {
             <Mail size={16} />
             <p>
               Mail us{" "}
-              <a href="mailto:enquiries@embarq.in">
-                enquiries@embarq.in
-              </a>
+              <a href="mailto:enquiries@embarq.in">enquiries@embarq.in</a>
             </p>
           </div>
 
           <div className="footer-social">
             <p>Follow us</p>
             <div className="footer-icons">
-              <Facebook size={18} />
-              <Instagram size={18} />
-              <Twitter size={18} />
-              <Linkedin size={18} />
-              <Youtube size={18} />
+              <a
+                href="https://www.facebook.com/Embarqmotorworld/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Facebook size={18} />
+              </a>
+
+              <a
+                href="https://www.instagram.com/embarqmotorworld/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Instagram size={18} />
+              </a>
+
+              <a
+                href="https://x.com/embarq_official"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="x-icon"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                >
+                  <path d="M18.901 1.153h3.68l-8.043 9.192 9.46 12.502h-7.406l-5.804-7.584-6.633 7.584H.475l8.6-9.83L0 1.153h7.594l5.243 6.932 6.064-6.932z" />
+                </svg>
+              </a>
+              
+              <a
+                href="https://www.linkedin.com/company/embarq-motorworld-pvt-ltd/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin size={18} />
+              </a>
+
+              <a
+                href="https://www.youtube.com/@EmbarqTravelExperiences"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Youtube size={18} />
+              </a>
             </div>
           </div>
         </div>
       </div>
 
       {/* BOTTOM BAR */}
-    <div className="footer-bottom">
-  <p>
-    Copyright © 2025 Embarq Motorworld Pvt. Ltd. | All Rights Reserved.
-  </p>
+      <div className="footer-bottom">
+        <p>
+          Copyright © 2025 Embarq Motorworld Pvt. Ltd. | All Rights Reserved.
+        </p>
 
-  <div className="footer-payments">
-    <img src={visa} alt="Payment methods" />
-  </div>
-</div>
+        <div className="footer-payments">
+          <img src={visa} alt="Payment methods" />
+        </div>
+      </div>
     </footer>
   );
 }
