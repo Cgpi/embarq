@@ -12,27 +12,22 @@ import img11 from "../assets/gallery/Balkans/Balkans-2023-11.jpg";
 import img12 from "../assets/gallery/Balkans/Balkans-2023-12.jpg";
 
 const balkansGallery = [
-  // Row 1
-  { img: img1, colSpan: 2, rowSpan: 2 }, // Big left
-  { img: img2 }, // Top right
-  { img: img3 }, // Top far right
+  { img: img1, rowSpan: 2 }, // tall left
+  { img: img2 }, // small top middle
+  { img: img3 }, // small top right
 
-  // Row 2
-  { img: img4 }, // Small under img2
-  { img: img5, rowSpan: 2 }, // Tall right image
+  { img: img4 }, // small
+  { img: img5 }, // small
+  { img: img6, rowSpan: 2 }, // tall right
 
-  // Row 3
-  { img: img6 }, // Small left
-  { img: img7 }, // Small middle
+  { img: img7, colSpan: 2 }, // wide image
 
-  // Row 4
-  { img: img8, colSpan: 2 }, // Wide bottom left
-  { img: img9 },
+  { img: img8 }, // small
+  { img: img9, rowSpan: 2 }, // tall
 
-  // Row 5
-  { img: img10 },
-  { img: img11 },
-  { img: img12 },
+  { img: img10 }, // small
+  { img: img11 }, // small
+  { img: img12 }, // small
 ];
 
 export default balkansGallery;

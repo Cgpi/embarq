@@ -7,10 +7,11 @@ import img6 from "../assets/gallery/Kashmir/Kashmir6.jpg";
 import img7 from "../assets/gallery/Kashmir/Kashmir7.jpg";
 
 const kashmirGallery = [
-  { img: img1, colSpan: 2, rowSpan: 2 }, // featured
-  { img: img2, rowSpan: 2 },
+  { img: img1, rowSpan: 2 }, // tall left
+  { img: img2 },
   { img: img3 },
-  { img: img4, colSpan: 2 },
+
+  { img: img4, colSpan: 2 }, // wide image
 
   { img: img5 },
   { img: img6 },

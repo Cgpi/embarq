@@ -23,7 +23,7 @@ import img22 from "../assets/gallery/Spiti/spiti22.jpg";
 
 const spitiGallery = [
   { img: img1, colSpan: 2, rowSpan: 2 }, // hero
-  { img: img2, rowSpan: 2 },
+  { img: img2 },
   { img: img3 },
   { img: img4, colSpan: 2 },
 
@@ -39,14 +39,14 @@ const spitiGallery = [
   { img: img13, colSpan: 2 },
   { img: img14 },
 
-  { img: img15, rowSpan: 2 },
+  { img: img15 },
   { img: img16 },
   { img: img17 },
   { img: img18 },
 
   { img: img19, colSpan: 2 },
   { img: img20 },
-  { img: img21, rowSpan: 2 },
+  { img: img21 },
   { img: img22 },
 ];
 

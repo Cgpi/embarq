@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import "./ExpeditionInclusionExclusion.css";
-import expeditionBg from "../../assets/expedition/expeditionixbg.jpg";
+import expeditionBg from "../../assets/expedition/expeditionixbg.webp";
 
 function ExpeditionInclusionExclusion({ data }) {
   const leftRef = useRef(null);
@@ -15,7 +15,7 @@ function ExpeditionInclusionExclusion({ data }) {
           }
         });
       },
-      { threshold: 0.35 }
+      { threshold: 0.35 },
     );
 
     if (leftRef.current) observer.observe(leftRef.current);

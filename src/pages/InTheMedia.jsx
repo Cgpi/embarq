@@ -3,81 +3,61 @@ import { Box, Typography, Container, Button } from "@mui/material";
 import MediaCard from "../components/MediaCard";
 import mediabg from "../assets/media/mediabg.jpg";
 
-import img1 from "../assets/media/1.png";
-import img2 from "../assets/media/2.png";
-import img3 from "../assets/media/3.png";
+import img1 from "../assets/media/herstory.avif";
+import img2 from "../assets/media/Women-Travel-Groups.jpg";
+import img3 from "../assets/media/homegrown_K2K.avif";
 import img4 from "../assets/media/4.png";
-import img5 from "../assets/media/5.png";
-import img6 from "../assets/media/6.png";
-import img7 from "../assets/media/7.png";
-import img8 from "../assets/media/8.png";
-import img9 from "../assets/media/9.png";
+
 
 const allMediaData = [
   {
-    image: img1,
-    title: "The Bold Route: K2K",
-    author: "By: Deccan Chronicle",
-    date: "08 March, 2025",
-    link: "https://www.deccanchronicle.com/tabloid/hyderabad-chronicle/the-bold-route-k2k-1865567",
-  },
-  {
-    image: img2,
-    title: "Kashmir to Kanyakumari 2025",
-    author: "By: Jammu_in",
-    date: "11 March, 2025",
-    link: "https://www.instagram.com/p/DHBQGetSoJO/?igsh=MTg5Mjlya3BlNHBhcQ%3D%3D",
-  },
-  {
-    image: img3,
-    title: "Tips to get over fear of solo travel",
-    author: "By: Her Zindagi Plus",
-    date: "August, 2018",
-    link: "https://www.youtube.com/watch?v=UcdZpM9enR8",
+    image: img4,
+    title:
+      "This Women’s Day, Over 30 Women Will Drive 4,000+ Km, Covering 11 Cities In 20 Days",
+    author: "By: Tanvi Shrivastava ",
+    date: "February 12, 2026,",
+    link: "https://curlytales.com/india/experiences/this-womens-day-over-women-will-drive-km-covering-cities-in-days/amp/",
   },
   {
     image: img4,
-    title: "The Bold Route Series: Sisterhood by Embarq",
-    author: "By: Evo India",
-    date: "May, 2025",
-    link: "https://www.embarq.in/wp-content/uploads/2025/05/The-Bold-Route-Series-Sisterhood-by-Embarq.pdf",
-  },
-  {
-    image: img5,
-    title: "Driving the distance",
-    author: "By: The Telegraph",
-    date: "June, 2016",
-    link: "https://www.telegraphindia.com/culture/driving-the-distance/cid/1322123#goog_rewarded",
-  },
-  {
-    image: img6,
-    title: "Universe of moms",
-    author: "By: Unimo",
-    date: "June, 2021",
-    link: "https://www.facebook.com/watch/live/?ref=watch_permalink&v=544011303630461",
-  },
-  {
-    image: img7,
-    title: "Kashmir to Kanyakumari (Part 1)",
-    author: "By: Thane News Paper",
-    date: "05 March, 2025",
-    link: "https://www.embarq.in/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-07-at-17.33.50.jpeg",
-  },
-  {
-    image: img8,
-    title: "#TimesSheUnLTD award article",
-    author: "By: Times Entertainment",
-    date: "Aug, 2020",
-    link: "https://timesofindia.indiatimes.com/life-style/spotlight/fearless-and-fantastic-meet-the-enterprising-timessheunltd-winners-from-mumbai/articleshow/77290268.cms",
-  },
-  {
-    image: img9,
     title:
-      "Skoda Auto India celebrates Women’s Day with a pan-India drive from Kashmir to Kanyakumari",
-    author: "By: Deccan Chronicle",
-    date: "08 March, 2025",
-    link: "https://www.knskashmir.com/skoda-auto-india-celebrates-women-s-day-with-a-pan-india-drive-from-kashmir-to-kanyakumari-193228",
+      "K2K 2026: The Most Ambitious Women Only Luxury Drive India Has Ever Seen",
+    author: "By: Yashita Damani",
+    date: "February 16, 2026",
+    link: "https://luxebook.in/k2k-2026-the-most-ambitious-women-only-luxury-drive-india-has-ever-seen/",
   },
+  {
+    image: img1,
+    title:
+      "How Embarq’s women-only expeditions are reshaping who owns the road",
+    author: "Saranya Chakrapani",
+    date: "February 18, 2026",
+    link: "https://yourstory.com/herstory/2026/02/how-embarqs-women-only-expeditions-are-reshaping-who-owns-road",
+  },
+  {
+    image: img2,
+    title:
+      "These Women-Focused Travel Companies Will Change The Way You See The World",
+    author: "By: Sneha Chakraborty",
+    date: "February 21, 2026",
+    link: "https://www.travelandleisureasia.com/in/trips/women-travel-groups-that-will-change-the-way-you-see-the-world/",
+  },
+  {
+    image: img3,
+    title:
+      "How An All-Women Driving Expedition Is Journeying Across India This Women's Day",
+    author: "By: Rubin Mathias",
+    date: "February 20, 2026",
+    link: "https://homegrown.co.in/homegrown-explore/how-an-all-women-driving-expedition-is-journeying-across-india-this-womens-day",
+  },
+  {
+    image: img4,
+    title:
+      "Embarq to launch K2K 2026 women-only self-drive expedition on Women’s Day",
+    author: "By: India and You",
+    date: "February 11, 2026 ",
+    link: "https://mediaindia.eu/events/embarq-to-launch-k2k-2026-women-only-self-drive-expedition-on-womens-day/",
+  }
 ];
 
 const InTheMedia = () => {
@@ -94,7 +74,7 @@ const InTheMedia = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   return (
     <Box sx={{ backgroundColor: "#dcd3c3" }}>
       {/* HERO SECTION */}

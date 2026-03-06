@@ -10,16 +10,18 @@ import img9 from "../assets/gallery/NorthEast/northeast9.jpg";
 import img10 from "../assets/gallery/NorthEast/northeast10.jpg";
 
 const northEastGallery = [
-  { img: img1, colSpan: 2, rowSpan: 2 }, // featured
-  { img: img2, rowSpan: 2 },
+  { img: img1, rowSpan: 2 }, // tall
+  { img: img2 },
   { img: img3 },
-  { img: img4, colSpan: 2 },
 
+  { img: img4, colSpan: 2 }, // wide
   { img: img5 },
+
   { img: img6 },
-  { img: img7, rowSpan: 2 },
+  { img: img7 }, // tall
+
   { img: img8 },
-  { img: img9, colSpan: 2 },
+  { img: img9 },
 
   { img: img10 },
 ];

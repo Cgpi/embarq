@@ -18,27 +18,30 @@ import img17 from "../assets/gallery/New Zealand/new-zealand17.jpg";
 import img18 from "../assets/gallery/New Zealand/new-zealand18.jpg";
 
 const newZealandGallery = [
-  { img: img1, colSpan: 2, rowSpan: 2 }, // featured
-  { img: img2, rowSpan: 2 },
+  { img: img1, rowSpan: 2 },
+  { img: img2 },
   { img: img3 },
-  { img: img4, colSpan: 2 },
 
+  { img: img4 },
   { img: img5 },
-  { img: img6 },
-  { img: img7, rowSpan: 2 },
-  { img: img8 },
-  { img: img9, colSpan: 2 },
+  { img: img6, rowSpan: 2 },
 
+  { img: img7, colSpan: 2 },
+
+  { img: img8 },
+  { img: img9, rowSpan: 2 },
   { img: img10 },
+
   { img: img11 },
   { img: img12 },
-  { img: img13, colSpan: 2 },
-  { img: img14 },
+  { img: img13 },
 
-  { img: img15, rowSpan: 2 },
-  { img: img16 },
+  { img: img14},
+  { img: img15 },
+
+  { img: img16, rowSpan: 2 },
   { img: img17 },
-  { img: img18, colSpan: 2 },
+  { img: img18 },
 ];
 
 export default newZealandGallery;

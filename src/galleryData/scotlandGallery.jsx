@@ -17,15 +17,15 @@ import img16 from "../assets/gallery/Scotland/scotland16.jpg";
 
 const scotlandGallery = [
   { img: img1, colSpan: 2, rowSpan: 2 }, // featured
-  { img: img2, rowSpan: 2 },
+  { img: img2 },
   { img: img3 },
-  { img: img4, colSpan: 2 },
+  { img: img4 },
 
   { img: img5 },
-  { img: img6 },
-  { img: img7, rowSpan: 2 },
+  { img: img6, colSpan: 2 },
+  { img: img7 },
   { img: img8 },
-  { img: img9, colSpan: 2 },
+  { img: img9, colSpan: 2, rowSpan: 2 }, // featured
 
   { img: img10 },
   { img: img11 },
@@ -33,7 +33,7 @@ const scotlandGallery = [
   { img: img13, colSpan: 2 },
   { img: img14 },
 
-  { img: img15, rowSpan: 2 },
+  { img: img15 },
   { img: img16 },
 ];
 

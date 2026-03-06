@@ -27,37 +27,42 @@ import img26 from "../assets/gallery/India and Spain/india-and-spain26.jpg";
 import img27 from "../assets/gallery/India and Spain/india-and-spain27.jpg";
 
 const indiaSpainGallery = [
-  { img: img1, colSpan: 2, rowSpan: 2 }, // featured
-  { img: img2, rowSpan: 2 },
+  { img: img1, rowSpan: 2 },
+  { img: img2 },
   { img: img3 },
-  { img: img4, colSpan: 2 },
 
+  { img: img4 },
   { img: img5 },
-  { img: img6 },
-  { img: img7, rowSpan: 2 },
-  { img: img8 },
-  { img: img9, colSpan: 2 },
+  { img: img6, rowSpan: 2 },
 
+  { img: img7, colSpan: 2 },
+
+  { img: img8 },
+  { img: img9, rowSpan: 2 },
   { img: img10 },
+
   { img: img11 },
   { img: img12 },
-  { img: img13, colSpan: 2 },
-  { img: img14 },
+  { img: img13 },
 
-  { img: img15, rowSpan: 2 },
+  { img: img14, colSpan: 2 },
+  { img: img15 },
+
   { img: img16 },
-  { img: img17 },
-  { img: img18, colSpan: 2 },
+  { img: img17, rowSpan: 2 },
+  { img: img18 },
 
-  { img: img19 },
+  { img: img19, colSpan: 2 },
+
   { img: img20 },
-  { img: img21, rowSpan: 2 },
+  { img: img21 },
   { img: img22 },
 
-  { img: img23, colSpan: 2 },
+  { img: img23, rowSpan: 2 },
   { img: img24 },
   { img: img25 },
-  { img: img26 },
+
+  { img: img26, colSpan: 2 },
   { img: img27 },
 ];
 

@@ -31,9 +31,9 @@ import img30 from "../assets/gallery/Russia/russia30.jpg";
 
 const russiaGallery = [
   { img: img1, colSpan: 2, rowSpan: 2 }, // featured
-  { img: img2, rowSpan: 2 },
+  { img: img2 },
   { img: img3 },
-  { img: img4, colSpan: 2 },
+  { img: img4 },
 
   { img: img5 },
   { img: img6 },

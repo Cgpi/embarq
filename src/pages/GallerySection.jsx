@@ -601,7 +601,7 @@ const GallerySection = () => {
             mb: { xs: 0, md: 2 },
             color: "#F6A61D",
             textShadow: `
-              0px 4px 10px rgba(0,0,0,0.5)
+              0px 4px 10px rgba(44, 44, 44, 0.5)
             `,
             opacity: textVisible ? 1 : 0,
             transform: textVisible ? "translateY(0px)" : "translateY(30px)",
@@ -617,10 +617,11 @@ const GallerySection = () => {
               gridTemplateColumns: {
                 xs: "1fr",
                 sm: "repeat(2, 1fr)",
-                md: "repeat(3, 1fr)", // 🔥 4 columns like modern galleries
+                md: "repeat(3, 1fr)",
               },
               gap: 3,
-              gridAutoRows: "300px", // smaller row height = better control
+              gridAutoRows: "300px",
+              gridAutoFlow: "dense", // ⭐ THIS FIXES BLANK SPACES
             }}
           >
             {galleryData.map((item, index) => (

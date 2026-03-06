@@ -7,7 +7,7 @@ import img6 from "../assets/gallery/Spain/spain6.jpg";
 
 const spainGallery = [
   { img: img1, colSpan: 2, rowSpan: 2 }, // featured hero
-  { img: img2, rowSpan: 2 }, // tall image
+  { img: img2 }, // tall image
   { img: img3 },
   { img: img4, colSpan: 2 }, // wide strip
   { img: img5 },

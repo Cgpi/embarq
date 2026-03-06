@@ -18,23 +18,23 @@ import img17 from "../assets/gallery/Uzbekistan/uzbekistan17.jpg";
 
 const uzbekistanGallery = [
   { img: img1, colSpan: 2, rowSpan: 2 }, // hero
-  { img: img2, rowSpan: 2 },
+  { img: img2 },
   { img: img3 },
-  { img: img4, colSpan: 2 },
+  { img: img4 },
 
   { img: img5 },
   { img: img6 },
-  { img: img7, rowSpan: 2 },
+  { img: img7, rowSpan: 2,colSpan: 2 },
   { img: img8 },
   { img: img9, colSpan: 2 },
 
   { img: img10 },
   { img: img11 },
   { img: img12 },
-  { img: img13, colSpan: 2 },
+  { img: img13 },
   { img: img14 },
 
-  { img: img15, rowSpan: 2 },
+  { img: img15 },
   { img: img16 },
   { img: img17 },
 ];

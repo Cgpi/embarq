@@ -9,16 +9,18 @@ import img8 from "../assets/gallery/Kyrgyzstan/kyrgyzstan8.webp";
 import img9 from "../assets/gallery/Kyrgyzstan/kyrgyzstan9.webp";
 
 const kyrgyzstanGallery = [
-  { img: img1, colSpan: 2, rowSpan: 2 }, // featured
-  { img: img2, rowSpan: 2 },
+  { img: img1, rowSpan: 2 }, // tall image
+  { img: img2 },
   { img: img3 },
-  { img: img4, colSpan: 2 },
 
+  { img: img4, colSpan: 2 }, // wide image
   { img: img5 },
+
   { img: img6 },
-  { img: img7, rowSpan: 2 },
+  { img: img7, rowSpan: 2 }, // tall image
+
   { img: img8 },
-  { img: img9, colSpan: 2 },
+  { img: img9 },
 ];
 
 export default kyrgyzstanGallery;
