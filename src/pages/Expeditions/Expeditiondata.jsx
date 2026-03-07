@@ -299,7 +299,7 @@ export const expeditions = {
   southkorea: {
     hero: {
       title: "South Korea",
-      subtitle: "Perfect roads.Mountains curves.",
+      subtitle: "Perfect roads. Mountains curves.",
       badge: "All Women",
       description:
         "A premium all-women self-drive road expedition through South Korea, combining some of the world’s most perfectly engineered roads with mountain curves, coastal light, ancient temples, and vibrant cities. From the energy of Seoul to forested national parks, historic villages, and the southern coast, this journey is designed around driving pleasure, cultural depth, and immersive local experiences.",
