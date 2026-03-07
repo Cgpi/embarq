@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import "./Itinerary.css";
 import scrollCar from "../../assets/expedition/scrollcar.webp";
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
-=======
->>>>>>> 09aa540 (updated expedition)
+//=======
+//>>>>>>> 09aa540 (updated expedition)
 
 function Itinerary({ data }) {
   const [scrollProgress, setScrollProgress] = useState(0);
