@@ -164,7 +164,7 @@ export default function ExpeditionIntro() {
 
         </div>
       </div>
-      <GlobalScrollDownNRJ />
+      {/* <GlobalScrollDownNRJ /> */}
     </section>
   );
 }

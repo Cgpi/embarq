@@ -1,87 +1,78 @@
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import "./HowItWorks.css";
 
-import bgImage from "../../assets/images/howitworks.webp";
-import bgMobile from "../../assets/images/howitworksmobile.webp";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import wm1 from "../../assets/svg/hiw1.svg";
 import wm2 from "../../assets/svg/hiw2.svg";
 import wm3 from "../../assets/svg/hiw3.svg";
 
-import GlobalScrollDownNRJ from "../scroll label/GlobalScrollDownNRJ";
+gsap.registerPlugin(ScrollTrigger);
 
 function HowItWorks() {
 
   const sectionRef = useRef(null);
+  const stepRefs = useRef([]);
   const [activeStep, setActiveStep] = useState(0);
-  const [lockScroll, setLockScroll] = useState(false);
-
-  useEffect(() => {
-
-    const section = sectionRef.current;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.intersectionRatio > 0.7) {
-          setLockScroll(true);
-        } else {
-          setLockScroll(false);
-        }
-      },
-      { threshold: [0.7] }
-    );
-
-    observer.observe(section);
-
-    return () => observer.disconnect();
-
-  }, []);
-
-  useEffect(() => {
-
-    const handleWheel = (e) => {
-
-      if (!lockScroll) return;
-
-      if (e.deltaY > 0) {
-
-        e.preventDefault();
-
-        setActiveStep((prev) => {
-
-          if (prev < 2) return prev + 1;
-
-          setLockScroll(false);
-          return prev;
-
-        });
-
-      }
-
-      if (e.deltaY < 0) {
-
-        e.preventDefault();
-
-        setActiveStep((prev) => (prev > 0 ? prev - 1 : prev));
-
-      }
-
-    };
-
-    window.addEventListener("wheel", handleWheel, { passive: false });
-
-    return () => window.removeEventListener("wheel", handleWheel);
-
-  }, [lockScroll]);
 
   const steps = [
     { icon: wm1, text: "Choose a departure (or a destination)" },
     { icon: wm2, text: "Get the brochure + quick call to align preferences" },
-    { icon: wm3, text: "Arrive. Drive. Discover." },
+    { icon: wm3, text: "Arrive. Drive. Discover." }
   ];
 
-  return (
+  useLayoutEffect(() => {
 
+    const ctx = gsap.context(() => {
+
+      const totalSteps = steps.length;
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: () => "+=" + totalSteps * 600,
+          scrub: true,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          refreshPriority: -1,
+          fastScrollEnd: true,
+
+          onUpdate: (self) => {
+
+            const progress = self.progress;
+
+            const index = Math.min(
+              totalSteps - 1,
+              Math.floor(progress * totalSteps)
+            );
+
+            setActiveStep(index);
+
+          }
+        }
+      });
+
+      stepRefs.current.forEach((_, i) => {
+
+        tl.to({}, {
+          duration: 1 / totalSteps,
+          onStart: () => setActiveStep(i)
+        });
+
+      });
+
+    }, sectionRef);
+
+    ScrollTrigger.refresh();
+
+    return () => ctx.revert();
+
+  }, []);
+
+  return (
     <section ref={sectionRef} className="howworks-section-nrj">
 
       <div className="howworks-overlay-nrj" />
@@ -99,6 +90,7 @@ function HowItWorks() {
 
               <div
                 key={index}
+                ref={(el) => (stepRefs.current[index] = el)}
                 className={`howworks-step-nrj ${activeStep === index ? "active" : ""}`}
               >
 
@@ -106,7 +98,9 @@ function HowItWorks() {
                   <img src={step.icon} alt="" />
                 </div>
 
-                <div className="howworks-text-nrj">{step.text}</div>
+                <div className="howworks-text-nrj">
+                  {step.text}
+                </div>
 
               </div>
 
@@ -117,9 +111,8 @@ function HowItWorks() {
         </div>
 
       </div>
-            <GlobalScrollDownNRJ />
-    </section>
 
+    </section>
   );
 }
 

@@ -71,7 +71,7 @@ export default function ExpWhyRoads() {
           </motion.p>
         </motion.div>
       </div>
-      <GlobalScrollDownNRJ targetId="upcoming-expeditions"/>
+      {/* <GlobalScrollDownNRJ targetId="upcoming-expeditions"/> */}
     </section>
   );
 }

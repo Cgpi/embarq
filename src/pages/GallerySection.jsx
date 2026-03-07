@@ -3,8 +3,8 @@ import { Box, Container, Typography, Chip, IconButton } from "@mui/material";
 import rightArrow from "../assets/gallery/right-arrow.png";
 import leftArrow from "../assets/gallery/left-arrow.png";
 
-import balkansHero from "../assets/gallery/Balkans/Balkans.png";
-import indiaSpainHero from "../assets/gallery/India and Spain/IndiaSpain.png";
+import balkansHero from "../assets/gallery/Balkans/Balkans.webp";
+import indiaSpainHero from "../assets/gallery/India and Spain/IndiaSpain.webp";
 import indiaThailandHero from "../assets/gallery/India and Thailand/india-Thailand.jpg";
 import kashmirHero from "../assets/gallery/Kashmir/kashmir.avif";
 import kyrgyzstanHero from "../assets/gallery/Kyrgyzstan/Kyrgyzstan.png";
@@ -175,77 +175,77 @@ const GallerySection = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    if (!isHeroVisible) return; // pause when hero not visible
+  // useEffect(() => {
+  //   if (!isHeroVisible) return; // pause when hero not visible
 
-    const interval = setInterval(() => {
-      const visible = destinations
-        .filter((item) => item.img !== backgroundImg)
-        .slice(0, 3);
+  //   const interval = setInterval(() => {
+  //     const visible = destinations
+  //       .filter((item) => item.img !== backgroundImg)
+  //       .slice(0, 3);
 
-      if (!visible.length) return;
+  //     if (!visible.length) return;
 
-      const selected = visible[0];
-      const cardElement = cardRefs.current[0];
-      if (!cardElement || !sectionRef.current) return;
+  //     const selected = visible[0];
+  //     const cardElement = cardRefs.current[0];
+  //     if (!cardElement || !sectionRef.current) return;
 
-      const cardRect = cardElement.getBoundingClientRect();
-      const sectionRect = sectionRef.current.getBoundingClientRect();
+  //     const cardRect = cardElement.getBoundingClientRect();
+  //     const sectionRect = sectionRef.current.getBoundingClientRect();
 
-      const relativeTop = cardRect.top - sectionRect.top;
-      const relativeLeft = cardRect.left - sectionRect.left;
+  //     const relativeTop = cardRect.top - sectionRect.top;
+  //     const relativeLeft = cardRect.left - sectionRect.left;
 
-      setCardStyle({
-        top: relativeTop,
-        left: relativeLeft,
-        width: cardRect.width,
-        height: cardRect.height,
-        borderRadius: 32,
-      });
+  //     setCardStyle({
+  //       top: relativeTop,
+  //       left: relativeLeft,
+  //       width: cardRect.width,
+  //       height: cardRect.height,
+  //       borderRadius: 32,
+  //     });
 
-      setExpandingCard(selected);
+  //     setExpandingCard(selected);
 
-      setTimeout(() => {
-        setCardStyle({
-          top: 0,
-          left: 0,
-          width: sectionRect.width,
-          height: sectionRect.height,
-          borderRadius: 0,
-        });
-      }, 20);
+  //     setTimeout(() => {
+  //       setCardStyle({
+  //         top: 0,
+  //         left: 0,
+  //         width: sectionRect.width,
+  //         height: sectionRect.height,
+  //         borderRadius: 0,
+  //       });
+  //     }, 20);
 
-      setAnimateSlider(true);
-      setSliderOffset(-(CARD_WIDTH + GAP));
+  //     setAnimateSlider(true);
+  //     setSliderOffset(-(CARD_WIDTH + GAP));
 
-      setTextVisible(false);
+  //     setTextVisible(false);
 
-      setTimeout(() => {
-        setBackgroundImg(selected.img);
-        setActiveDestination(selected);
-        setTextVisible(true);
-      }, 400);
+  //     setTimeout(() => {
+  //       setBackgroundImg(selected.img);
+  //       setActiveDestination(selected);
+  //       setTextVisible(true);
+  //     }, 400);
 
-      setTimeout(() => {
-        const updated = [
-          ...destinations.filter((item) => item.img !== selected.img),
-          selected,
-        ];
+  //     setTimeout(() => {
+  //       const updated = [
+  //         ...destinations.filter((item) => item.img !== selected.img),
+  //         selected,
+  //       ];
 
-        setDestinations(updated);
+  //       setDestinations(updated);
 
-        setSliderOffset(0);
-        setAnimateSlider(false);
-        setExpandingCard(null);
+  //       setSliderOffset(0);
+  //       setAnimateSlider(false);
+  //       setExpandingCard(null);
 
-        setCurrentIndex((prev) =>
-          prev === heroImages.length - 1 ? 0 : prev + 1,
-        );
-      }, 800);
-    }, 4000);
+  //       setCurrentIndex((prev) =>
+  //         prev === heroImages.length - 1 ? 0 : prev + 1,
+  //       );
+  //     }, 800);
+  //   }, 4000);
 
-    return () => clearInterval(interval);
-  }, [destinations, backgroundImg, isHeroVisible]);
+  //   return () => clearInterval(interval);
+  // }, [destinations, backgroundImg, isHeroVisible]);
   const cardRefs = useRef([]);
 
   const handleCardClick = (index, visibleCards) => {
@@ -402,7 +402,12 @@ const GallerySection = () => {
         ref={sectionRef}
         sx={{
           width: "100%",
-          minHeight: "100vh",
+          minHeight: {
+            xs: "50vh",
+            sm: "55vh",
+            md: "65vh",
+            lg: "75vh",
+          },
           ...zoomAnimation,
           position: "relative",
           overflow: "hidden",
@@ -464,7 +469,7 @@ const GallerySection = () => {
         >
           {/* SLIDER */}
           <Box
-            sx={{ overflow: "hidden", ml: { xs: 0, md: 70 }, mt: { md: 20 } }}
+            sx={{ overflow: "hidden", ml: { xs: 0, md: 70 }, mt: { md: 6 } }}
           >
             <Box
               sx={{

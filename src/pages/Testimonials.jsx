@@ -12,28 +12,22 @@ import {
   useMediaQuery,
 } from "@mui/material";
 
-import bgImage from "../assets/testimonials/testimonialsbg.jpg";
+import bgImage from "../assets/testimonials/testimonialsbg.webp";
 import quoteImg from "../assets/testimonials/Vector.png";
 
-import archana from "../assets/testimonials/Archana Singh.jpg";
-import binaa from "../assets/testimonials/Binaa Shah.jpg";
-import jyotsna from "../assets/testimonials/Jyotsna Kancherla.jpg";
-import priyanka from "../assets/testimonials/Priyanka Rai.jpg";
-import sanchayeeta from "../assets/testimonials/Sanchayeeta Verma.jpg";
-import anupreeti from "../assets/testimonials/Anupreeti More.jpg";
-import anthony from "../assets/testimonials/Anthony Huang.jpg";
-import anitha from "../assets/testimonials/Anitha Vinod.jpg";
+import archana from "../assets/testimonials/Archana Singh.webp";
+import binaa from "../assets/testimonials/Binaa Shah.webp";
+import jyotsna from "../assets/testimonials/Jyotsna Kancherla.webp";
+import priyanka from "../assets/testimonials/Priyanka Rai.webp";
+import sanchayeeta from "../assets/testimonials/Sanchayeeta Verma.webp";
+import anupreeti from "../assets/testimonials/Anupreeti More.webp";
+import anitha from "../assets/testimonials/Anitha Vinod.webp";
 
 const testimonialsData = [
   {
     name: "Sanchayeeta Verma",
     image: sanchayeeta,
     text: "“My incredible New Zealand road trip with Embarq unveiled a new way to explore a country. The stunning natural beauty and well-developed infrastructure were enhanced by Embarq’s meticulous planning. Thanks to their detailed scouting, we witnessed breathtaking vistas off the beaten track. The journey fostered amazing connections among travellers and elevated the entire experience. Every detail – itinerary, local partnerships, hotels, and care – showed true professionalism.”",
-  },
-  {
-    name: "Anthony Huang",
-    image: anthony,
-    text: "“Though travel excites me, venturing off the beaten path sparks anxiety — especially around accommodations, safety, and food. As a hospitality professional with high expectations, my second self-drive trip with Embarq (after Spain) to Arunachal Pradesh, the Indo-China border, and Kaziranga exceeded all worries. Every route was thoroughly scouted, every hotel personally inspected, and menus thoughtfully curated. The local cuisine and stunning locations made it unforgettable.”",
   },
   {
     name: "Archana Singh",
@@ -79,16 +73,15 @@ const Testimonials = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  cardsRef.current = [];
+
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries, observerInstance) => {
+      (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.style.opacity = 1;
             entry.target.style.transform = "translateX(0)";
-
-            // ✅ Stop observing after animation
-            observerInstance.unobserve(entry.target);
           }
         });
       },
@@ -127,7 +120,8 @@ const Testimonials = () => {
         <Box
           sx={{
             position: "relative",
-            py: { xs: 8, md: 16 },
+            pt: { xs: 18, sm: 14, md: 16 }, // 👈 pushes content below navbar
+            pb: { xs: 6, md: 10 },
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -219,15 +213,32 @@ const Testimonials = () => {
                   ref={(el) => (cardsRef.current[index] = el)}
                   data-direction={isRight ? "right" : "left"}
                   sx={{
-                    width: { xs: "100%", md: "75%" }, // 🔥 wider like Figma
+                    width: {
+                      xs: "100%",
+                      sm: "95%",
+                      md: "85%",
+                      lg: "70%",
+                    },
+                    maxWidth: 1200,
                     display: "flex",
                     flexDirection: {
                       xs: "column",
+                      sm: "column",
                       md: isRight ? "row-reverse" : "row",
                     },
                     alignItems: "center",
-                    gap: { xs: 3, md: 6 },
-                    p: { xs: 2, md: 3 }, // 🔥 more padding
+                    gap: {
+                      xs: 2,
+                      sm: 3,
+                      md: 4,
+                      lg: 6,
+                    },
+                    p: {
+                      xs: 2,
+                      sm: 2.5,
+                      md: 3,
+                      lg: 4,
+                    },
                     borderRadius: "30px", // 🔥 large rounded corners
                     background: "rgba(255, 255, 255, 0.14)",
                     backdropFilter: "blur(24px)", // 🔥 stronger blur
@@ -236,7 +247,7 @@ const Testimonials = () => {
                     boxShadow: `
                       0 30px 80px rgba(63, 62, 62, 0.35),
                       inset 0 1px 1px rgba(255,255,255,0.4)`,
-                    opacity: 0,
+                    opacity: 0.01,
                     transform: isRight
                       ? "translateX(120px)"
                       : "translateX(-120px)",
@@ -249,8 +260,19 @@ const Testimonials = () => {
                     src={item.image}
                     alt={item.name}
                     sx={{
-                      width: { xs: "100%", md: 250 }, // 🔥 bigger image
-                      height: { xs: "40%", md: 250 },
+                      width: {
+                        xs: "100%",
+                        sm: "100%",
+                        md: 220,
+                        lg: 250,
+                      },
+                      height: {
+                        xs: 200,
+                        sm: 240,
+                        md: 220,
+                        lg: 250,
+                      },
+                      maxWidth: 250,
                       objectFit: "cover",
                       borderRadius: "24px", // softer rounded
                       flexShrink: 0,
@@ -273,7 +295,7 @@ const Testimonials = () => {
                     <Typography
                       sx={{
                         color: "rgba(255,255,255,0.85)",
-                        fontSize: { xs: 11, md: 16 },
+                        fontSize: { xs: 14, md: 16 },
                         lineHeight: 1.7,
                       }}
                     >

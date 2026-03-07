@@ -162,7 +162,7 @@ export default function UpcomingExpeditions() {
           />
         ))}
       </div>
-       <GlobalScrollDownNRJ targetId="upcoming-expeditions"/>
+       {/* <GlobalScrollDownNRJ targetId="upcoming-expeditions"/> */}
     </section>
     
    </> 
