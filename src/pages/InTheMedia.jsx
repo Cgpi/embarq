@@ -18,12 +18,12 @@ const allMediaData = [
     link: "https://curlytales.com/india/experiences/this-womens-day-over-women-will-drive-km-covering-cities-in-days/amp/",
   },
   {
-    image: img4,
+    image: img3,
     title:
-      "K2K 2026: The Most Ambitious Women Only Luxury Drive India Has Ever Seen",
-    author: "By: Yashita Damani",
-    date: "February 16, 2026",
-    link: "https://luxebook.in/k2k-2026-the-most-ambitious-women-only-luxury-drive-india-has-ever-seen/",
+      "How An All-Women Driving Expedition Is Journeying Across India This Women's Day",
+    author: "By: Rubin Mathias",
+    date: "February 20, 2026",
+    link: "https://homegrown.co.in/homegrown-explore/how-an-all-women-driving-expedition-is-journeying-across-india-this-womens-day",
   },
   {
     image: img1,
@@ -34,6 +34,14 @@ const allMediaData = [
     link: "https://yourstory.com/herstory/2026/02/how-embarqs-women-only-expeditions-are-reshaping-who-owns-road",
   },
   {
+    image: img4,
+    title:
+      "K2K 2026: The Most Ambitious Women Only Luxury Drive India Has Ever Seen",
+    author: "By: Yashita Damani",
+    date: "February 16, 2026",
+    link: "https://luxebook.in/k2k-2026-the-most-ambitious-women-only-luxury-drive-india-has-ever-seen/",
+  },
+  {
     image: img2,
     title:
       "These Women-Focused Travel Companies Will Change The Way You See The World",
@@ -42,21 +50,13 @@ const allMediaData = [
     link: "https://www.travelandleisureasia.com/in/trips/women-travel-groups-that-will-change-the-way-you-see-the-world/",
   },
   {
-    image: img3,
-    title:
-      "How An All-Women Driving Expedition Is Journeying Across India This Women's Day",
-    author: "By: Rubin Mathias",
-    date: "February 20, 2026",
-    link: "https://homegrown.co.in/homegrown-explore/how-an-all-women-driving-expedition-is-journeying-across-india-this-womens-day",
-  },
-  {
     image: img4,
     title:
       "Embarq to launch K2K 2026 women-only self-drive expedition on Women’s Day",
     author: "By: India and You",
     date: "February 11, 2026 ",
     link: "https://mediaindia.eu/events/embarq-to-launch-k2k-2026-women-only-self-drive-expedition-on-womens-day/",
-  }
+  },
 ];
 
 const InTheMedia = () => {
@@ -75,11 +75,11 @@ const InTheMedia = () => {
   }, []);
 
   return (
-    <Box sx={{ backgroundColor: "#dcd3c3" }}>
+    <Box sx={{ backgroundColor: "#fcf5e4" }}>
       {/* HERO SECTION */}
       <Box
         sx={{
-          height: { xs: "280px", md: "100vh" },
+          height: { xs: "280px", md: "70vh" },
           width: "100%",
           position: "relative",
           backgroundImage: `url(${mediabg})`,
@@ -106,7 +106,7 @@ const InTheMedia = () => {
         >
           <Typography
             sx={{
-              color: "#fff",
+              color: "#ffffff",
               fontFamily: "Fraunces, serif",
               fontWeight: 700,
               fontSize: { xs: "28px", md: "42px" },

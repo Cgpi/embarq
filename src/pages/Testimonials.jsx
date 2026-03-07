@@ -127,7 +127,8 @@ const Testimonials = () => {
         <Box
           sx={{
             position: "relative",
-            py: { xs: 8, md: 16 },
+            pt: { xs: 18, sm: 14, md: 16 }, // 👈 pushes content below navbar
+            pb: { xs: 6, md: 10 },
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -219,15 +220,32 @@ const Testimonials = () => {
                   ref={(el) => (cardsRef.current[index] = el)}
                   data-direction={isRight ? "right" : "left"}
                   sx={{
-                    width: { xs: "100%", md: "75%" }, // 🔥 wider like Figma
+                    width: {
+                      xs: "100%",
+                      sm: "95%",
+                      md: "85%",
+                      lg: "70%",
+                    },
+                    maxWidth: 1200,
                     display: "flex",
                     flexDirection: {
                       xs: "column",
+                      sm: "column",
                       md: isRight ? "row-reverse" : "row",
                     },
                     alignItems: "center",
-                    gap: { xs: 3, md: 6 },
-                    p: { xs: 2, md: 3 }, // 🔥 more padding
+                    gap: {
+                      xs: 2,
+                      sm: 3,
+                      md: 4,
+                      lg: 6,
+                    },
+                    p: {
+                      xs: 2,
+                      sm: 2.5,
+                      md: 3,
+                      lg: 4,
+                    },
                     borderRadius: "30px", // 🔥 large rounded corners
                     background: "rgba(255, 255, 255, 0.14)",
                     backdropFilter: "blur(24px)", // 🔥 stronger blur
@@ -249,8 +267,19 @@ const Testimonials = () => {
                     src={item.image}
                     alt={item.name}
                     sx={{
-                      width: { xs: "100%", md: 250 }, // 🔥 bigger image
-                      height: { xs: "40%", md: 250 },
+                      width: {
+                        xs: "100%",
+                        sm: "100%",
+                        md: 220,
+                        lg: 250,
+                      },
+                      height: {
+                        xs: 200,
+                        sm: 240,
+                        md: 220,
+                        lg: 250,
+                      },
+                      maxWidth: 250,
                       objectFit: "cover",
                       borderRadius: "24px", // softer rounded
                       flexShrink: 0,
@@ -273,7 +302,7 @@ const Testimonials = () => {
                     <Typography
                       sx={{
                         color: "rgba(255,255,255,0.85)",
-                        fontSize: { xs: 11, md: 16 },
+                        fontSize: { xs: 14, md: 16 },
                         lineHeight: 1.7,
                       }}
                     >
