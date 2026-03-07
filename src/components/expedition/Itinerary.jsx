@@ -2,13 +2,31 @@ import { useState, useRef, useEffect } from "react";
 import "./Itinerary.css";
 import scrollCar from "../../assets/expedition/scrollcar.webp";
 
-
-function Itinerary({ data }) {
+function Itinerary({ data, pageKey }) {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
 
   const contentRef = useRef(null);
   const progressBarRef = useRef(null);
+
+  // Reset scroll when page loads or expedition changes
+  useEffect(() => {
+    setScrollProgress(0);
+
+    if (contentRef.current) {
+      contentRef.current.scrollTop = 0;
+    }
+  }, [pageKey]);
+
+  // Sync scroll when progress changes
+  useEffect(() => {
+    if (!contentRef.current) return;
+
+    const { scrollHeight, clientHeight } = contentRef.current;
+    const maxScroll = scrollHeight - clientHeight;
+
+    contentRef.current.scrollTop = (scrollProgress / 100) * maxScroll;
+  }, [scrollProgress]);
 
   const handleScroll = () => {
     if (!contentRef.current) return;
@@ -67,7 +85,44 @@ function Itinerary({ data }) {
       document.removeEventListener("touchend", up);
     };
   }, [isDragging]);
+const width = window.innerWidth;
 
+let minClamp;
+let maxClamp;
+
+if (width <= 423) {
+  // phone
+  minClamp = 13;
+  maxClamp = 87;
+}
+else if (width <= 450) {
+  // tablet
+  minClamp = 12;
+  maxClamp = 88;
+} else if (width <= 544) {
+  // tablet
+  minClamp = 10;
+  maxClamp = 90;
+} else if (width <= 544) {
+  // tablet
+  minClamp = 10;
+  maxClamp = 90;
+} 
+else if (width <= 670) {
+  // tablet
+  minClamp = 6;
+  maxClamp = 94;
+} else if (width <= 768) {
+  // tablet
+  minClamp = 5;
+  maxClamp = 95;
+} else {
+  // desktop
+  minClamp = 5;
+  maxClamp = 95;
+}
+
+const clampedProgress = Math.min(maxClamp, Math.max(minClamp, scrollProgress));
   return (
     <section className="exp-itinerary">
       <div className="exp-itinerary-container">
@@ -113,7 +168,9 @@ function Itinerary({ data }) {
               src={scrollCar}
               alt="car"
               className="exp-itinerary-progress-car"
-              style={{ left: `${scrollProgress}%` }}
+              style={{
+  left: `${clampedProgress}%`
+}}
               onMouseDown={handleMouseDown}
               onTouchStart={handleTouchStart}
               draggable={false}
@@ -121,7 +178,9 @@ function Itinerary({ data }) {
           </div>
         </div>
       </div>
+      
     </section>
   );
 }
+
 export default Itinerary;

@@ -1,6 +1,6 @@
 .exp-itinerary {
   background-color: #fcf5e4;
-  padding: 40px 24px 140px;
+  padding: 40px 24px 100px;
 }
 
 .exp-itinerary-container {
@@ -124,6 +124,7 @@
   border-radius: 50px;
   background: #5E5E5E;
   margin: 0 10px;
+  
 }
 
 
@@ -174,7 +175,7 @@
   }
 
   .exp-itinerary-progress-bar {
-    margin: 0 25px;
+    margin: 0 15px;
   }
 
   .exp-itinerary-progress-car {

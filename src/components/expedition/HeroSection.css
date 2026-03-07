@@ -70,7 +70,7 @@
 .exp-hero-heading {
   position: absolute;
   top: 0;
-  left: 50%;
+  left: 33%;
 
   /* ✅ RESPONSIVE PERFECT ALIGNMENT */
   transform: translate(-70%, -100%);
