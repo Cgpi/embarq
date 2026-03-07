@@ -181,7 +181,7 @@ export default function HomeFAQ() {
 
   return (
     <section id="homefaq-section">
-      <h2 className="homefaq-title">frequently asked questions</h2>
+      <h2 className="homefaq-title">Frequently asked questions</h2>
 
       <div className="homefaq-container">
         {(showAll ? faqs : faqs.slice(0, 10)).map((faq, index) => (

@@ -25,14 +25,20 @@ export default function Footer() {
 
           <img src={tripa} alt="Tripadvisor" className="footer-trip-logo" />
 
-          <button className="footer-review-btn">write a review</button>
+          <a
+  href="https://www.tripadvisor.in/UserReviewEdit-g187514-d24140656-Embarq_Motorworld_Pvt_Ltd-Madrid.html"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="footer-review-btn">Write a Review</button>
+</a>
         </div>
 
         {/* LINKS 1 */}
         <div className="footer-col">
           <Link to="/">Home</Link>
           <Link to="/about">About us</Link>
-          <Link to="/expeditions">Expeditions</Link>
+          {/* <Link to="/expeditions">Expeditions</Link> */}
           <Link to="/gallery">Gallery</Link>
           <Link to="/media">Media</Link>
           <Link to="/blog">Blogs</Link>

@@ -129,15 +129,15 @@ const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
     )}
   </AnimatePresence>
 </div>
-            <Link to="/stories">Travel Stories</Link>
+            {/* <Link to="/stories">Travel Stories</Link> */}
             <Link to="/testimonials">Testimonials</Link>
             <Link to="/media">In the Media</Link>
           </nav>
 
-         <a href="tel:8867809433" className="call-btn">
+         {/* <a href="tel:8867809433" className="call-btn">
   <PhoneCall size={16} />
   Call
-</a>
+</a> */}
 
         <button className="book-btn" onClick={handleOpenEnquiry}>
   <img src={navcar} alt="car icon" className="navcar-icon" />
@@ -192,9 +192,9 @@ const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
     )}
   </AnimatePresence>
 </div>
-        <Link to="/stories" onClick={closeMenu}>
+        {/* <Link to="/stories" onClick={closeMenu}>
           Travel Stories
-        </Link>
+        </Link> */}
         <Link to="/testimonials" onClick={closeMenu}>
           Testimonials
         </Link>
@@ -208,10 +208,10 @@ const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
           Blog
         </Link>
 
-      <a href="tel:8867809433" className="call-btn">
+      {/* <a href="tel:8867809433" className="call-btn">
   <PhoneCall size={16} />
   Call
-</a>
+</a> */}
 
        <button className="book-btn" onClick={handleOpenEnquiry}>
   <img src={navcar} alt="car icon" className="navcar-icon" />
