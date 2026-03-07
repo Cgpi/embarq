@@ -163,7 +163,7 @@ a lead-and-support convoy, and a like-minded crew. You drive. We choreograph the
 
   <div className="feature">
     <img src={hero3} alt="Curated routes" loading="lazy" />
-    Curated routes
+   Curated and Receed Routes
   </div>
 
   <div className="feature">
