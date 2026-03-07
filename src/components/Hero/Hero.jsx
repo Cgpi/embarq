@@ -1,10 +1,11 @@
 import { useLayoutEffect, useRef } from "react";
 import "./Hero.css";
 
-import carDesktop from "../../assets/images/car1.webp";
+import carDesktop from "../../assets/images/MainCar1.webp";
 // import carMobile from "../../assets/images/car4.png";
-import carMobile from "../../assets/images/newcarhero.webp";
+import carMobile from "../../assets/images/MobileFrame1.webp";
 import roadVideo from "../../assets/video/hero2mb.mp4";
+import roadVideomain from "../../assets/video/heronew2.webm";
 import hero1 from "../../assets/svg/hero1.svg";
 import hero2 from "../../assets/svg/hero2.svg";
 import hero3 from "../../assets/svg/hero3.svg";
@@ -116,7 +117,8 @@ useLayoutEffect(() => {
         preload="metadata"
          poster={heroposter}
       >
-        <source src={roadVideo} type="video/mp4" />
+        <source src={roadVideomain} type="video/webm" />
+        <source src={roadVideo  } type="video/mp4" />
       </video>
 
       <div ref={overlayRef} className="hero-overlay" />
