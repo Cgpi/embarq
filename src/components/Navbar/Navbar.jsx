@@ -199,9 +199,9 @@ function Navbar() {
         <Link to="/media" onClick={closeMenu}>
           In the Media
         </Link>
-        <Link to="/faq" onClick={closeMenu}>
+        {/* <Link to="/faq" onClick={closeMenu}>
           FAQ
-        </Link>
+        </Link> */}
         <Link to="/blog" onClick={closeMenu}>
           Blog
         </Link>

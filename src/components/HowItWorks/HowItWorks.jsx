@@ -12,108 +12,118 @@ gsap.registerPlugin(ScrollTrigger);
 
 function HowItWorks() {
 
-  const sectionRef = useRef(null);
-  const stepRefs = useRef([]);
-  const [activeStep, setActiveStep] = useState(0);
+const sectionRef = useRef(null);
+const stepRefs = useRef([]);
+const [activeStep, setActiveStep] = useState(0);
 
-  const steps = [
-    { icon: wm1, text: "Choose a departure (or a destination)" },
-    { icon: wm2, text: "Get the brochure + quick call to align preferences" },
-    { icon: wm3, text: "Arrive. Drive. Discover." }
-  ];
+const steps = [
+{ icon: wm1, text: "Choose a departure (or a destination)" },
+{ icon: wm2, text: "Get the brochure + quick call to align preferences" },
+{ icon: wm3, text: "Arrive. Drive. Discover." }
+];
 
-  useLayoutEffect(() => {
+useLayoutEffect(() => {
 
-    const ctx = gsap.context(() => {
 
-      const totalSteps = steps.length;
+const ctx = gsap.context(() => {
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: () => "+=" + totalSteps * 600,
-          scrub: true,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          refreshPriority: -1,
-          fastScrollEnd: true,
+  const totalSteps = steps.length;
 
-          onUpdate: (self) => {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: sectionRef.current,
+      start: "top top",
 
-            const progress = self.progress;
+      end: () => {
+        const isMobile = window.innerWidth < 768;
+        const stepDistance = isMobile ? 120 : 220;
+        return "+=" + totalSteps * stepDistance;
+      },
 
-            const index = Math.min(
-              totalSteps - 1,
-              Math.floor(progress * totalSteps)
-            );
+      scrub: 0.6,
+      pin: true,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+      refreshPriority: -1,
+      fastScrollEnd: true,
 
-            setActiveStep(index);
+      onUpdate: (self) => {
 
-          }
-        }
-      });
+        const progress = self.progress;
 
-      stepRefs.current.forEach((_, i) => {
+        const index = Math.min(
+          totalSteps - 1,
+          Math.floor(progress * totalSteps)
+        );
 
-        tl.to({}, {
-          duration: 1 / totalSteps,
-          onStart: () => setActiveStep(i)
-        });
+        setActiveStep(index);
 
-      });
+      }
+    }
+  });
 
-    }, sectionRef);
+  stepRefs.current.forEach((_, i) => {
 
-    ScrollTrigger.refresh();
+    tl.to({}, {
+      duration: 1 / totalSteps,
+      onStart: () => setActiveStep(i)
+    });
 
-    return () => ctx.revert();
+  });
 
-  }, []);
+}, sectionRef);
 
-  return (
-    <section ref={sectionRef} className="howworks-section-nrj">
+ScrollTrigger.refresh();
 
-      <div className="howworks-overlay-nrj" />
+return () => ctx.revert();
 
-      <div className="howworks-container-nrj">
 
-        <div className="howworks-content-nrj">
+}, []);
 
-          <h2>How it works</h2>
-          <p>Your expedition, in 3 simple steps.</p>
+return ( <section ref={sectionRef} className="howworks-section-nrj">
 
-          <div className="howworks-timeline-nrj">
 
-            {steps.map((step, index) => (
+  <div className="howworks-overlay-nrj" />
 
-              <div
-                key={index}
-                ref={(el) => (stepRefs.current[index] = el)}
-                className={`howworks-step-nrj ${activeStep === index ? "active" : ""}`}
-              >
+  <div className="howworks-container-nrj">
 
-                <div className="howworks-icon-nrj">
-                  <img src={step.icon} alt="" />
-                </div>
+    <div className="howworks-content-nrj">
 
-                <div className="howworks-text-nrj">
-                  {step.text}
-                </div>
+      <h2>How it works</h2>
+      <p>Your expedition, in 3 simple steps.</p>
 
-              </div>
+      <div className="howworks-timeline-nrj">
 
-            ))}
+        {steps.map((step, index) => (
+
+          <div
+            key={index}
+            ref={(el) => (stepRefs.current[index] = el)}
+            className={`howworks-step-nrj ${activeStep === index ? "active" : ""}`}
+          >
+
+            <div className="howworks-icon-nrj">
+              <img src={step.icon} alt="" />
+            </div>
+
+            <div className="howworks-text-nrj">
+              {step.text}
+            </div>
 
           </div>
 
-        </div>
+        ))}
 
       </div>
 
-    </section>
-  );
+    </div>
+
+  </div>
+
+</section>
+
+
+);
 }
 
 export default HowItWorks;

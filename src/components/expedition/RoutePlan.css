@@ -65,10 +65,11 @@
   }
 
   /* SHOW MOBILE IMAGE */
- .route-image.mobile {
-    width: 180px;   /* 👈 control size */
-    max-width: 100%;
-    margin: 0 auto; /* center it */
-    display: block;
-  }
+/* SHOW MOBILE IMAGE */
+.route-image.mobile {
+  width: 90%;        /* increase size */
+  max-width: 420px;  /* prevents it from becoming too large */
+  margin: 0 auto;
+  display: block;
+}
 }
