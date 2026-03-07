@@ -3,8 +3,8 @@ import { Box, Container, Typography, Chip, IconButton } from "@mui/material";
 import rightArrow from "../assets/gallery/right-arrow.png";
 import leftArrow from "../assets/gallery/left-arrow.png";
 
-import balkansHero from "../assets/gallery/Balkans/Balkans.png";
-import indiaSpainHero from "../assets/gallery/India and Spain/IndiaSpain.png";
+import balkansHero from "../assets/gallery/Balkans/Balkans.webp";
+import indiaSpainHero from "../assets/gallery/India and Spain/IndiaSpain.webp";
 import indiaThailandHero from "../assets/gallery/India and Thailand/india-Thailand.jpg";
 import kashmirHero from "../assets/gallery/Kashmir/kashmir.avif";
 import kyrgyzstanHero from "../assets/gallery/Kyrgyzstan/Kyrgyzstan.png";

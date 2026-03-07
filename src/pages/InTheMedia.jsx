@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, Typography, Container, Button } from "@mui/material";
 import MediaCard from "../components/MediaCard";
-import mediabg from "../assets/media/mediabg.jpg";
+import mediabg from "../assets/media/mediabg.webp";
 
 import img1 from "../assets/media/herstory.avif";
 import img2 from "../assets/media/Women-Travel-Groups.jpg";
