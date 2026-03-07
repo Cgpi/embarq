@@ -12,6 +12,8 @@ import InTheMedia from "../pages/InTheMedia";
 
 import Expedition from "../pages/Expeditions/expedition";
 import PartnershipPage from "../pages/PartnershipPage";
+import CancellationPolicy from "../pages/CancellationPolicy";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
 import BlogPage from "../pages/BlogPage";
 
 function AppRoutes() {
@@ -32,6 +34,8 @@ function AppRoutes() {
 
       <Route path="/expedition/:slug" element={<Expedition />} />
       <Route path="/partnership" element={<PartnershipPage />} />
+      <Route path="/cancellation-policy" element={<CancellationPolicy />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
     </Routes>
   );
 }
