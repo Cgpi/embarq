@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef, useState ,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import "./Hero.css";
+import loaderVideo from "../../assets/LoderVideo/Loader.mp4";
 
 import carDesktop from "../../assets/images/MainCar1.webp";
 // import carMobile from "../../assets/images/car4.png";
@@ -23,6 +24,7 @@ gsap.registerPlugin(ScrollTrigger);
 function Hero() {
   const [open, setOpen] = useState(false);
   const [enquiryOpen, setEnquiryOpen] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false); 
   const heroRef = useRef(null);
   const videoRef = useRef(null);
   const carRef = useRef(null);
@@ -120,6 +122,13 @@ function Hero() {
 
   return (
     <section ref={heroRef} className="hero">
+       {!videoLoaded && (
+        <div className="hero-loader">
+          <video autoPlay muted loop playsInline>
+            <source src={loaderVideo} type="video/mp4" />
+          </video>
+        </div>
+      )}
       <video
         ref={videoRef}
         className="hero-video"
@@ -129,6 +138,7 @@ function Hero() {
         playsInline
         preload="metadata"
         poster={heroposter}
+        onLoadedData={() => setVideoLoaded(true)} 
       >
         <source src={roadVideomain} type="video/webm" />
         <source src={roadVideo  } type="video/mp4" />
