@@ -13,13 +13,13 @@ import {
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-import BannerImg from "../assets/partnership/banner.png";
+import BannerImg from "../assets/partnership/banner.webp";
 import ExpeditionImg from "../assets/partnership/Partnership.png";
 // import InfluncersImg1 from "../assets/partnership/Shirodhara-kerala 1.png"
 // import InfluncersImg2 from "../assets/partnership/Shirodhara-kerala 2.png"
 import PurposeImg from "../assets/partnership/image 10.png";
 import K2KImg from "../assets/partnership/image 12.png";
-import Partners1 from "../assets/partnership/OurSpiritualHome.png";
+import Partners1 from "../assets/partnership/OurSpiritualHome.webp";
 import k2k from "../assets/images/k2k.webp";
 import scotland from "../assets/images/scotland.webp";
 import romania from "../assets/images/romania.webp";

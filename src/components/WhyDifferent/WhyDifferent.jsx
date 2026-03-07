@@ -4,7 +4,8 @@ import "./WhyDifferent.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import bgImage from "../../assets/images/whydifferent.jpg";
+
+import bgImage from "../../assets/images/whydifferent.webp";
 import wm1 from "../../assets/svg/wm1.svg";
 import wm2 from "../../assets/svg/wm2.svg";
 import wm3 from "../../assets/svg/wm3.svg";

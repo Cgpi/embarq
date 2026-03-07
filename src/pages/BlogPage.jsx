@@ -8,7 +8,7 @@ import {
   CardContent,
 } from "@mui/material";
 
-import heroImg from "../assets/blog/blogbg.jpg";
+import heroImg from "../assets/blog/blogbg.webp";
 import post1 from "../assets/blog/blogimage1.jpg";
 import post2 from "../assets/blog/blogimage2.png";
 import post3 from "../assets/blog/blogimage3.png";
