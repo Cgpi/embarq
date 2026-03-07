@@ -15,29 +15,39 @@ export default function TestimonialsSection() {
         <h2 className="testi-title">Testimonials</h2>
 
         <div className="testi-container">
+
           {/* CARD 1 */}
           <div className="testi-card">
-            <img src={person1} alt="user" className="testi-img" />
+
+            <div className="testi-img-box">
+              <img src={person1} alt="user" />
+            </div>
 
             <div className="testi-content">
               <p>
-                “My incredible New Zealand road trip with Embarq unveiled a new way to explore a country. The stunning natural beauty and well-developed infrastructure were enhanced by Embarq’s meticulous planning. Thanks to their detailed scouting, we witnessed breathtaking vistas off the beaten track. The journey fostered amazing connections among travellers and elevated the entire experience. Every detail – itinerary, local partnerships, hotels, and care – showed true professionalism.”
+                My incredible New Zealand road trip with Embarq unveiled a new way to explore a country. The stunning natural beauty and well-developed infrastructure were enhanced by Embarq’s meticulous planning. Thanks to their detailed scouting, we witnessed breathtaking vistas off the beaten track. The journey fostered amazing connections among travellers and elevated the entire experience. Every detail – itinerary, local partnerships, hotels, and care – showed true professionalism.
               </p>
               <h4>Sanchayeeeta Verma</h4>
             </div>
+
           </div>
 
           {/* CARD 2 */}
           <div className="testi-card">
-            <img src={person2} alt="user" className="testi-img" />
+
+            <div className="testi-img-box">
+              <img src={person2} alt="user" />
+            </div>
 
             <div className="testi-content">
               <p>
-               “Though travel excites me, venturing off the beaten path sparks anxiety — especially around accommodations, safety, and food. As a hospitality professional with high expectations, my second self-drive trip with Embarq (after Spain) to Arunachal Pradesh, the Indo-China border, and Kaziranga exceeded all worries. Every route was thoroughly scouted, every hotel personally inspected, and menus thoughtfully curated. The local cuisine and stunning locations made it unforgettable.”
+                One of the best self-drive group trips I’ve taken recently. Very well curated and organised with each person’s comfort in mind. Sujal is an amazing trip organiser and a great companion throughout the tour.
               </p>
-              <h4>Anthony Huang</h4>
+              <h4>Archana Singh</h4>
             </div>
+
           </div>
+
         </div>
 
         <Link to="/testimonials" className="testi-btn">
