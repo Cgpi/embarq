@@ -8,7 +8,6 @@ import img2 from "../assets/media/Women-Travel-Groups.jpg";
 import img3 from "../assets/media/homegrown_K2K.avif";
 import img4 from "../assets/media/4.png";
 
-
 const allMediaData = [
   {
     image: img4,
@@ -140,19 +139,21 @@ const InTheMedia = () => {
           </Box>
 
           {/* VIEW MORE / LESS */}
-          <Box sx={{ textAlign: "center", mt: 6 }}>
-            <Button
-              onClick={handleToggle}
-              sx={{
-                textTransform: "none",
-                fontWeight: 500,
-                color: "#555",
-                fontSize: "14px",
-              }}
-            >
-              {visibleCount === 6 ? "View More" : "View Less"}
-            </Button>
-          </Box>
+          {allMediaData.length > 6 && (
+            <Box sx={{ textAlign: "center", mt: 6 }}>
+              <Button
+                onClick={handleToggle}
+                sx={{
+                  textTransform: "none",
+                  fontWeight: 500,
+                  color: "#555",
+                  fontSize: "14px",
+                }}
+              >
+                {visibleCount === 6 ? "View More" : "View Less"}
+              </Button>
+            </Box>
+          )}
         </Container>
       </Box>
     </Box>

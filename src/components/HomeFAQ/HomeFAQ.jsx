@@ -213,7 +213,9 @@ export default function HomeFAQ() {
           onClick={() => {
             setShowAll(false);
             setActiveIndex(null);
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            document
+              .getElementById("homefaq-section")
+              .scrollIntoView({ behavior: "smooth", block: "start" });
           }}
         >
           View less

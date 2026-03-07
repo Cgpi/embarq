@@ -600,9 +600,6 @@ const GallerySection = () => {
             ml: { xs: 5, md: 25 },
             mb: { xs: 0, md: 2 },
             color: "#F6A61D",
-            textShadow: `
-              0px 4px 10px rgba(44, 44, 44, 0.5)
-            `,
             opacity: textVisible ? 1 : 0,
             transform: textVisible ? "translateY(0px)" : "translateY(30px)",
             transition: "all 0.9s cubic-bezier(0.16, 1, 0.3, 1)",
