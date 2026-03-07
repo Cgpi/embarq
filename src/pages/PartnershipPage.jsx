@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   Box,
   Container,
@@ -9,9 +10,11 @@ import {
   TextField,
   Button,
   IconButton,
+   SvgIcon,
+   Stack
 } from "@mui/material";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+// import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+// import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 import BannerImg from "../assets/partnership/banner.webp";
 import ExpeditionImg from "../assets/partnership/Partnership.png";
@@ -30,6 +33,7 @@ import image1 from "../assets/partnership/image 13.png";
 import image2 from "../assets/partnership/image 14.png";
 import Expedition2 from "../assets/partnership/Amby-Valley-2.webp";
 import Expedition3 from "../assets/partnership/India-to-Thailand.webp";
+import bg from "../assets/Gift/gifttrip-form-bg.webp";
 const expeditionData = [
   {
     title: "K2K 2025: Kashmir To Kanyakumari",
@@ -54,14 +58,28 @@ A grand flag off in Imphal by the tourism ministry of Manipur.`,
 ];
 
 const data = [
-  { title: "Kuch to kibithoo", image: k2k },
-  { title: "Scotland", image: scotland },
-  { title: "Romania", image: romania },
-  { title: "Georgia", image: georgia },
-  { title: "South Korea", image: southKorea },
-  { title: "Finland", image: finland },
+  { title: "K2K Expedition", image: k2k, slug: "k2k2026" },
+  { title: "Scotland", image: scotland, slug: "scotland" },
+  { title: "Romania", image: romania, slug: "romania" },
+  { title: "Georgia", image: georgia, slug: "georgia" },
+  { title: "South Korea", image: southKorea, slug: "southkorea" },
+  { title: "Finland", image: finland, slug: "finland" }
 ];
+function TriangleLeft(props) {
+  return (
+    <SvgIcon {...props}>
+      <polygon points="16,4 6,12 16,20" />
+    </SvgIcon>
+  );
+}
 
+function TriangleRight(props) {
+  return (
+    <SvgIcon {...props}>
+      <polygon points="8,4 18,12 8,20" />
+    </SvgIcon>
+  );
+}
 function ImageContentSections() {
   const sections = [
     {
@@ -565,17 +583,17 @@ function ExpeditionsCardScroll() {
         background: "#FCF5E4",
         px: { xs: 2, md: 10 },
         py: { xs: 6, md: 12 },
-        marginTop: 6,
+        marginTop: 0,
       }}
     >
-      <Box
-        sx={{
-          display: "flex",
-          gap: { xs: 4, md: 10 },
-          alignItems: "center",
-          flexDirection: { xs: "column", md: "row" },
-        }}
-      >
+     <Box
+  sx={{
+    display: "flex",
+    gap: { xs: 4, md: 10 },
+    alignItems: { xs: "flex-start",xm:"center", md: "center" }, // ✅ fix
+    flexDirection: { xs: "column", md: "row" },
+  }}
+>
         {/* LEFT TITLE */}
 
         <Box
@@ -592,6 +610,7 @@ function ExpeditionsCardScroll() {
               fontSize: { xs: 34, md: 56 },
               color: "#F6B43F",
               lineHeight: 1.2,
+              fontWeight:600
             }}
           >
             Explore More
@@ -600,7 +619,7 @@ function ExpeditionsCardScroll() {
           <Typography
             sx={{
               fontFamily: "Roboto Flex, sans-serif",
-              fontSize: { xs: 14, md: 16 },
+              fontSize: { xs: 15, md: 16 },
               color: "#0b0b0b",
               maxWidth: 280,
             }}
@@ -617,6 +636,7 @@ function ExpeditionsCardScroll() {
           <Box
             ref={scrollRef}
             onScroll={handleScroll}
+          
             sx={{
               display: "flex",
               gap: 3,
@@ -629,18 +649,36 @@ function ExpeditionsCardScroll() {
           >
             {data.map((item, index) => (
               <Box
-                key={index}
+               key={item.slug}
+                component={Link}
+                to={"/expedition/" + item.slug}
                 sx={{
-                  minWidth: {
-                    xs: "50%",
-                    sm: "30%",
-                    md: "45%",
-                    lg: "23%",
-                  },
-                  height: { xs: 220, md: 280 },
+                  textDecoration: "none",   // remove underline
+    color: "inherit",
+                  
+   minWidth: {
+  xs: "60%",   // mobile
+  sm: "30%",   // tablet
+  md: "50%",   // small desktop
+  lg: "25%",   // desktop
+},
+
+maxWidth: {
+  xs: 100,
+  sm: 260,
+  md: 300,
+  lg: 300,
+},
+
+height: {
+  xs: 220,
+  sm: 250,
+  md: 280,
+  lg: 280
+},
                   background: "#fff",
-                  borderRadius: "22px",
-                  p: 1.5,
+                  borderRadius: 6,
+                  p: 1.7,
                   boxShadow: "0 20px 40px rgba(0,0,0,0.08)",
                   display: "flex",
                   flexDirection: "column",
@@ -653,8 +691,8 @@ function ExpeditionsCardScroll() {
                 <Box
                   sx={{
                     width: "100%",
-                    height: { xs: 140, md: 190 },
-                    borderRadius: "16px",
+                    height: "80%", 
+                     borderRadius: 5,
                     overflow: "hidden",
                   }}
                 >
@@ -675,8 +713,8 @@ function ExpeditionsCardScroll() {
                 <Typography
                   sx={{
                     fontSize: 14,
-                    fontWeight: 500,
-                    mt: 1,
+                    fontWeight: 600,
+                    mt: 0,
                   }}
                 >
                   {item.title}
@@ -695,13 +733,20 @@ function ExpeditionsCardScroll() {
               mt: 1,
             }}
           >
-            <IconButton onClick={() => scroll("left")}>
-              <ArrowBackIosNewIcon fontSize="small" />
-            </IconButton>
-
-            <IconButton onClick={() => scroll("right")}>
-              <ArrowForwardIosIcon fontSize="small" />
-            </IconButton>
+            <IconButton
+                onClick={() => scroll("left")}
+                sx={{ p: 0, minWidth: "auto" }}
+              >
+                <TriangleLeft sx={{ fontSize: 28, color: "#555" }} />
+              </IconButton>
+            
+              <IconButton
+                onClick={() => scroll("right")}
+                sx={{ p: 0, minWidth: "auto" }}
+              >
+                <TriangleRight sx={{ fontSize: 28, color: "#555" }} />
+              </IconButton>
+            
 
             {/* PROGRESS BAR */}
 
@@ -729,140 +774,147 @@ function ExpeditionsCardScroll() {
     </Box>
   );
 }
-function PartnerForm() {
+function PartnerForm(){
   return (
     <Box
       sx={{
+        position: "relative",
         width: "100%",
-        maxWidth: 600,
-        mx: "auto",
-        textAlign: "center",
-        mt: 8,
-        px: 3,
-        bgcolor: "white",
+        minHeight: "100vh",
+        backgroundImage: `url(${bg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        px: { xs: "6vw", md: "8vw" },
+        py: { xs: 8, md: 10 },
+        overflow: "hidden",
       }}
     >
-      <Typography
-        variant="h5"
-        fontWeight="bold"
-        fontFamily="Fraunces, serif"
-        fontSize={35}
-        gutterBottom
-      >
-        Interested in partnering?
-      </Typography>
-
-      <Typography
-        variant="body2"
-        color="text.secondary"
-        sx={{
-          fontFamily: "Roboto Flex, sans-serif",
-          mb: 4,
-          fontSize: { xs: "16px", md: "20px" },
-        }}
-      >
-        Fill out the form below to collaborate with us!
-      </Typography>
-
+      {/* Overlay */}
       <Box
-        component="form"
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.25))",
+          zIndex: 1,
+        }}
+      />
+
+      {/* Content */}
+      <Box
+        sx={{
+          position: "relative",
+          zIndex: 2,
+          width: "100%",
+          maxWidth: 1200,
+          textAlign: "center",
         }}
       >
-        <TextField
-          variant="standard"
-          label="Name"
-          fullWidth
+        {/* Title */}
+        <Typography
           sx={{
-            "& .MuiInputBase-input": {
-              fontFamily: "Roboto Flex, sans-serif",
-            },
-            "& .MuiInputLabel-root": {
-              fontFamily: "Roboto Flex, sans-serif",
-            },
-          }}
-        />
-
-        <TextField
-          variant="standard"
-          label="Email"
-          fullWidth
-          sx={{
-            "& .MuiInputBase-input": {
-              fontFamily: "Roboto Flex, sans-serif",
-            },
-            "& .MuiInputLabel-root": {
-              fontFamily: "Roboto Flex, sans-serif",
-            },
-          }}
-        />
-
-        <TextField
-          variant="standard"
-          label="Phone Number"
-          fullWidth
-          sx={{
-            "& .MuiInputBase-input": {
-              fontFamily: "Roboto Flex, sans-serif",
-            },
-            "& .MuiInputLabel-root": {
-              fontFamily: "Roboto Flex, sans-serif",
-            },
-          }}
-        />
-
-        <TextField
-          variant="standard"
-          label="City"
-          fullWidth
-          sx={{
-            "& .MuiInputBase-input": {
-              fontFamily: "Roboto Flex, sans-serif",
-            },
-            "& .MuiInputLabel-root": {
-              fontFamily: "Roboto Flex, sans-serif",
-            },
-          }}
-        />
-
-        <TextField
-          variant="standard"
-          label="Message"
-          multiline
-          rows={3}
-          fullWidth
-          sx={{
-            "& .MuiInputBase-input": {
-              fontFamily: "Roboto Flex, sans-serif",
-            },
-            "& .MuiInputLabel-root": {
-              fontFamily: "Roboto Flex, sans-serif",
-            },
-          }}
-        />
-
-        <Button
-          variant="contained"
-          sx={{
-            mt: 2,
-            alignSelf: "flex-start",
-            px: 5,
-            borderRadius: "20px",
-            fontFamily: "Roboto Flex, sans-serif",
-
-            backgroundColor: "#f4a62a",
-            "&:hover": { backgroundColor: "#e6951f" },
+            fontFamily: "Fraunces, serif",
+            color: "#fff",
+            fontSize: { xs: "2rem", md: "3rem" },
+            mb: { xs: 4, md: 6 },
           }}
         >
-          Submit
-        </Button>
+          Buy the perfect gift! Get in touch
+        </Typography>
+
+        {/* Form */}
+        <Box component="form">
+          {/* Row 1 */}
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            spacing={3}
+            mb={3}
+          >
+            <TextField
+              fullWidth
+              placeholder="Enter your Name"
+              variant="outlined"
+              sx={inputStyles}
+            />
+
+            <TextField
+              fullWidth
+              placeholder="Email Address"
+              type="email"
+              sx={inputStyles}
+            />
+          </Stack>
+
+          {/* Row 2 */}
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            spacing={3}
+            mb={3}
+          >
+            <TextField
+              fullWidth
+              placeholder="Phone Number"
+              type="tel"
+              sx={inputStyles}
+            />
+
+            <TextField
+              fullWidth
+              placeholder="City"
+              sx={inputStyles}
+            />
+          </Stack>
+
+          {/* Message */}
+          <TextField
+            fullWidth
+            multiline
+            rows={6}
+            placeholder="Your Message"
+            sx={{ ...inputStyles, mb: 3 }}
+          />
+
+          {/* Button */}
+          <Button
+            fullWidth
+            sx={{
+              py: 2.2,
+              borderRadius: "40px",
+              fontFamily: "Roboto Flex, sans-serif",
+              fontWeight: 600,
+              letterSpacing: 1,
+              background: "#f2ad3d",
+              color: "#fff",
+              "&:hover": {
+                background: "#e49a25",
+                transform: "translateY(-2px)",
+              },
+            }}
+          >
+            SUBMIT
+          </Button>
+        </Box>
       </Box>
     </Box>
   );
 }
+
+const inputStyles = {
+  "& .MuiOutlinedInput-root": {
+    borderRadius: "40px",
+    background: "rgba(255,255,255,0.9)",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+    "& fieldset": { border: "none" },
+  },
+  "& .MuiInputBase-input": {
+    fontFamily: "Roboto Flex, sans-serif",
+    fontSize: "0.95rem",
+    padding: "20px 26px",
+  },
+};
 function MembersSection() {
   return (
     <Box

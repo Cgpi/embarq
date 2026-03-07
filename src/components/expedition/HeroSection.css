@@ -70,12 +70,10 @@
 .exp-hero-heading {
   position: absolute;
   top: 0;
-  left: 50%;
+  left: 2%;                 /* start exactly from card left */
 
-  /* ✅ RESPONSIVE PERFECT ALIGNMENT */
-  transform: translate(-70%, -100%);
+  transform: translateY(-100%);  /* move above card */
 
-  /* 🔥 tiny visual adjustment */
   margin-top: 0.24em;
 
   font-size: clamp(3rem, 5vw, 5.5rem);
@@ -83,9 +81,8 @@
   color: white;
 
   z-index: 10;
-  text-align: center;
-  
-  /* prevent awkward breaks */
+  text-align: left;
+
   white-space: nowrap;
 }
 
@@ -223,6 +220,6 @@
   }
 
   .exp-hero-card {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 }

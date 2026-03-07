@@ -299,7 +299,7 @@ export const expeditions = {
   southkorea: {
     hero: {
       title: "South Korea",
-      subtitle: "Perfect roads.Mountains curves.",
+      subtitle: "Perfect roads. Mountains curves.",
       badge: "All Women",
       description:
         "A premium all-women self-drive road expedition through South Korea, combining some of the world’s most perfectly engineered roads with mountain curves, coastal light, ancient temples, and vibrant cities. From the energy of Seoul to forested national parks, historic villages, and the southern coast, this journey is designed around driving pleasure, cultural depth, and immersive local experiences.",
@@ -492,11 +492,7 @@ export const expeditions = {
           Enjoy a once-in-a-lifetime dinner at an ice hotel, and venture out on guided night tours in search of the elusive Northern Lights dancing across the polar sky.
           Stay at an exquisite Lappish resort, complete with a private sauna and wide windows framing the open Arctic skies — designed for slow, restorative moments in deep winter.`,
       },
-      // {
-      //   day: 7,
-      //   title: "Busan to Beopjusa (180 km)",
-      //   description: "En route, visit Yangdong Village, South Korea’s largest and best-preserved traditional clan village.Arrive at Beopjusa Temple, set deep within the mountains of Songnisan National Park.Experience a unique Temple Stay, waking to temple bells and chants echoing through ancient forests, and walking paths shaped by centuries of reflection, mindfulness, and tradition.",
-      // },
+     
       {
         day: 8,
         title: "Rovaniemi to Helsinki (Flight)",
@@ -664,18 +660,18 @@ export const expeditions = {
   scotland: {
     hero: {
       title: "Scotland",
-      subtitle: "Kutch to Kibithoo Self-Drive Expedition",
+      subtitle: "NC500. Coastlines. Castle country.",
       badge: "All Women",
       description:
-        "Covering India’s westernmost to easternmost drivable points, it is set to become one of the largest all-women self-drive expeditions ever undertaken in India, symbolising unity, courage, and the limitless potential of women on the move",
+        "Embarq’s self-drive tour of Scotland takes you through dramatic mountain passes, rugged coastlines, and the stunning North Coast 500. Experience the thrill of driving a Range Rover Sport, with the highlight being a full day exploring the romantic Isle of Skye — a land of breathtaking scenery, rich history, legends, and unforgettable landscapes.",
       bgImage: heroImage5,
       mapImage: mapImage,
     },
     about: {
-      destination: "Kutch, Gujrat to Kibithoo, Arunachal Pradesh",
-      duration: "9 Days / 8 Nights",
-      cost: "INR 235,000/- Per head",
-      travelDates: "8th March to 25th March 2026",
+      destination: "Scotland",
+      duration: "10 Days / 9 Nights",
+      cost: " INR 5,95,000/- Per head",
+      travelDates: "8th May to 17th May, 2026",
       vehicle: "Self-drive - Citroën and Jeep SUVs",
       distance: "Approx. 4800 km",
     },
@@ -688,94 +684,93 @@ export const expeditions = {
     itinerary: [
       {
         day: 1,
-        title: "Arrival in Seoul",
+        title: "Arrive in Edinburgh",
         description:
-          `Arrive in Seoul and transfer to the hotel using private transport.
-          The day is kept relaxed to settle in and prepare for the journey ahead.`,
+          `Arrive in Edinburgh and dive into its rich tapestry of history and culture! 
+          From the imposing Edinburgh Castle to the quaint streets of the Old Town, there’s something to enchant every traveler.
+          Relax, explore, and soak in the magic of this captivating city!`,
       },
       {
         day: 2,
-        title: "Seoul Sightseeing",
+        title: "Edinburgh to Inverness",
         description:
-          `Visit the Demilitarized Zone (DMZ), one of the world’s most heavily guarded borders, with access to infiltration tunnels, observation points, and museums that document this complex chapter of history.
-          Explore Gyeongbokgung Palace and experience Seoul’s royal heritage through interactions with palace guards.
-          Walk along the Seoul Wall, passing through the alleys and murals of Ihwa Mural Village, before visiting the iconic Dongdaemun Design Plaza (DDP), blending tradition with contemporary architecture.End the day at Gwangjang Market, one of Seoul’s oldest traditional markets, alive with street food, music, cafés, and late-night energy.`,
+          `157 Mile day via Aberfeldy – Gentle start using the motorway until we exit at Aberfeldy, famous for its Grouse Distillery. 
+          Overnight stop at Inverness.`,
       },
       {
         day: 3,
-        title: "Seoul to Sokcho (245 km)",
+        title: "Inverness to John O’Groat",
         description:
-          `Begin the driving journey, leaving the city behind and following the Han River with views of the Taebaek Mountains.
-          The road winds through forested slopes and long tunnels, leading to the edges of Seoraksan National Park, a UNESCO-designated Biosphere Reserve known for dramatic rock formations, dense forests, wildlife, and hot springs.
-          Visit the historic Naksansa Temple, with over 1,300 years of history dating back to the Silla Kingdom.`,
+          `Leisurely start, drive through the Cairngorms down General Wade’s road to Fort Augustus, Castle Urquhart, and Loch Ness.
+We drive through the stunning NC500 and reach John O’Groats.`,
       },
       {
         day: 4,
-        title: "Sokcho to Andong (330 km)",
+        title: "A Day Break at John O’Groats",
         description:
-          `Descend from the Taebaek Mountains into countryside dotted with palm trees and fishing villages.
-          Visit Hahoe Village, the “village surrounded by water,” a beautifully preserved traditional settlement offering a glimpse into Korea’s past through its houses, cobbled streets, and landscapes.
-          Spend the evening in Maenggae Village, followed by a visit to a distinctive Korean brewery that reimagines age-old fermentation methods, and enjoy a private dinner prepared with regional ingredients and traditional techniques.`,
+          `Take a day to rest and unwind in the serene beauty of John O’Groats,recharging for the adventures ahead.`,
       },
       {
         day: 5,
-        title: "Andong to Gyeongju (200 km)",
+        title: "John O’Groats to Lochinver",
         description:
-          `Drive along the Nakdong River as the landscape transitions from farmland to historic heartland.
-          Arrive in Gyeongju, once the capital of the Silla Kingdom, where temples, pagodas, and stone lanterns appear at every turn.
-          Visit Bulguksa Temple, a UNESCO World Heritage Site, and the Seokguram Grotto, followed by an evening musical experience at a traditional Hanok house.`,
+          `We continue driving on the 
+NC 500 – with lots of stops and going off the routes – visiting Dunnet Head (most northerly point).`,
       },
       {
         day: 6,
-        title: "Gyeongju to Busan (190 km)",
+        title: "Lochinver to Gairloch",
         description:
-          `Drive south to Busan, a major port city on Korea’s southeastern coast.
-          Explore the vibrant city, including Haedong Yonggungsa Temple, dramatically set by the sea, and the bustling Gukje and Jagalchi markets, where coastal culture and daily life come alive.`,
+          `This is the NC500 at its best:
+Stunning views, beautiful beaches (Durness), the best hot chocolate in Scotland at Cocoa Café and numerous photo stops.`,
       },
       {
         day: 7,
-        title: "Busan to Beopjusa (180 km)",
+        title: "Gairloch to Flodigarry",
         description:
-          `En route, visit Yangdong Village, South Korea’s largest and best-preserved traditional clan village.
-          Arrive at Beopjusa Temple, set deep within the mountains of Songnisan National Park.Experience a unique Temple Stay, waking to temple bells and chants echoing through ancient forests, and walking paths shaped by centuries of reflection, mindfulness, and tradition.`,
+          `The final part of the NC500 down the west coast.
+Including the famous Bealach na Ba and Torridon and then round Loch Carron and over the bridge to Skye.`,
       },
       {
         day: 8,
-        title: "Beopjusa to Seoul (420 km)",
+        title: "Isle of Skye",
         description:
-          `Begin the return drive to Seoul, a day shaped by long scenic stretches, rustic landscapes, and cultural reflections from the journey.
-          Arrive in Seoul by evening for a relaxed final night.`,
+          `A day to enjoy the magical Portree and Isle of Skye.`,
       },
       {
         day: 9,
-        title: "Departure from Seoul",
+        title: "Isle of Skye to Edinburgh",
         description:
-          `Transfer to the airport for your return flight.
-          Depart South Korea with memories of exceptional roads, layered history, coastal light, and deeply immersive experiences.`,
+          `Enjoy a splendid drive from Isle of Skye to Edinburgh via Inveraray.
+Unwind in a handpicked, beautiful hotel in Edinburgh.`,
       },
+      {
+        day: 10,
+        title:"Departure from Edinburgh",
+        description:`Travel back home with memories for a lifetime.`
+      }
     ],
 
     inclusionExclusion: {
       bgImage: expeditionBg5,
 
       inclusions: [
-        "Recede Route",
-        "Stay on twin sharing",
-        "All Meals",
-        "Rental SUV with fuel",
-        "Embarq Lead & Support Vehicles",
-        "Support Team",
-        "Fun-filled engagement activities",
-        "Taxes",
+        "Recced handpicked routes",
+"Car rentals - Range Rover or similar",
+"Fuel for the car",
+"All exclusive stays on twin sharing basis",
+"All meals",
+"All internal sightseeing and special experiences",
+"Embarq support team",
       ],
 
       exclusions: [
-        "Travel cost to reach Kutch, where the drive starts from and departure from Kibithoo once the drive ends",
-        "Personal insurance",
-        "Personal expenses and any incidentals like tips, laundry, room service, porter services etc",
-        "Alcoholic beverages ",
-        "Actual cost incurred towards repair-work, if required",
-        "Expenses arising out of unforeseen circumstance",
+         "International air tickets and Visa",
+"Individual insurance & documentation costs",
+"Refundable security deposit for car rental (2000 GBP)",
+"All personal expenses not mentioned",
+"Any cost arising out of unforeseen circumstances",
+"TCS as applicable"
       ],
     },
   },

@@ -6,216 +6,97 @@ import {
   Typography,
   Button,
   IconButton,
-  InputBase
+  TextField,
+  Stack
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import emailjs from "@emailjs/browser";
-import formBg from "../assets/FormImage/FormImage.png";
+import formBg from "../assets/Gift/gifttrip-form-bg.webp";
 
 export default function EnquiryPopup({ open, handleClose }) {
-
-  const [contact, setContact] = useState("");
+  const [form, setForm] = useState({ name: "", email: "", phone: "", city: "", message: "" });
   const [loading, setLoading] = useState(false);
 
-  const isEmail = (val) =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-
-  const isPhone = (val) =>
-    /^[6-9]\d{9}$/.test(val);
+  const isEmail = (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+  const isPhone = (val) => /^[6-9]\d{9}$/.test(val);
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!isEmail(contact) && !isPhone(contact)) {
-      alert("Enter valid Email or Mobile Number");
-      return;
-    }
+    if (!isEmail(form.email)) return alert("Enter valid email");
+    if (!isPhone(form.phone)) return alert("Enter valid phone number");
 
     setLoading(true);
-
     try {
       await emailjs.send(
         "YOUR_SERVICE_ID",
         "YOUR_TEMPLATE_ID",
         {
-          user_email: isEmail(contact) ? contact : "",
-          user_phone: isPhone(contact) ? contact : ""
+          user_name: form.name,
+          user_email: form.email,
+          user_phone: form.phone,
+          user_city: form.city,
+          user_message: form.message
         },
         "YOUR_PUBLIC_KEY"
       );
-
-      setContact("");
+      setForm({ name: "", email: "", phone: "", city: "", message: "" });
       handleClose();
-
     } catch (err) {
       console.error(err);
     }
-
     setLoading(false);
   };
 
   return (
-    <Dialog
-      open={open}
-      onClose={handleClose}
-      maxWidth="xs"
-      fullWidth
-      PaperProps={{
-        sx: {
-          borderRadius: "22px",
-          overflow: "hidden",
-          background: "transparent",
-          boxShadow: "none"
-        }
-      }}
-    >
-      <DialogContent sx={{ p: 0 }}>
-
-        <Box
-          sx={{
-            backgroundImage: `url(${formBg})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            borderRadius: "22px",
-            overflow: "hidden"
-          }}
-        >
-
-          {/* GLASS OVERLAY */}
-          <Box
-            sx={{
-              background: "rgba(0, 0, 0, 0.4)",
-              backdropFilter: "blur(4px)",
-              p: { xs: 3, md: 4 },
-              textAlign: "center",
-              color: "#fff",
-              position: "relative"
-            }}
-          >
-
-            <IconButton
-              onClick={handleClose}
-              sx={{
-                position: "absolute",
-                top: 10,
-                right: 10,
-                color: "#fff"
-              }}
-            >
-              <CloseIcon />
+    <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth
+      PaperProps={{ sx: { borderRadius: 1.5, background: "transparent", boxShadow: "none", maxHeight: "95vh" } }}>
+      <DialogContent sx={{ p: 0, maxHeight: "95vh", overflowY: "auto", display: "flex", justifyContent: "center" }}>
+        <Box sx={{
+          position: "relative", width: "100%", maxHeight: "95vh", overflowY: "auto",
+          backgroundImage: `url(${formBg})`, backgroundSize: "cover", backgroundPosition: "center",
+          borderRadius: 5, px: 4, py: 4
+        }}>
+          <Box sx={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", backdropFilter: "blur(2px)" }} />
+          <Box sx={{ position: "relative", zIndex: 2, textAlign: "center", color: "#fff" }}>
+            <IconButton onClick={handleClose} sx={{ position: "absolute", top: 6, right: 6, color: "#fff", p: 0.5 }}>
+              <CloseIcon fontSize="small" />
             </IconButton>
 
-            {/* HEADING */}
-            <Typography
-              sx={{
-                fontFamily: "'Fraunces', serif",
-                fontSize: { xs: "1.6rem", md: "2rem" },
-                fontWeight: 600,
-                lineHeight: 1.25,
-                mb: 8
-              }}
-            >
-              Start Your<br /> Journey with <br />Embarq
+            <Typography sx={{ fontFamily: "'Fraunces', serif", fontSize: { xs: "1.1rem", sm: "1.3rem" }, fontWeight: 600, lineHeight: 1.1, mb: 1.5 }}>
+              Start Your<br />Journey with<br />Embarq
+            </Typography>
+            <Typography sx={{ fontWeight: 600, fontSize: "1rem", mb: 0.5 }}>Ready to take the road less travelled?</Typography>
+            <Typography sx={{ fontSize: "0.85rem", opacity: 0.9, mb: 1.5, lineHeight: 1.2 }}>
+              Share your details below and our team will get in touch to guide you through availability, next steps, and booking confirmation.
             </Typography>
 
-            {/* SUB HEAD */}
-            <Typography
-              sx={{
-                fontWeight: 600,
-                fontSize: "0.85rem",
-                mb: 0.5
-              }}
-            >
-              Ready to take the road less travelled?
-            </Typography>
+            <Box component="form" onSubmit={handleSubmit}>
+              <Stack direction={{ xs: "column", md: "row" }} spacing={1} mb={1}>
+                <TextField fullWidth name="name" placeholder="Name" value={form.name} onChange={handleChange} sx={inputStyles} />
+                <TextField fullWidth name="email" placeholder="Email" value={form.email} onChange={handleChange} sx={inputStyles} />
+              </Stack>
 
-            <Typography
-              sx={{
-                fontSize: "0.75rem",
-                opacity: 0.85,
-                mb: 3,
-                lineHeight: 1.5
-              }}
-            >
-              Share your details below and our team will get in touch to guide
-              you through availability, next steps, and booking confirmation.
-            </Typography>
+              <Stack direction={{ xs: "column", md: "row" }} spacing={1} mb={1}>
+                <TextField fullWidth name="phone" placeholder="Phone" value={form.phone} onChange={handleChange} sx={inputStyles} />
+                <TextField fullWidth name="city" placeholder="City" value={form.city} onChange={handleChange} sx={inputStyles} />
+              </Stack>
 
-      {/* FORM WRAPPER */}
-<Box
-  component="form"
-  onSubmit={handleSubmit}
-  sx={{
-    display: "flex",
-    alignItems: "center",
-    width: "100%",
-    gap: "10px",
+              <TextField fullWidth multiline rows={1} name="message" placeholder="Message" value={form.message} onChange={handleChange} sx={{ ...inputStyles, mb: 1 }} />
 
-    "@media (max-width:360px)": {
-      flexDirection: "column",
-      alignItems: "stretch"
-    }
-  }}
->
-
-
-
- <InputBase
-  placeholder="Enter your email/phone number*"
-  value={contact}
-  onChange={(e) => setContact(e.target.value)}
-  sx={{
-    flex: 1,
-    height: "30px",
-    px: 2,
-    fontSize: "0.8rem",
-    background: "#fff",
-    border: "1px solid #E0E0E0",
-    borderRadius: "40px",
-
-    "@media (max-width:360px)": {
-      width: "100%"
-    }
-  }}
-/>
-
-
-
- <Button
-  type="submit"
-  disabled={loading}
-  sx={{
-    height: "30px",
-    px: 3,
-    minWidth: "120px",
-    borderRadius: "40px",
-    textTransform: "none",
-    fontSize: "0.75rem",
-    fontWeight: 500,
-    background: "linear-gradient(180deg, #F6B94C 0%, #E5A126 100%)",
-    color: "#fff",
-    boxShadow: "0px 2px 6px rgba(0,0,0,0.25)",
-
-    "@media (max-width:360px)": {
-      width: "100%"
-    },
-
-    "&:hover": {
-      background: "linear-gradient(180deg, #F6B94C 0%, #E5A126 100%)"
-    }
-  }}
->
-  {loading ? "Sending..." : "Enquire Now"}
-</Button>
-
-
-</Box>
-
-
+              <Button type="submit" disabled={loading} fullWidth
+                sx={{ py: 1, borderRadius: "30px", fontWeight: 600, fontSize: "0.75rem", background: "#f2ad3d", color: "#fff", "&:hover": { background: "#e49a25" } }}>
+                {loading ? "Sending..." : "SUBMIT"}
+              </Button>
+            </Box>
           </Box>
         </Box>
-
       </DialogContent>
     </Dialog>
   );
 }
+
+const inputStyles = {
+  "& .MuiOutlinedInput-root": { borderRadius: 1.5, background: "rgba(255,255,255,0.9)", boxShadow: "0 1px 5px rgba(0,0,0,0.1)", "& fieldset": { border: "none" } },
+  "& .MuiInputBase-input": { fontSize: "0.75rem", padding: "6px 10px" }
+};
