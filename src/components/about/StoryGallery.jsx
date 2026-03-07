@@ -3,15 +3,15 @@ import { gsap } from "gsap";
 import "./StoryGallery.css";
 
 import g1 from "../../assets/aboutimages/g1.jpg";
-import g2 from "../../assets/aboutimages/g2.jpg";
-import g3 from "../../assets/aboutimages/g3.jpg";
-import g4 from "../../assets/aboutimages/g4.jpg";
-import g5 from "../../assets/aboutimages/g5.jpg";
+import g2 from "../../assets/aboutimages/g2.webp";
+import g3 from "../../assets/aboutimages/g3.webp";
+import g4 from "../../assets/aboutimages/g4.webp";
+import g5 from "../../assets/aboutimages/g5.webp";
 import g6 from "../../assets/aboutimages/g6.jpg";
-import g7 from "../../assets/aboutimages/g7.jpg";
+import g7 from "../../assets/aboutimages/g7.webp";
 import g8 from "../../assets/aboutimages/g8.jpg";
-import g9 from "../../assets/aboutimages/g9.jpg";
-import g10 from "../../assets/aboutimages/g10.jpg";
+import g9 from "../../assets/aboutimages/g9.webp";
+import g10 from "../../assets/aboutimages/g10.webp";
 
 const galleryImages = [g1, g2, g3, g4, g5, g6, g7, g8, g9, g10];
 
