@@ -1,6 +1,6 @@
 import "./RoutePlan.css";
-import routeMap from "../../assets/expedition/Group996.png";
-import routeMapMobile from "../../assets/expedition/routeverticle.png";
+// import routeMap from "../../assets/expedition/Group996.png";
+// import routeMapMobile from "../../assets/expedition/routeverticle.png";
 
 function RoutePlan({ data }) {
   return (

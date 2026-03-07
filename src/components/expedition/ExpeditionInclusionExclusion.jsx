@@ -1,6 +1,10 @@
 import { useEffect, useRef } from "react";
 import "./ExpeditionInclusionExclusion.css";
+<<<<<<< HEAD
 import expeditionBg from "../../assets/expedition/expeditionixbg.webp";
+=======
+//import expeditionBg from "../../assets/expedition/expeditionixbg.jpg";
+>>>>>>> 09aa540 (updated expedition)
 
 function ExpeditionInclusionExclusion({ data }) {
   const leftRef = useRef(null);
